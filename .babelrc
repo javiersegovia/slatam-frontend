@@ -11,21 +11,13 @@
       {
         "root": ["./"],
         "alias": {
-          "Actions": "./src/actions",
-          "Api": "./src/api",
-          "Assets": "./src/assets",
-          "Auth": "./src/auth",
-          "Components": "./src/components",
-          "Constants": "./src/constants",
-          "Context": "./src/context",
-          "Helpers": "./src/helpers",
-          "Hooks": "./src/hooks",
+          "Components": "./components",
+          "Lib": "./lib",
+          "Hooks": "./hooks",
           "Pages": "./pages",
-          "Reducers": "./src/reducers",
           "Root": "./",
-          "Src": "./src",
-          "Util": "./src/util",
-          "Views": "./src/views"
+          "Styles": "./styles",
+          "Views": "./views"
         }
       }
     ]

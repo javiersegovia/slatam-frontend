@@ -1,7 +1,7 @@
 {
   "name": "giftstore-frontend",
   "version": "1.0.0",
-  "description": "Giftstore | Tienda online",
+  "description": "Slatam Group",
   "main": "index.js",
   "scripts": {
     "dev": "next -p 7777",

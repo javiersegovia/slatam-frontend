@@ -39,21 +39,13 @@
     "import/resolver": {
       "babel-module": {
         "alias": {
-          "Actions": "./src/actions",
-          "Api": "./src/api",
-          "Assets": "./src/assets",
-          "Auth": "./src/auth",
-          "Components": "./src/components",
-          "Constants": "./src/constants",
-          "Context": "./src/context",
-          "Helpers": "./src/helpers",
-          "Hooks": "./src/hooks",
+          "Components": "./components",
+          "Features": "./features",
+          "GraphQL": "./graphql",
+          "Hooks": "./hooks",
           "Pages": "./pages",
-          "Reducers": "./src/reducers",
-          "Root": "./",
-          "Src": "./src",
-          "Util": "./src/util",
-          "Views": "./src/views"
+          "Lib": "./lib",
+          "Root": "./"
         }
       }
     }

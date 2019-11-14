@@ -1,7 +1,7 @@
 import React from 'react'
 import App from 'next/app'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import AppLayout from '../components/Layout'
+import AppLayout from '../components/AppLayout'
 
 // import { ApolloProvider } from 'react-apollo';
 // import withData from '../lib/withData';
