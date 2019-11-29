@@ -2,7 +2,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import Router from 'next/router'
 import NProgress from 'nprogress'
-import Nav from './Nav'
+import NavLinks from './NavLinks'
 
 Router.onRouteChangeStart = () => {
   NProgress.start()
@@ -16,7 +16,7 @@ Router.onRouteChangeError = () => {
   NProgress.done()
 }
 
-const Logo = styled.h1`
+const Logo = styled.div`
   font-size: 4rem;
   margin-left: 2rem;
   position: relative;
@@ -35,7 +35,7 @@ const Logo = styled.h1`
   }
 `
 
-const StyledHeader = styled.header`
+const StyledNavBar = styled.header`
   .bar {
     border-bottom: 10px solid ${props => props.theme.black};
     display: grid;
@@ -54,17 +54,17 @@ const StyledHeader = styled.header`
   }
 `
 
-const Header = () => (
-  <StyledHeader>
+const NavBar = () => (
+  <StyledNavBar>
     <div className="bar">
       <Logo>
         <Link href="/">
           <a>Slatam</a>
         </Link>
       </Logo>
-      <Nav />
+      <NavLinks />
     </div>
-  </StyledHeader>
+  </StyledNavBar>
 )
 
-export default Header
+export default NavBar

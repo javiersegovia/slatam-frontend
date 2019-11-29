@@ -39,13 +39,14 @@
     "import/resolver": {
       "babel-module": {
         "alias": {
-          "Components": "./components",
-          "Features": "./features",
-          "GraphQL": "./graphql",
-          "Hooks": "./hooks",
-          "Pages": "./pages",
-          "Lib": "./lib",
-          "Root": "./"
+          "@config": "./config",
+          "@components": "./src/components",
+          "@graphql": "./graphql",
+          "@lib": "./src/lib",
+          "@hooks": "./src/hooks",
+          "@pages": "./pages",
+          "@root": "./",
+          "@views": "./src/views"
         }
       }
     }

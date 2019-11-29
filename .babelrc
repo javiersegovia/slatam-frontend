@@ -1,23 +1,26 @@
 {
-  "presets": [
-    "next/babel"
-  ],
+  "presets": ["next/babel"],
   "plugins": [
-    ["styled-components", {
-      "ssr": true
-    }],
+    [
+      "styled-components",
+      {
+        "ssr": true
+      }
+    ],
     ["@babel/plugin-proposal-class-properties"],
-    ["module-resolver",
+    [
+      "module-resolver",
       {
         "root": ["./"],
         "alias": {
-          "Components": "./components",
-          "Lib": "./lib",
-          "Hooks": "./hooks",
-          "Pages": "./pages",
-          "Root": "./",
-          "Styles": "./styles",
-          "Views": "./views"
+          "@config": "./config",
+          "@components": "./src/components",
+          "@graphql": "./graphql",
+          "@lib": "./src/lib",
+          "@hooks": "./src/hooks",
+          "@pages": "./pages",
+          "@root": "./",
+          "@views": "./src/views"
         }
       }
     ]

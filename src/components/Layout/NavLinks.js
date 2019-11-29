@@ -1,7 +1,8 @@
+import React from 'react'
 import Link from 'next/link'
 import NavStyles from './NavStyles'
 
-const Nav = () => (
+const NavLinks = () => (
   <NavStyles>
     <Link href="/about">
       <a>About us</a>
@@ -15,4 +16,4 @@ const Nav = () => (
   </NavStyles>
 )
 
-export default Nav
+export default NavLinks
