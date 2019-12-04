@@ -5,10 +5,10 @@ const NavStyles = styled.ul`
   padding: 0;
   display: flex;
   justify-self: end;
-  font-size: 2rem;
+  font-size: 20px;
   a,
   button {
-    padding: 1rem 3rem;
+    padding: 10px 30px;
     display: flex;
     align-items: center;
     position: relative;
@@ -35,7 +35,7 @@ const NavStyles = styled.ul`
     }
     &:after {
       height: 2px;
-      background: red;
+      background: ${props => props.theme.palette.secondary.main};
       content: '';
       width: 0;
       position: absolute;
@@ -43,7 +43,7 @@ const NavStyles = styled.ul`
       transition: width 0.4s;
       transition-timing-function: cubic-bezier(1, -0.65, 0, 2.31);
       left: 50%;
-      margin-top: 2rem;
+      margin-top: 20px;
     }
     &:hover,
     &:focus {
@@ -60,7 +60,7 @@ const NavStyles = styled.ul`
     border-top: 1px solid ${props => props.theme.lightgrey};
     width: 100%;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 15px;
   }
 `
 

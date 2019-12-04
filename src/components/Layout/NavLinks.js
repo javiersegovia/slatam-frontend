@@ -4,14 +4,14 @@ import NavStyles from './NavStyles'
 
 const NavLinks = () => (
   <NavStyles>
-    <Link href="/about">
-      <a>About us</a>
+    <Link href="/items">
+      <a>Items</a>
     </Link>
-    <Link href="/products">
-      <a>Products and services</a>
+    <Link href="/items/new">
+      <a>Create Item</a>
     </Link>
     <Link href="/sign-in">
-      <a>Sign in</a>
+      <a>Sessions</a>
     </Link>
   </NavStyles>
 )

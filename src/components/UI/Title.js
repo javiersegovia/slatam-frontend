@@ -5,16 +5,16 @@ const Styled = styled.div`
   text-align: ${props => (props.textAlign ? props.textAlign : 'left')};
   ${props => props.theme.breakpoint.down('sm')} {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 15px;
   }
   ${props =>
     props.isMenuLink &&
     `
-    margin: 1rem 0;
+    margin: 10px 0;
   `}
   .Title {
     font-family: ${props => props.theme.font.title};
-    font-size: 4.8rem;
+    font-size: 48px;
     z-index: 1;
     position: relative;
     display: inline-block;
@@ -32,10 +32,10 @@ const Styled = styled.div`
     }
   }
   h3.Title {
-    font-size: 2.6rem;
+    font-size: 26px;
   }
   a.Title {
-    font-size: 3.4rem;
+    font-size: 34px;
   }
 `
 

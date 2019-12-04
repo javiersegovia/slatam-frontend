@@ -15,12 +15,6 @@ const StyledPage = styled.div`
   color: ${props => props.theme.black};
 `
 
-const Inner = styled.div`
-  max-width: ${props => props.theme.maxWidth};
-  margin: 0 auto;
-  padding: 2rem;
-`
-
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Geomanist';
@@ -56,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
   }
   html {
     box-sizing: border-box;
-    font-size: 10px;
+    font-size: 16px;
   }
   *, *:before, *:after {
     box-sizing: inherit;
@@ -64,7 +58,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 2;
     font-family: 'Roboto';
   }
@@ -81,7 +75,7 @@ const AppLayout = props => (
         <StyledPage>
           <Meta />
           <NavBar />
-          <Inner>{props.children}</Inner>
+          {props.children}
         </StyledPage>
       </ThemeProvider>
     </MuiThemeProvider>

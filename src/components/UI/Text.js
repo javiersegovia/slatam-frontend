@@ -11,10 +11,10 @@ const Styled = styled.div`
     line-height: 1.5;
   }
   p:first-child {
-    margin-top: 0.5rem;
+    margin-top: 5px;
   }
   p:not(:first-child) {
-    margin: 2.5rem 0;
+    margin: 25px 0;
   }
   p:last-child {
     margin-bottom: 0;
