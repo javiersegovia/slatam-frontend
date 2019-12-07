@@ -18,7 +18,7 @@ const CreateItem = () => {
     last_name: '',
     password: '',
     confirm_password: '',
-    showPassword: false
+    showPassword: false,
   })
 
   const handleChange = name => event =>
@@ -38,27 +38,27 @@ const CreateItem = () => {
           id="username"
           label="Username"
           value={formValues['username']}
-          onChange={handleChange('username')}
+          onChange={() => handleChange('username')}
         />
         <StyledTextField
           id="email"
           label="Email"
           value={formValues['email']}
-          onChange={handleChange('email')}
+          onChange={() => handleChange('email')}
           marginTop="30px"
         />
         <StyledTextField
           id="first_name"
           label="First name"
           value={formValues['first_name']}
-          onChange={handleChange('first_name')}
+          onChange={() => handleChange('first_name')}
           marginTop="30px"
         />
         <StyledTextField
           id="last_name"
           label="Last name"
           value={formValues['last_name']}
-          onChange={handleChange('last_name')}
+          onChange={() => handleChange('last_name')}
           marginTop="30px"
         />
         <StyledFormControl marginTop="30px">
@@ -67,7 +67,7 @@ const CreateItem = () => {
             id="password"
             type={formValues.showPassword ? 'text' : 'password'}
             value={formValues.password}
-            onChange={handleChange('password')}
+            onChange={() => handleChange('password')}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -86,7 +86,7 @@ const CreateItem = () => {
             id="confirm_password"
             type={formValues.showPassword ? 'text' : 'password'}
             value={formValues.confirm_password}
-            onChange={handleChange('confirm_password')}
+            onChange={() => handleChange('confirm_password')}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton

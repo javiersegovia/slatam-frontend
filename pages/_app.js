@@ -2,9 +2,8 @@ import React from 'react'
 import App from 'next/app'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import AppLayout from '@components/Layout'
-
-// import { ApolloProvider } from 'react-apollo';
-// import withData from '../lib/withData';
+import { ApolloProvider } from '@apollo/react-hooks'
+import withApollo from '@graphql/apollo'
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -28,16 +27,16 @@ class MyApp extends App {
 
     return (
       <>
-        {/* <ApolloProvider client={apollo}> */}
-        <AppLayout>
-          <CssBaseline />
-          <Component {...pageProps} />
-        </AppLayout>
-        {/* </ApolloProvider> */}
+        <ApolloProvider client={apollo}>
+          <AppLayout>
+            <CssBaseline />
+            <Component {...pageProps} />
+          </AppLayout>
+        </ApolloProvider>
       </>
     )
   }
 }
 
-// export default withData(MyApp)
-export default MyApp
+export default withApollo(MyApp)
+// export default MyApp

@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {
   ThemeProvider as MuiThemeProvider,
-  StylesProvider
+  StylesProvider,
 } from '@material-ui/styles'
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import theme from './theme'
 
 import NavBar from './NavBar'
-import Meta from './AppMeta'
+import AppMeta from './AppMeta'
 
 const StyledPage = styled.div`
   background: white;
@@ -51,6 +51,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 16px;
+    overflow-y: scroll;
   }
   *, *:before, *:after {
     box-sizing: inherit;
@@ -73,7 +74,7 @@ const AppLayout = props => (
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <StyledPage>
-          <Meta />
+          <AppMeta />
           <NavBar />
           {props.children}
         </StyledPage>
@@ -85,5 +86,5 @@ const AppLayout = props => (
 export default AppLayout
 
 AppLayout.propTypes = {
-  children: PropTypes.any
+  children: PropTypes.any,
 }
