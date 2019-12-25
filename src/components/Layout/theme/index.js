@@ -7,14 +7,38 @@ export default createMuiTheme({
   grey: '#3A3A3A',
   lightgrey: '#E1E1E1',
   offWhite: '#EDEDED',
-  bShadow: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
+  bShadows: {
+    cards: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
+    searchBar: '0 0 6px 0 rgba(0, 0, 0, 0.16)',
+  },
   breakpoints,
   palette: {
     primary: {
-      main: '#0006BF'
+      main: '#012d78',
     },
     secondary: {
-      main: '#FFCE1B'
-    }
-  }
+      main: '#FFCE1B',
+    },
+    steelBlue: {
+      main: '#007fff',
+    },
+    gray: {
+      dark: '#82878b',
+      main: '#e8ebee',
+      light: '#eeeeee',
+    },
+    gold: {
+      main: '#FFAB00',
+    },
+    orange: {
+      main: '#FF5630',
+    },
+    black: {
+      main: '#292929',
+    },
+  },
+  fonts: {
+    primary: 'Geomanist',
+    secondary: 'Roboto',
+  },
 })
