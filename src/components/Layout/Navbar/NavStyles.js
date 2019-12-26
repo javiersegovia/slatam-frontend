@@ -3,10 +3,12 @@ import { rgba } from 'polished'
 
 export const StyledNavBar = styled.div`
   width: 100%;
-  background: ${props => props.theme.palette.gray.light};
+  background: ${props => props.theme.palette.gray.extralight};
   position: relative;
   padding: 15px 0 15px;
   box-shadow: ${props => props.theme.bShadows.searchBar};
+  border-bottom: 1px solid ${props => props.theme.palette.gray.light};
+  z-index: ${props => props.theme.zIndex.appBar};
 
   .Navbar__navItem {
     display: flex;

@@ -26,6 +26,7 @@ export default createMuiTheme({
       dark: '#82878b',
       main: '#e8ebee',
       light: '#eeeeee',
+      extralight: '#FAFBFC',
     },
     gold: {
       main: '#FFAB00',

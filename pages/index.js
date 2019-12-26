@@ -1,14 +1,11 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
+import Header from '@components/Header'
 
 const Home = () => (
-  <div>
-    <h1>This is my app title</h1>
-    <p>Paragraph now</p>
-    <Button color="primary" variant="contained">
-      Material
-    </Button>
-  </div>
+  <>
+    <Header />
+    {/* TODO: add Features Grid with Grid Container !!! */}
+  </>
 )
 
 export default Home
