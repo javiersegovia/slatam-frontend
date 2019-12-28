@@ -8,9 +8,10 @@ export const SearchBarWrapper = styled.div`
   display: flex;
   background: white;
   align-items: stretch;
-  margin: 0 0 0 30px;
+  margin: auto auto auto 30px;
   color: ${props => rgba(props.theme.palette.gray.dark, 0.65)};
   font-size: 1rem;
+  max-height: 40px;
 
   .SearchBar__categories {
     border-right: 1px solid

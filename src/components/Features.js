@@ -13,3 +13,8 @@ const FeaturesGrid = ({ items }) =>
 FeaturesGrid.propTypes = {}
 
 export default FeaturesGrid
+
+Feature.propTypes = {
+  icon: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+}

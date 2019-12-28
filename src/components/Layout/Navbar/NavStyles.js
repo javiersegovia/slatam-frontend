@@ -5,12 +5,15 @@ export const StyledNavBar = styled.div`
   width: 100%;
   background: ${props => props.theme.palette.gray.extralight};
   position: relative;
-  padding: 15px 0 15px;
-  box-shadow: ${props => props.theme.bShadows.searchBar};
-  border-bottom: 1px solid ${props => props.theme.palette.gray.light};
+  padding: 10px 0 0px;
+  border-bottom: 2px solid ${props => props.theme.palette.gray.light};
   z-index: ${props => props.theme.zIndex.appBar};
 
-  .Navbar__navItem {
+  .Navbar__listItem {
+    padding: 10px;
+  }
+
+  .Navbar__listItemButton {
     display: flex;
     align-items: center;
     position: relative;
@@ -19,14 +22,15 @@ export const StyledNavBar = styled.div`
     background: none;
     border: 0;
     cursor: pointer;
-    padding: 0px 15px;
+    height: 100%;
   }
 
   .Navbar__divider {
-    height: 20px;
+    height: 30px;
     width: 1px;
     background: ${props => rgba(props.theme.palette.gray.dark, 0.5)};
     margin: 0 10px;
+    align-self: center;
   }
 
   .Navbar__highlightItem {
@@ -47,25 +51,31 @@ export const StyledNavBar = styled.div`
 `
 
 export const NavRow = styled.div`
-  padding: 0 30px;
+  padding: 15px 30px 0;
   margin: auto;
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: stretch;
 `
 
 export const Logo = styled.div`
   font-size: 2.5rem;
   position: relative;
   z-index: 2;
+  width: 190px;
+  display: flex;
+  align-items: center;
+
   a {
-    color: ${props => props.theme.palette.primary.main};
-    text-transform: uppercase;
-    text-decoration: none;
+    display: inline-flex;
+  }
+
+  img {
+    width: 100%;
+    object-fit: contain;
   }
   @media (max-width: 1300px) {
     margin: 0;
-    text-align: center;
   }
 `
 
@@ -82,12 +92,26 @@ export const StyledPrimaryLinks = styled.ul`
 `
 export const StyledSecondaryLinks = styled.ul`
   display: flex;
-  align-items: center;
+  align-items: stretch;
   font-size: 1rem;
-  padding: 0;
-  margin: 10px 0;
-  a:first-child,
-  button:first-child {
-    padding-left: 0;
+  padding: 0 0 10px 0;
+  margin: 0;
+
+  .SecondaryLinks__categories {
+    padding-right: 0;
+    margin-right: 30px;
+    width: 190px;
+
+    .dropdownToggler {
+      margin-left: auto;
+      padding-right: 10px;
+    }
   }
+`
+
+export const StyledSecondaryOptions = styled.ul`
+  margin: 0 0 0 auto;
+  display: flex;
+  align-items: stretch;
+  padding: 0 0 10px 0;
 `

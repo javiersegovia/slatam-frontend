@@ -2,9 +2,9 @@ import Link from 'next/link'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 import SearchBar from './SearchBar'
+import { StyledNavBar, NavRow, Logo } from './NavStyles'
 import NavPrimaryLinks from './NavPrimaryLinks'
 import NavSecondaryLinks from './NavSecondaryLinks'
-import { StyledNavBar, NavRow, Logo } from './NavStyles'
 import NavSecondaryOptions from './NavSecondaryOptions'
 
 Router.onRouteChangeStart = () => {
@@ -24,7 +24,9 @@ const NavBar = () => (
     <NavRow>
       <Logo>
         <Link href="/">
-          <a>Slatam</a>
+          <a>
+            <img src="/images/slatam-logo.svg" alt="Slatam Logo" />
+          </a>
         </Link>
       </Logo>
       <SearchBar />

@@ -119,7 +119,7 @@ const Header = props => {
         leave={{
           opacity: 0,
           transform: `translate3d(${
-            direction === 'NEXT' ? '-100%' : '100%'
+            direction === 'NEXT' ? '-90%' : '100%'
           }, 0, 0)`,
           pointerEvents: 'none',
         }}

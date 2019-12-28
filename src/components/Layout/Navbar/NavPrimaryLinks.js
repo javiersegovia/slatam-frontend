@@ -6,10 +6,14 @@ import { StyledPrimaryLinks } from './NavStyles'
 const NotLoggedNav = () => (
   <>
     <Link href="/register">
-      <a className="Navbar__navItem">Register</a>
+      <li className="Navbar__listItem">
+        <a className="Navbar__listItemButton">Register</a>
+      </li>
     </Link>
     <Link href="/sign-in">
-      <a className="Navbar__navItem">Sign In</a>
+      <li className="Navbar__listItem">
+        <a className="Navbar__listItemButton">Sign In</a>
+      </li>
     </Link>
   </>
 )
@@ -17,10 +21,16 @@ const NotLoggedNav = () => (
 const LoggedInNav = () => (
   <>
     <Link href="/dashboard">
-      <a className="Navbar__navItem">Orders</a>
+      <li className="Navbar__listItem">
+        <a className="Navbar__listItemButton">Orders</a>
+      </li>
     </Link>
     <Link href="/dashboard">
-      <a className="Navbar__navItem NavLinks__HighlightItem">My account</a>
+      <li className="Navbar__listItem">
+        <a className="Navbar__listItemButton NavLinks__HighlightItem">
+          My account
+        </a>
+      </li>
     </Link>
   </>
 )
@@ -31,16 +41,20 @@ const NavLinks = () => {
     <StyledPrimaryLinks>
       {isLoggedIn ? (
         <Link href="/explore">
-          <a className="Navbar__navItem">Explore</a>
+          <li className="Navbar__listItem">
+            <a className="Navbar__listItemButton">Explore</a>
+          </li>
         </Link>
       ) : (
         <Link href="/about">
-          <a className="Navbar__navItem">Why Slatam?</a>
+          <li className="Navbar__listItem">
+            <a className="Navbar__listItemButton">Why Slatam?</a>
+          </li>
         </Link>
       )}
       {/* <div className="Navbar__divider" />
 
-      <button type="button" className="Navbar__navItem Navbar__withArrow">
+      <button type="button" className="Navbar__listItemButton Navbar__withArrow">
         <PublicIcon />
       </button> */}
 

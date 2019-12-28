@@ -1,24 +1,39 @@
 import React from 'react'
 import Link from 'next/link'
 import { StyledSecondaryLinks } from './NavStyles'
+import CategoriesDropdown from './Dropdowns/Categories'
 
 const NavLinks = () => {
   return (
     <StyledSecondaryLinks>
-      <button type="button" className="Navbar__navItem Navbar__withArrow">
-        Categories
-      </button>
+      <li className="Navbar__listItem pl-0 Navbar__dropdownParent SecondaryLinks__categories">
+        <button
+          type="button"
+          className="Navbar__listItemButton dropdownToggler Navbar__withArrow"
+        >
+          Categories
+        </button>
+        <CategoriesDropdown />
+      </li>
 
       <Link href="/explore">
-        <a className="Navbar__navItem">Best sellers</a>
+        <li className="Navbar__listItem">
+          <a className="Navbar__listItemButton">Best sellers</a>
+        </li>
       </Link>
 
       <Link href="/request-quotation">
-        <a className="Navbar__navItem">Request for quotation</a>
+        <li className="Navbar__listItem">
+          <a className="Navbar__listItemButton">Request for quotation</a>
+        </li>
       </Link>
       <div className="Navbar__divider" />
       <Link href="/get-started">
-        <a className="Navbar__navItem Navbar__highlightItem">Get started now</a>
+        <li className="Navbar__listItem">
+          <a className="Navbar__listItemButton Navbar__highlightItem">
+            Get started now
+          </a>
+        </li>
       </Link>
     </StyledSecondaryLinks>
   )

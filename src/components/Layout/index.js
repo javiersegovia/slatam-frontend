@@ -11,6 +11,8 @@ import theme from './theme'
 import NavBar from './Navbar'
 import AppMeta from './AppMeta'
 
+import '../../../public/scss/application.scss'
+
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Geomanist';
@@ -80,6 +82,7 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     color: ${theme.black};
+    line-height: normal;
   }
 
   h1 {
@@ -120,6 +123,10 @@ const GlobalStyle = createGlobalStyle`
     background: none;
     font-size: 1rem;
     font-family: ${theme.fonts.primary};
+    padding: 0;
+  }
+  li {
+    list-style: none;
   }
 `
 
