@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import {
   ThemeProvider as MuiThemeProvider,
@@ -6,6 +6,8 @@ import {
 } from '@material-ui/styles'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import CssBaseline from '@material-ui/core/CssBaseline'
+
+import WindowSizeProvider from './context/WindowSize'
 
 import theme from './theme'
 import NavBar from './Navbar'
@@ -107,6 +109,8 @@ const GlobalStyle = createGlobalStyle`
 
   h6 {
     font-size: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   p {
@@ -130,19 +134,23 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const AppLayout = props => (
-  <StylesProvider injectFirst>
-    <MuiThemeProvider theme={theme}>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <CssBaseline />
-        <AppMeta />
-        <NavBar />
-        {props.children}
-      </ThemeProvider>
-    </MuiThemeProvider>
-  </StylesProvider>
-)
+const AppLayout = props => {
+  return (
+    <StylesProvider injectFirst>
+      <MuiThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
+          <WindowSizeProvider>
+            <GlobalStyle />
+            <CssBaseline />
+            <AppMeta />
+            <NavBar />
+            {props.children}
+          </WindowSizeProvider>
+        </ThemeProvider>
+      </MuiThemeProvider>
+    </StylesProvider>
+  )
+}
 
 export default AppLayout
 

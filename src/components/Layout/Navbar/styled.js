@@ -10,7 +10,7 @@ export const StyledNavBar = styled.div`
   z-index: ${props => props.theme.zIndex.appBar};
 
   .Navbar__listItem {
-    padding: 10px;
+    /* padding: 10px; */
   }
 
   .Navbar__listItemButton {
@@ -23,6 +23,7 @@ export const StyledNavBar = styled.div`
     border: 0;
     cursor: pointer;
     height: 100%;
+    padding: 10px;
   }
 
   .Navbar__divider {
@@ -51,7 +52,7 @@ export const StyledNavBar = styled.div`
 `
 
 export const NavRow = styled.div`
-  padding: 15px 30px 0;
+  padding: 10px 30px 0;
   margin: auto;
   height: 100%;
   display: flex;

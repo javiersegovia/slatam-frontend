@@ -1,19 +1,24 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Link from 'next/link'
-import { StyledSecondaryLinks } from './NavStyles'
-import CategoriesDropdown from './Dropdowns/Categories'
+import { StyledSecondaryLinks } from './styled'
+import CategoriesList from './Dropdowns/Categories'
 
 const NavLinks = () => {
+  const dropdownTogglerRef = useRef(null)
+
+  console.log('rerender secondarylinks')
+
   return (
     <StyledSecondaryLinks>
       <li className="Navbar__listItem pl-0 Navbar__dropdownParent SecondaryLinks__categories">
         <button
           type="button"
           className="Navbar__listItemButton dropdownToggler Navbar__withArrow"
+          ref={dropdownTogglerRef}
         >
           Categories
         </button>
-        <CategoriesDropdown />
+        <CategoriesList dropdownTogglerRef={dropdownTogglerRef} />
       </li>
 
       <Link href="/explore">

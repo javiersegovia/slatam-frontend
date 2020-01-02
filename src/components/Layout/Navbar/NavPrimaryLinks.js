@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import PublicIcon from '@material-ui/icons/Public'
-import { StyledPrimaryLinks } from './NavStyles'
+import { StyledPrimaryLinks } from './styled'
 
 const NotLoggedNav = () => (
   <>
@@ -37,6 +37,7 @@ const LoggedInNav = () => (
 
 const NavLinks = () => {
   const isLoggedIn = false
+  console.log('render navPrimaryLinkss')
   return (
     <StyledPrimaryLinks>
       {isLoggedIn ? (

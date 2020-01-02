@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import PublicIcon from '@material-ui/icons/Public'
-import { StyledSecondaryOptions } from './NavStyles'
+import { StyledSecondaryOptions } from './styled'
 
 const NavSecondaryOptions = props => {
   return (

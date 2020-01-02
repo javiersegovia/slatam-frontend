@@ -1,12 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState } from 'react'
 import uuidv4 from 'uuid/v4'
-import { WindowSizeContext } from '@components/Layout/context/WindowSize'
+import { StyledCategoriesList, DropdownWrapper } from './styled'
 import CategoriesContent from './Content'
-import {
-  StyledCategoriesList,
-  StyledCategoriesContent,
-  DropdownWrapper,
-} from './styled'
 
 const tempCategoryList = [
   {
@@ -214,31 +209,16 @@ const tempProductsData = {
   FAKEIDconsumerelectronics: tempConsumerElectronicsList,
 }
 
-const CategoriesList = ({
-  dropdownTogglerRef,
-  categories = tempCategoryList,
-}) => {
+const CategoriesList = ({ categories = tempCategoryList }) => {
   const [activeCategory, setActiveCategory] = useState(null)
+
   const handleMouseEnter = cat => {
     if (activeCategory && cat.id === activeCategory.id) return
     setActiveCategory(cat)
   }
 
-  const windowSize = useContext(WindowSizeContext)
-
-  const [offset, setOffset] = useState(null)
-  useEffect(() => {
-    const { offsetLeft } = dropdownTogglerRef.current
-    if (!offset || offsetLeft !== offset.left) setOffset({ left: offsetLeft })
-  }, [windowSize.width])
-
-  return offset ? (
-    <DropdownWrapper
-      style={{
-        left: offset.left,
-      }}
-      onMouseLeave={() => setActiveCategory(null)}
-    >
+  return (
+    <DropdownWrapper onMouseLeave={() => setActiveCategory(null)}>
       <div style={{ display: 'flex' }}>
         <StyledCategoriesList>
           {categories.map(cat => (
@@ -259,19 +239,17 @@ const CategoriesList = ({
             <button type="button">See all categories</button>
           </li>
         </StyledCategoriesList>
-        <StyledCategoriesContent>
-          {activeCategory && (
-            <CategoriesContent
-              category={activeCategory}
-              categoryItems={
-                tempProductsData[activeCategory.id] || tempElectronicsList
-              }
-            />
-          )}
-        </StyledCategoriesContent>
+        {activeCategory && (
+          <CategoriesContent
+            category={activeCategory}
+            categoryItems={
+              tempProductsData[activeCategory.id] || tempElectronicsList
+            }
+          />
+        )}
       </div>
     </DropdownWrapper>
-  ) : null
+  )
 }
 
 export default CategoriesList

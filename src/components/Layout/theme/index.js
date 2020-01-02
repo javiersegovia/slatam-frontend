@@ -10,6 +10,7 @@ export default createMuiTheme({
   bShadows: {
     cards: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
     searchBar: '0 0 6px 0 rgba(0, 0, 0, 0.16)',
+    menuDropdown: '0 0px 7px 0px rgba(0,0,0,0.16)',
   },
   breakpoints,
   palette: {

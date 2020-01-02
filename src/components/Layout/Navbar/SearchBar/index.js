@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import SearchIcon from '@material-ui/icons/Search'
-import { SearchBarWrapper, StyledInput } from './SearchStyles'
+import { SearchBarWrapper, StyledInput } from './styled'
 
 const SearchBar = () => {
   const [inputValue, setInputValue] = useState('')
