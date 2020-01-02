@@ -62,6 +62,7 @@ export const StyledCategoriesList = styled.ul`
     padding: 0 30px;
     &:hover {
       color: ${props => props.theme.palette.primary.main};
+      text-decoration: underline;
     }
   }
 
@@ -76,60 +77,21 @@ export const StyledCategoriesList = styled.ul`
       color: ${props => props.theme.palette.gold.main};
       text-align: left;
       font-size: 0.875rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
-  }
-
-  .SubcategoriesList__content {
-    background: white;
-    padding: 20px 30px 20px 30px;
-    font-size: 0.875rem;
-    box-shadow: ${props => props.theme.bShadows.menuDropdown};
-    display: grid;
-    grid-template-columns: auto auto;
-  }
-
-  .SubcategoriesList__title {
-    margin: 0;
-    font-size: 1.5rem;
-    letter-spacing: 0.75px;
-    font-weight: 400;
-  }
-
-  .SubcategoriesList__list {
-    padding: 0;
-    margin-top: 30px;
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-rows: repeat(10, auto);
-    grid-gap: 15px 30px;
-
-    .seAllProducts {
-      color: ${props => props.theme.palette.gold.main};
-    }
-  }
-
-  .SubcategoriesList__listItem {
-    font-size: 0.75rem;
-  }
-
-  .SubcategoriesList__featured {
-    padding-left: 30px;
-  }
-
-  .SubcategoriesFeaturedList__list {
-    padding: 0;
   }
 `
 
 export const StyledCategoriesContent = styled.div`
-  .SubcategoriesList__content {
-    background: white;
-    padding: 20px 30px 20px 30px;
-    font-size: 0.875rem;
-    box-shadow: ${props => props.theme.bShadows.menuDropdown};
-    display: grid;
-    grid-template-columns: auto auto;
-  }
+  background: white;
+  padding: 20px 30px 20px 30px;
+  font-size: 0.875rem;
+  box-shadow: ${props => props.theme.bShadows.menuDropdown};
+  display: grid;
+  grid-template-columns: auto auto;
 
   .SubcategoriesList__title {
     margin: 0;
@@ -153,6 +115,10 @@ export const StyledCategoriesContent = styled.div`
 
   .SubcategoriesList__listItem {
     font-size: 0.75rem;
+  }
+
+  .SubcategoriesList__listButton:hover {
+    text-decoration: underline;
   }
 
   .SubcategoriesList__featured {

@@ -1,9 +1,25 @@
-import React, { useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import Link from 'next/link'
 import { StyledSecondaryLinks } from './styled'
 import CategoriesList from './Dropdowns/Categories'
 
 const NavLinks = () => {
+  const [openDropdowns, setOpenDropdowns] = useState({})
+
+  const handleMouseEnter = name => {
+    setOpenDropdowns({
+      ...openDropdowns,
+      [name]: true,
+    })
+  }
+
+  const handleMouseLeave = name => {
+    setOpenDropdowns({
+      ...openDropdowns,
+      [name]: false,
+    })
+  }
+
   const dropdownTogglerRef = useRef(null)
 
   console.log('rerender secondarylinks')
@@ -11,14 +27,26 @@ const NavLinks = () => {
   return (
     <StyledSecondaryLinks>
       <li className="Navbar__listItem pl-0 Navbar__dropdownParent SecondaryLinks__categories">
-        <button
-          type="button"
-          className="Navbar__listItemButton dropdownToggler Navbar__withArrow"
-          ref={dropdownTogglerRef}
-        >
-          Categories
-        </button>
-        <CategoriesList dropdownTogglerRef={dropdownTogglerRef} />
+        <div onMouseLeave={() => handleMouseLeave('categoriesDropdown')}>
+          <button
+            type="button"
+            onFocus={() => handleMouseEnter('categoriesDropdown')}
+            onMouseEnter={() => handleMouseEnter('categoriesDropdown')}
+            className={`Navbar__listItemButton dropdownToggler Navbar__withArrow ${
+              openDropdowns.categoriesDropdown ? ' opened' : ''
+            }`}
+            ref={dropdownTogglerRef}
+          >
+            Categories
+          </button>
+          {openDropdowns.categoriesDropdown && (
+            <CategoriesList
+              open={openDropdowns.categoriesDropdown || false}
+              toggleOpenState={setOpenDropdowns}
+              dropdownTogglerRef={dropdownTogglerRef}
+            />
+          )}
+        </div>
       </li>
 
       <Link href="/explore">

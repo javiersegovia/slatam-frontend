@@ -1,5 +1,6 @@
 import React from 'react'
 import uuidv4 from 'uuid/v4'
+import { StyledCategoriesContent } from './styled'
 
 const tempCategoryItemsList = [
   {
@@ -94,7 +95,7 @@ const CategoriesContent = ({
 }) => {
   console.log('rerender content')
   return category ? (
-    <div className="SubcategoriesList__content">
+    <StyledCategoriesContent className="SubcategoriesList__content">
       <div className="SubcategoriesList__listContainer">
         <h6 className="SubcategoriesList__title">{category.name}</h6>
         <ul className="SubcategoriesList__list">
@@ -122,7 +123,7 @@ const CategoriesContent = ({
           ))}
         </ul>
       </div>
-    </div>
+    </StyledCategoriesContent>
   ) : null
 }
 

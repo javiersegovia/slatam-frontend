@@ -47,6 +47,13 @@ export const StyledNavBar = styled.div`
       margin-left: 7px;
       padding: 3px;
       transform: rotate(45deg);
+      transition: all 0.15s ease;
+    }
+    &.opened {
+      &:after {
+        transform: rotate(-135deg);
+        margin-top: 5px;
+      }
     }
   }
 `
@@ -102,10 +109,23 @@ export const StyledSecondaryLinks = styled.ul`
     padding-right: 0;
     margin-right: 30px;
     width: 190px;
+    display: flex;
+
+    & > div {
+      margin-left: auto;
+    }
 
     .dropdownToggler {
       margin-left: auto;
+      border: 1.5px solid transparent;
+      border-bottom: none;
       padding-right: 10px;
+      z-index: 5;
+    }
+    .opened {
+      background: white;
+      border: 1.5px solid ${props => props.theme.palette.gray.light};
+      border-bottom: none;
     }
   }
 `

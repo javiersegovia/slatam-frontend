@@ -2,11 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import uuidv4 from 'uuid/v4'
 import { WindowSizeContext } from '@components/Layout/context/WindowSize'
 import CategoriesContent from './Content'
-import {
-  StyledCategoriesList,
-  StyledCategoriesContent,
-  DropdownWrapper,
-} from './styled'
+import { StyledCategoriesList, DropdownWrapper } from './styled'
 
 const tempCategoryList = [
   {
@@ -215,6 +211,8 @@ const tempProductsData = {
 }
 
 const CategoriesList = ({
+  open,
+  toggleOpenState,
   dropdownTogglerRef,
   categories = tempCategoryList,
 }) => {
@@ -236,6 +234,7 @@ const CategoriesList = ({
     <DropdownWrapper
       style={{
         left: offset.left,
+        marginTop: '-11px',
       }}
       onMouseLeave={() => setActiveCategory(null)}
     >
@@ -259,16 +258,14 @@ const CategoriesList = ({
             <button type="button">See all categories</button>
           </li>
         </StyledCategoriesList>
-        <StyledCategoriesContent>
-          {activeCategory && (
-            <CategoriesContent
-              category={activeCategory}
-              categoryItems={
-                tempProductsData[activeCategory.id] || tempElectronicsList
-              }
-            />
-          )}
-        </StyledCategoriesContent>
+        {activeCategory && (
+          <CategoriesContent
+            category={activeCategory}
+            categoryItems={
+              tempProductsData[activeCategory.id] || tempElectronicsList
+            }
+          />
+        )}
       </div>
     </DropdownWrapper>
   ) : null
