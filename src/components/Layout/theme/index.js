@@ -12,7 +12,7 @@ export default createMuiTheme({
     searchBar: '0 0 6px 0 rgba(0, 0, 0, 0.16)',
     menuDropdown: '0 0px 7px 0px rgba(0,0,0,0.16)',
   },
-  breakpoints,
+  media: breakpoints,
   palette: {
     primary: {
       main: '#012d78',
@@ -41,6 +41,6 @@ export default createMuiTheme({
   },
   fonts: {
     primary: 'Geomanist',
-    secondary: 'Roboto',
+    secondary: 'BentonSans',
   },
 })

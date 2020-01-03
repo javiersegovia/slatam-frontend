@@ -43,11 +43,30 @@
   font-style: normal;
 }
 @font-face {
-  font-family: 'radnika_next';
-  src: url('/fonts/radnikanext-medium-webfont.woff2') format('woff2');
-  font-weight: normal;
+  font-family: 'BentonSans';
+  src: url('/fonts/BentonSans-Book.otf') format('opentype');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'BentonSans';
+  src: url('/fonts/BentonSans-Regular.otf') format('opentype');
+  font-weight: 400;
   font-style: normal;
 }
-
+@font-face {
+  font-family: 'BentonSans';
+  src: url('/fonts/BentonSans-Medium.otf') format('opentype');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'BentonSans';
+  src: url('/fonts/BentonSans-Bold.otf') format('opentype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'BentonSans';
+  src: url('/fonts/BentonSans-Black.otf') format('opentype');
+  font-weight: 800;
+}
 $font-primary: 'Geomanist';
-$font-secondary: 'Roboto';
+$font-secondary: 'BentonSans';

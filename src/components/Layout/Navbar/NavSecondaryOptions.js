@@ -1,30 +1,85 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import PropTypes from 'prop-types'
-import Link from 'next/link'
 import PublicIcon from '@material-ui/icons/Public'
+import Popper from '@material-ui/core/Popper'
+import Portal from '@material-ui/core/Portal'
+import TransparentOverlay from '@components/UI/TransparentOverlay'
+import HelpDropdown from './Dropdowns/Help'
+import LanguagesDropdown from './Dropdowns/Languages'
 import { StyledSecondaryOptions } from './styled'
 
 const NavSecondaryOptions = props => {
-  return (
-    <StyledSecondaryOptions>
-      <li className="Navbar__listItem">
-        <button
-          type="button"
-          className="Navbar__listItemButton Navbar__withArrow"
-        >
-          <PublicIcon />
-        </button>
-      </li>
-      {/* <button type="button" className="Navbar__listItemButton Navbar__withArrow">
-        Shipping countries
-      </button> */}
+  const [openDropdowns, setOpenDropdowns] = useState({})
+  const helpDropdownRef = useRef(null)
+  const languageDropdownRef = useRef(null)
+  const [anchorEl, setAnchorEl] = React.useState(null)
 
-      <Link href="/help">
-        <li className="Navbar__listItem">
-          <a className="Navbar__listItemButton Navbar__withArrow">Help</a>
+  const handleMouseEnter = (event, name) => {
+    setAnchorEl(event.currentTarget)
+    setOpenDropdowns({
+      [name]: true,
+    })
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+    setOpenDropdowns({})
+  }
+
+  const DropdownComponent = () => (
+    <>
+      {openDropdowns && openDropdowns.language && <LanguagesDropdown />}
+      {openDropdowns && openDropdowns.help && <HelpDropdown />}
+    </>
+  )
+
+  return (
+    <div style={{ flex: 1, display: 'flex', position: 'relative' }}>
+      <StyledSecondaryOptions onMouseLeave={handleClose}>
+        <li className="Navbar__listItem" style={{ marginLeft: 'auto' }}>
+          <button
+            type="button"
+            className={`Navbar__listItemButton dropdownToggler Navbar__withArrow ${
+              openDropdowns.language ? ' opened' : ''
+            }`}
+            onMouseOver={e => handleMouseEnter(e, 'language')}
+            onFocus={e => handleMouseEnter(e, 'language')}
+            ref={languageDropdownRef}
+          >
+            <PublicIcon />
+          </button>
         </li>
-      </Link>
-    </StyledSecondaryOptions>
+
+        <li className="Navbar__listItem">
+          <button
+            type="button"
+            className={`Navbar__listItemButton dropdownToggler Navbar__withArrow${
+              openDropdowns.help ? ' opened' : ''
+            }`}
+            onMouseOver={e => handleMouseEnter(e, 'help')}
+            onFocus={e => handleMouseEnter(e, 'help')}
+            ref={helpDropdownRef}
+          >
+            Help
+          </button>
+        </li>
+        {Object.entries(openDropdowns).length !== 0 && (
+          <Portal>
+            <TransparentOverlay />
+          </Portal>
+        )}
+        <Popper
+          anchorEl={anchorEl}
+          open={!!anchorEl}
+          onClose={handleClose}
+          disablePortal
+          keepMounted
+          placement="bottom-end"
+        >
+          <DropdownComponent />
+        </Popper>
+      </StyledSecondaryOptions>
+    </div>
   )
 }
 

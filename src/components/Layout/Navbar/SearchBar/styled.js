@@ -12,6 +12,12 @@ export const SearchBarWrapper = styled.div`
   color: ${props => rgba(props.theme.palette.gray.dark, 0.65)};
   font-size: 1rem;
   max-height: 40px;
+  ${props => props.theme.breakpoints.up('sm')} {
+    min-width: 370px;
+  }
+  ${props => props.theme.breakpoints.down('sm')} {
+    margin-left: 15px;
+  }
 
   .SearchBar__categories {
     border-right: 1px solid
@@ -54,6 +60,7 @@ export const StyledInput = styled.input`
   padding: 10px 15px;
   border: none;
   outline: none;
+  border-radius: 35px;
   flex: 1;
   color: ${props => props.theme.palette.black.dark};
   font-size: 0.95rem;

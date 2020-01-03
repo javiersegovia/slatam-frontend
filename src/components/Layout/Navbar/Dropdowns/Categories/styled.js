@@ -42,11 +42,14 @@ export const DropdownSections = styled.div`
 `
 
 export const StyledCategoriesList = styled.ul`
+  /* min-width: 290px; */
   background: white;
-  border: 1.5px solid ${props => props.theme.palette.gray.light};
-  padding: 20px 0px 0;
+  border-radius: 6px;
+  box-shadow: ${props => props.theme.bShadows.searchBar};
+  padding: 20px 0 0;
   font-size: 0.875rem;
-  min-width: 290px;
+  border-top-right-radius: ${props => (props.opened ? '0' : '6px')};
+  border-bottom-right-radius: ${props => (props.opened ? '0' : '6px')};
 
   .CategoriesList__listItem {
     padding: 7.5px 0px;

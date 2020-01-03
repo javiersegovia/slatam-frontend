@@ -1,10 +1,16 @@
 import React from 'react'
 import Link from 'next/link'
-import PublicIcon from '@material-ui/icons/Public'
 import { StyledPrimaryLinks } from './styled'
 
 const NotLoggedNav = () => (
   <>
+    <Link href="/about">
+      <li className="Navbar__listItem">
+        <a className="Navbar__listItemButton">Why Slatam?</a>
+      </li>
+    </Link>
+    <div className="Navbar__divider" />
+
     <Link href="/register">
       <li className="Navbar__listItem">
         <a className="Navbar__listItemButton">Register</a>
@@ -20,11 +26,12 @@ const NotLoggedNav = () => (
 
 const LoggedInNav = () => (
   <>
-    <Link href="/dashboard">
+    <Link href="/explore">
       <li className="Navbar__listItem">
-        <a className="Navbar__listItemButton">Orders</a>
+        <a className="Navbar__listItemButton">Explore</a>
       </li>
     </Link>
+    <div className="Navbar__divider" />
     <Link href="/dashboard">
       <li className="Navbar__listItem">
         <a className="Navbar__listItemButton NavLinks__HighlightItem">
@@ -32,34 +39,17 @@ const LoggedInNav = () => (
         </a>
       </li>
     </Link>
+    <Link href="/dashboard">
+      <li className="Navbar__listItem">
+        <a className="Navbar__listItemButton">Cart</a>
+      </li>
+    </Link>
   </>
 )
 
-const NavLinks = () => {
-  const isLoggedIn = false
-  console.log('render navPrimaryLinkss')
+const NavLinks = ({ isLoggedIn = false }) => {
   return (
     <StyledPrimaryLinks>
-      {isLoggedIn ? (
-        <Link href="/explore">
-          <li className="Navbar__listItem">
-            <a className="Navbar__listItemButton">Explore</a>
-          </li>
-        </Link>
-      ) : (
-        <Link href="/about">
-          <li className="Navbar__listItem">
-            <a className="Navbar__listItemButton">Why Slatam?</a>
-          </li>
-        </Link>
-      )}
-      {/* <div className="Navbar__divider" />
-
-      <button type="button" className="Navbar__listItemButton Navbar__withArrow">
-        <PublicIcon />
-      </button> */}
-
-      <div className="Navbar__divider" />
       {isLoggedIn ? <LoggedInNav /> : <NotLoggedNav />}
     </StyledPrimaryLinks>
   )

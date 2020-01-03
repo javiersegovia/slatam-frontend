@@ -28,82 +28,87 @@ const LOCAL_STATE_QUERY = gql`
 
 const GRAPHQL_WS = false
 
-export default withApollo(({ headers = {}, initialState = {} }) => {
-  const ssrMode = !process.browser
+export default withApollo(
+  ({ headers = {}, initialState = {} }) => {
+    const ssrMode = !process.browser
 
-  const httpLink = createHttpLink({
-    fetch, // Switches between unfetch & node-fetch for client & server.
-    uri: GRAPHQL_URL,
-  })
+    const httpLink = createHttpLink({
+      fetch, // Switches between unfetch & node-fetch for client & server.
+      uri: GRAPHQL_URL,
+    })
 
-  const wsLink =
-    !ssrMode &&
-    GRAPHQL_WS &&
-    new WebSocketLink({
-      uri: GRAPHQL_WS,
-      options: {
-        reconnect: true,
-        connectionParams: {
-          authorization: headers.authorization,
+    const wsLink =
+      !ssrMode &&
+      GRAPHQL_WS &&
+      new WebSocketLink({
+        uri: GRAPHQL_WS,
+        options: {
+          reconnect: true,
+          connectionParams: {
+            authorization: headers.authorization,
+          },
+        },
+      })
+
+    const contextLink = setContext(async () => ({
+      fetchOptions: {
+        credentials: 'include',
+      },
+      headers,
+    }))
+
+    const errorLink = onError(({ graphQLErrors, networkError }) => {
+      if (graphQLErrors) {
+        graphQLErrors.map(err =>
+          console.log(`[GraphQL error]: Message: ${err.message}`)
+        )
+      }
+      if (networkError) console.log(`[Network error]: ${networkError}`)
+    })
+
+    const link = wsLink
+      ? split(
+          ({ query }) => {
+            const { kind, operation } = getMainDefinition(query)
+            return (
+              kind === 'OperationDefinition' && operation === 'subscription'
+            )
+          },
+          wsLink,
+          ApolloLink.from([errorLink, contextLink, httpLink])
+        )
+      : ApolloLink.from([errorLink, contextLink, httpLink])
+
+    const client = new ApolloClient({
+      name: 'web',
+      ssrMode,
+      link,
+      cache: new InMemoryCache().restore(initialState),
+      connectToDevTools: true,
+      resolvers: {
+        Mutation: {
+          toggleCart(_, variables, { cache }) {
+            // read the cartOpen value from the cache
+            const { cartOpen } = cache.readQuery({
+              query: LOCAL_STATE_QUERY,
+            })
+            const data = {
+              data: { cartOpen: !cartOpen },
+            }
+            cache.writeData(data)
+            return data
+          },
         },
       },
     })
 
-  const contextLink = setContext(async () => ({
-    fetchOptions: {
-      credentials: 'include',
-    },
-    headers,
-  }))
-
-  const errorLink = onError(({ graphQLErrors, networkError }) => {
-    if (graphQLErrors) {
-      graphQLErrors.map((err) =>
-        console.log(`[GraphQL error]: Message: ${err.message}`)
-      )
-    }
-    if (networkError) console.log(`[Network error]: ${networkError}`)
-  })
-
-  const link = wsLink
-    ? split(
-        ({ query }) => {
-          const { kind, operation } = getMainDefinition(query)
-          return kind === 'OperationDefinition' && operation === 'subscription'
-        },
-        wsLink,
-        ApolloLink.from([errorLink, contextLink, httpLink])
-      )
-    : ApolloLink.from([errorLink, contextLink, httpLink])
-
-  const client = new ApolloClient({
-    name: 'web',
-    ssrMode,
-    link,
-    cache: new InMemoryCache().restore(initialState),
-    connectToDevTools: true,
-    resolvers: {
-      Mutation: {
-        toggleCart(_, variables, { cache }) {
-          // read the cartOpen value from the cache
-          const { cartOpen } = cache.readQuery({
-            query: LOCAL_STATE_QUERY,
-          })
-          const data = {
-            data: { cartOpen: !cartOpen },
-          }
-          cache.writeData(data)
-          return data
-        },
+    client.writeData({
+      data: {
+        cartOpen: false,
       },
-    },
-  })
+    })
 
-  client.writeData({
-    data: {
-      cartOpen: false,
-    },
-  })
-
-  return client
-})
+    return client
+  },
+  { getDataFromTree: 'ssr' }
+)

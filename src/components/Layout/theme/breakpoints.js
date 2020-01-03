@@ -4,12 +4,12 @@ const breakpointSizes = {
   sm: 768,
   md: 992,
   lg: 1200,
-  xl: 1900
+  xl: 1900,
 }
 
 const breakpoints = {
   sizes: {
-    ...breakpointSizes
+    ...breakpointSizes,
   },
   up(size) {
     return `@media only screen and (min-width: ${breakpointSizes[size]}px)`
@@ -52,7 +52,7 @@ const breakpoints = {
     return `@media only screen and ${sizes[0]}${
       rest ? rest.map(m => `, ${m}`) : ''
     }`
-  }
+  },
 }
 
 export default breakpoints

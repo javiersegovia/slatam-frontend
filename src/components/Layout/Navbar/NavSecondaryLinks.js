@@ -1,5 +1,7 @@
 import React, { useState, useRef } from 'react'
 import Link from 'next/link'
+import Portal from '@material-ui/core/Portal'
+import TransparentOverlay from '@components/UI/TransparentOverlay'
 import { StyledSecondaryLinks } from './styled'
 import CategoriesList from './Dropdowns/Categories'
 
@@ -14,15 +16,10 @@ const NavLinks = () => {
   }
 
   const handleMouseLeave = name => {
-    setOpenDropdowns({
-      ...openDropdowns,
-      [name]: false,
-    })
+    setOpenDropdowns({})
   }
 
   const dropdownTogglerRef = useRef(null)
-
-  console.log('rerender secondarylinks')
 
   return (
     <StyledSecondaryLinks>
@@ -32,7 +29,7 @@ const NavLinks = () => {
             type="button"
             onFocus={() => handleMouseEnter('categoriesDropdown')}
             onMouseEnter={() => handleMouseEnter('categoriesDropdown')}
-            className={`Navbar__listItemButton dropdownToggler Navbar__withArrow ${
+            className={`Navbar__listItemButton dropdownToggler Navbar__withArrow${
               openDropdowns.categoriesDropdown ? ' opened' : ''
             }`}
             ref={dropdownTogglerRef}
@@ -40,11 +37,7 @@ const NavLinks = () => {
             Categories
           </button>
           {openDropdowns.categoriesDropdown && (
-            <CategoriesList
-              open={openDropdowns.categoriesDropdown || false}
-              toggleOpenState={setOpenDropdowns}
-              dropdownTogglerRef={dropdownTogglerRef}
-            />
+            <CategoriesList dropdownTogglerRef={dropdownTogglerRef} />
           )}
         </div>
       </li>
@@ -68,6 +61,11 @@ const NavLinks = () => {
           </a>
         </li>
       </Link>
+      {Object.entries(openDropdowns).length !== 0 && (
+        <Portal>
+          <TransparentOverlay />
+        </Portal>
+      )}
     </StyledSecondaryLinks>
   )
 }

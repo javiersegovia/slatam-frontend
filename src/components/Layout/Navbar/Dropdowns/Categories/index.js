@@ -211,8 +211,6 @@ const tempProductsData = {
 }
 
 const CategoriesList = ({
-  open,
-  toggleOpenState,
   dropdownTogglerRef,
   categories = tempCategoryList,
 }) => {
@@ -239,7 +237,7 @@ const CategoriesList = ({
       onMouseLeave={() => setActiveCategory(null)}
     >
       <div style={{ display: 'flex' }}>
-        <StyledCategoriesList>
+        <StyledCategoriesList opened={!!activeCategory}>
           {categories.map(cat => (
             <li
               key={cat.id}

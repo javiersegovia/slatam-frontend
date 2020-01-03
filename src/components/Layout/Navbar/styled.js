@@ -9,8 +9,8 @@ export const StyledNavBar = styled.div`
   border-bottom: 2px solid ${props => props.theme.palette.gray.light};
   z-index: ${props => props.theme.zIndex.appBar};
 
-  .Navbar__listItem {
-    /* padding: 10px; */
+  ${props => props.theme.media.down('md')} {
+    padding: 20px 0;
   }
 
   .Navbar__listItemButton {
@@ -18,7 +18,8 @@ export const StyledNavBar = styled.div`
     align-items: center;
     position: relative;
     color: ${props => props.theme.palette.gray.dark};
-    font-size: 1rem;
+    font-size: 0.9375rem;
+    letter-spacing: 0.5px;
     background: none;
     border: 0;
     cursor: pointer;
@@ -41,7 +42,8 @@ export const StyledNavBar = styled.div`
   .Navbar__withArrow {
     &:after {
       content: '';
-      border: solid ${props => props.theme.palette.gray.dark};
+      border-style: solid;
+      /* border-color: inherit; */
       border-width: 0 1.5px 1.5px 0;
       display: inline-block;
       margin-left: 7px;
@@ -64,6 +66,14 @@ export const NavRow = styled.div`
   height: 100%;
   display: flex;
   align-items: stretch;
+
+  ${props => props.theme.media.down('md')} {
+    display: ${props => (props.hideOnResponsive ? 'none' : 'flex')};
+    padding: 0 30px;
+  }
+  ${props => props.theme.media.down('sm')} {
+    padding: 0 15px;
+  }
 `
 
 export const Logo = styled.div`
@@ -73,6 +83,15 @@ export const Logo = styled.div`
   width: 190px;
   display: flex;
   align-items: center;
+
+  ${props => props.theme.media.down('md')} {
+    min-width: 140px;
+  }
+
+  ${props => props.theme.media.down('xs')} {
+    min-width: 100px;
+    max-width: 140px;
+  }
 
   a {
     display: inline-flex;
@@ -93,8 +112,13 @@ export const StyledPrimaryLinks = styled.ul`
   display: flex;
   align-items: center;
   font-size: 1rem;
-  a:last-child,
-  button:last-child {
+
+  ${props => props.theme.media.down('md')} {
+    display: none;
+  }
+
+  li:last-child a,
+  li:last-child button {
     padding-right: 0;
   }
 `
@@ -104,6 +128,10 @@ export const StyledSecondaryLinks = styled.ul`
   font-size: 1rem;
   padding: 0 0 10px 0;
   margin: 0;
+
+  ${props => props.theme.media.down('md')} {
+    display: none;
+  }
 
   .SecondaryLinks__categories {
     padding-right: 0;
@@ -115,17 +143,8 @@ export const StyledSecondaryLinks = styled.ul`
       margin-left: auto;
     }
 
-    .dropdownToggler {
-      margin-left: auto;
-      border: 1.5px solid transparent;
-      border-bottom: none;
-      padding-right: 10px;
-      z-index: 5;
-    }
     .opened {
-      background: white;
-      border: 1.5px solid ${props => props.theme.palette.gray.light};
-      border-bottom: none;
+      color: ${props => props.theme.palette.primary.main};
     }
   }
 `
@@ -135,4 +154,16 @@ export const StyledSecondaryOptions = styled.ul`
   display: flex;
   align-items: stretch;
   padding: 0 0 10px 0;
+
+  ${props => props.theme.media.down('md')} {
+    display: none;
+  }
+
+  .opened {
+    color: ${props => props.theme.palette.primary.main};
+  }
+
+  div[role='tooltip'] {
+    left: 0;
+  }
 `

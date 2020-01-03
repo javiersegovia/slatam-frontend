@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import SearchIcon from '@material-ui/icons/Search'
 import { SearchBarWrapper, StyledInput } from './styled'
 
-const SearchBar = () => {
+const SearchBar = ({ isResponsive }) => {
   const [inputValue, setInputValue] = useState('')
 
   const handleChange = event => {
@@ -11,14 +11,16 @@ const SearchBar = () => {
 
   return (
     <SearchBarWrapper>
-      <button type="button" className="SearchBar__categories">
-        <span>All</span>
-      </button>
+      {!isResponsive && (
+        <button type="button" className="SearchBar__categories">
+          <span>All</span>
+        </button>
+      )}
       <div className="SearchBar__padding">
         <StyledInput
           value={inputValue}
           onChange={handleChange}
-          placeholder="Start typing to find what you are looking for"
+          placeholder="Find the best deals..."
         />
         <SearchIcon className="SearchBar__icon" />
       </div>
