@@ -46,8 +46,9 @@ export const StyledNavBar = styled.div`
       /* border-color: inherit; */
       border-width: 0 1.5px 1.5px 0;
       display: inline-block;
-      margin-left: 7px;
-      padding: 3px;
+      margin-left: 6px;
+      margin-top: 3px;
+      padding: 1.75px;
       transform: rotate(45deg);
       transition: all 0.15s ease;
     }
@@ -154,6 +155,14 @@ export const StyledSecondaryOptions = styled.ul`
   display: flex;
   align-items: stretch;
   padding: 0 0 10px 0;
+  z-index: 10;
+
+  & > li.Navbar__listItem:nth-child(3) {
+    a,
+    button {
+      padding-right: 0;
+    }
+  }
 
   ${props => props.theme.media.down('md')} {
     display: none;

@@ -5,6 +5,7 @@
   "rules": {
     "import/newline-after-import": "error",
     "import/imports-first": ["error", "absolute-first"],
+    "import/prefer-default-export": 1,
     "consistent-return": 0,
     "no-param-reassign": 0,
     "linebreak-style": 0,

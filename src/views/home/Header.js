@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import { Transition, animated } from 'react-spring'
 import Button from '@material-ui/core/Button'
 import styled from 'styled-components'
-import CarouselButtons from './CarouselButtons'
+import CarouselButtons from '../../components/CarouselButtons'
 
 const CarouselWrapper = styled.div`
   height: 400px;
   overflow: hidden;
   position: relative;
-  /* background: url('/images/bg__world.jpg'); */
   display: flex;
   align-items: center;
+  border-bottom: 2px solid ${props => props.theme.palette.gray.main};
 
   .Header__Animated {
     position: absolute;

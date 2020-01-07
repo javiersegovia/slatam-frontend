@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import PublicIcon from '@material-ui/icons/Public'
 import Popper from '@material-ui/core/Popper'
@@ -6,19 +6,23 @@ import Portal from '@material-ui/core/Portal'
 import TransparentOverlay from '@components/UI/TransparentOverlay'
 import HelpDropdown from './Dropdowns/Help'
 import LanguagesDropdown from './Dropdowns/Languages'
+import ShippingDropdown from './Dropdowns/ShippingCountries'
 import { StyledSecondaryOptions } from './styled'
 
 const NavSecondaryOptions = props => {
   const [openDropdowns, setOpenDropdowns] = useState({})
-  const helpDropdownRef = useRef(null)
-  const languageDropdownRef = useRef(null)
-  const [anchorEl, setAnchorEl] = React.useState(null)
+  const [anchorEl, setAnchorEl] = useState(null)
+  const [language, setLanguage] = useState('EN')
+  // const [checkedCountries, setCheckedCountries] = useState({})
 
-  const handleMouseEnter = (event, name) => {
+  const handleMouseEnter = event => {
+    const { name } = event.target
     setAnchorEl(event.currentTarget)
-    setOpenDropdowns({
-      [name]: true,
-    })
+    if (!openDropdowns[name]) {
+      setOpenDropdowns({
+        [name]: true,
+      })
+    }
   }
 
   const handleClose = () => {
@@ -28,8 +32,15 @@ const NavSecondaryOptions = props => {
 
   const DropdownComponent = () => (
     <>
-      {openDropdowns && openDropdowns.language && <LanguagesDropdown />}
+      {openDropdowns && openDropdowns.language && (
+        <LanguagesDropdown
+          language={language}
+          selectLanguage={setLanguage}
+          closeDropdown={handleClose}
+        />
+      )}
       {openDropdowns && openDropdowns.help && <HelpDropdown />}
+      {openDropdowns && openDropdowns.shipping && <ShippingDropdown />}
     </>
   )
 
@@ -40,32 +51,50 @@ const NavSecondaryOptions = props => {
           <button
             type="button"
             className={`Navbar__listItemButton dropdownToggler Navbar__withArrow ${
-              openDropdowns.language ? ' opened' : ''
+              openDropdowns.shipping ? 'opened' : ''
             }`}
-            onMouseOver={e => handleMouseEnter(e, 'language')}
-            onFocus={e => handleMouseEnter(e, 'language')}
-            ref={languageDropdownRef}
+            name="shipping"
+            onMouseOver={handleMouseEnter}
+            onFocus={handleMouseEnter}
           >
-            <PublicIcon />
+            Ship to...
+          </button>
+        </li>
+
+        <li
+          className="Navbar__listItem"
+          style={{ marginLeft: 'auto', width: 50 }}
+        >
+          <button
+            type="button"
+            name="language"
+            className={`Navbar__listItemButton dropdownToggler Navbar__withArrow ${
+              openDropdowns.language ? 'opened' : ''
+            }`}
+            onMouseOver={handleMouseEnter}
+            onFocus={handleMouseEnter}
+          >
+            {/* <PublicIcon /> */}
+            {language}
           </button>
         </li>
 
         <li className="Navbar__listItem">
           <button
             type="button"
+            name="help"
             className={`Navbar__listItemButton dropdownToggler Navbar__withArrow${
               openDropdowns.help ? ' opened' : ''
             }`}
-            onMouseOver={e => handleMouseEnter(e, 'help')}
-            onFocus={e => handleMouseEnter(e, 'help')}
-            ref={helpDropdownRef}
+            onMouseOver={handleMouseEnter}
+            onFocus={handleMouseEnter}
           >
             Help
           </button>
         </li>
         {Object.entries(openDropdowns).length !== 0 && (
           <Portal>
-            <TransparentOverlay />
+            <TransparentOverlay onMouseEnter={handleClose} />
           </Portal>
         )}
         <Popper
@@ -75,6 +104,11 @@ const NavSecondaryOptions = props => {
           disablePortal
           keepMounted
           placement="bottom-end"
+          modifiers={{
+            computeStyle: {
+              gpuAcceleration: false,
+            },
+          }}
         >
           <DropdownComponent />
         </Popper>

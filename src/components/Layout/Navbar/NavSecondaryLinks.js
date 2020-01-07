@@ -5,7 +5,7 @@ import TransparentOverlay from '@components/UI/TransparentOverlay'
 import { StyledSecondaryLinks } from './styled'
 import CategoriesList from './Dropdowns/Categories'
 
-const NavLinks = () => {
+const NavLinks = ({ isLoggedIn = false }) => {
   const [openDropdowns, setOpenDropdowns] = useState({})
 
   const handleMouseEnter = name => {
@@ -54,13 +54,23 @@ const NavLinks = () => {
         </li>
       </Link>
       <div className="Navbar__divider" />
-      <Link href="/get-started">
-        <li className="Navbar__listItem">
-          <a className="Navbar__listItemButton Navbar__highlightItem">
-            Get started now
-          </a>
-        </li>
-      </Link>
+      {isLoggedIn ? (
+        <Link href="/upgrade">
+          <li className="Navbar__listItem">
+            <a className="Navbar__listItemButton Navbar__highlightItem">
+              Upgrade to Elite
+            </a>
+          </li>
+        </Link>
+      ) : (
+        <Link href="/get-started">
+          <li className="Navbar__listItem">
+            <a className="Navbar__listItemButton Navbar__highlightItem">
+              Get started now
+            </a>
+          </li>
+        </Link>
+      )}
       {Object.entries(openDropdowns).length !== 0 && (
         <Portal>
           <TransparentOverlay />

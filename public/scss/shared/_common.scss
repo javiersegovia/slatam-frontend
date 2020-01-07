@@ -52,12 +52,14 @@ h6 {
 
 p {
   font-size: 0.875rem;
+  letter-spacing: 0.6px;
 }
 
 input {
   font-family: $font-primary;
   letter-spacing: 0.35px;
   padding: 0;
+  outline: none;
 }
 
 button {

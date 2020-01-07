@@ -10,6 +10,12 @@ const Styles = styled.div`
     max-width: 100%;
     padding: 0 30px;
   }
+
+  ${props =>
+    props.limited &&
+    `
+    max-width: 1300px;
+  `}
 `
 
 const Container = ({ children, ...otherProps }) => (

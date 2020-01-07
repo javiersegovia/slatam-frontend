@@ -1,40 +1,38 @@
 import React from 'react'
 import Link from 'next/link'
-import { StyledDropdownWrapper } from './styled'
+import StyledDropdownWrapper from './styled'
 
 const HelpDropdown = () => {
   return (
     <StyledDropdownWrapper>
-      <li className="LanguagesDropdown__listItem">
+      <li className="HelpDropdown__listItem">
         <Link href="/dsad">
-          <a className="LanguagesDropdown__listButton">For Buyers</a>
+          <a className="HelpDropdown__listButton">For Buyers</a>
         </Link>
       </li>
-      <li className="LanguagesDropdown__listItem">
+      <li className="HelpDropdown__listItem">
         <Link href="/sign-in">
-          <a className="LanguagesDropdown__listButton">For Suppliers</a>
+          <a className="HelpDropdown__listButton">For Suppliers</a>
         </Link>
       </li>
-      <li className="LanguagesDropdown__listItem">
+      <li className="HelpDropdown__listItem">
         <Link href="/">
-          <a className="LanguagesDropdown__listButton">Submit a Dispute</a>
+          <a className="HelpDropdown__listButton">Submit a Dispute</a>
         </Link>
       </li>
-      <li className="LanguagesDropdown__listItem">
+      <li className="HelpDropdown__listItem">
         <Link href="/">
-          <a className="LanguagesDropdown__listButton">
-            Report IPR Infringement
-          </a>
+          <a className="HelpDropdown__listButton">Report IPR Infringement</a>
         </Link>
       </li>
-      <li className="LanguagesDropdown__listItem">
+      <li className="HelpDropdown__listItem">
         <Link href="/">
-          <a className="LanguagesDropdown__listButton">Report Abuse</a>
+          <a className="HelpDropdown__listButton">Report Abuse</a>
         </Link>
       </li>{' '}
-      <li className="LanguagesDropdown__listItem">
+      <li className="HelpDropdown__listItem">
         <Link href="/">
-          <a className="LanguagesDropdown__listButton">Contact us</a>
+          <a className="HelpDropdown__listButton">Contact us</a>
         </Link>
       </li>
     </StyledDropdownWrapper>

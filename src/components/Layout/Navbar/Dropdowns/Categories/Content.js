@@ -76,15 +76,15 @@ const tempCategoryItemsList = [
 const tempFeaturedItems = [
   {
     id: uuidv4(),
-    name: 'Motorola Razer',
+    name: 'FTG Venezuela',
   },
   {
     id: uuidv4(),
-    name: 'Samsung Galaxy S10',
+    name: 'Alimentos Polar',
   },
   {
     id: uuidv4(),
-    name: 'iPhone 11',
+    name: 'Ron Carúpano',
   },
 ]
 
@@ -109,7 +109,7 @@ const CategoriesContent = ({
         </ul>
       </div>
       <div className="SubcategoriesList__featured">
-        <h6 className="SubcategoriesList__title">Recommended</h6>
+        <h6 className="SubcategoriesList__title">Featured companies</h6>
         <ul className="SubcategoriesFeaturedList__list">
           {featuredItems.map(subcat => (
             <li

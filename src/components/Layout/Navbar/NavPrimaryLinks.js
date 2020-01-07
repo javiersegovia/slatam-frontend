@@ -11,16 +11,11 @@ const NotLoggedNav = () => (
     </Link>
     <div className="Navbar__divider" />
 
-    <Link href="/register">
-      <li className="Navbar__listItem">
-        <a className="Navbar__listItemButton">Register</a>
-      </li>
-    </Link>
-    <Link href="/sign-in">
-      <li className="Navbar__listItem">
-        <a className="Navbar__listItemButton">Sign In</a>
-      </li>
-    </Link>
+    <li className="Navbar__listItem">
+      <button type="button" className="Navbar__listItemButton">
+        Account
+      </button>
+    </li>
   </>
 )
 
@@ -32,6 +27,11 @@ const LoggedInNav = () => (
       </li>
     </Link>
     <div className="Navbar__divider" />
+    <li className="Navbar__listItem">
+      <button type="button" className="Navbar__listItemButton">
+        Notifications
+      </button>
+    </li>
     <Link href="/dashboard">
       <li className="Navbar__listItem">
         <a className="Navbar__listItemButton NavLinks__HighlightItem">
@@ -47,7 +47,7 @@ const LoggedInNav = () => (
   </>
 )
 
-const NavLinks = ({ isLoggedIn = false }) => {
+const NavLinks = ({ isLoggedIn = true }) => {
   return (
     <StyledPrimaryLinks>
       {isLoggedIn ? <LoggedInNav /> : <NotLoggedNav />}

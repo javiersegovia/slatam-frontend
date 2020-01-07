@@ -11,6 +11,7 @@ export default createMuiTheme({
     cards: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
     searchBar: '0 0 6px 0 rgba(0, 0, 0, 0.16)',
     menuDropdown: '0 0px 7px 0px rgba(0,0,0,0.16)',
+    inputText: '0 0 6px 0 rgba(0,0,0,0.1) inset',
   },
   media: breakpoints,
   palette: {
@@ -19,6 +20,7 @@ export default createMuiTheme({
     },
     secondary: {
       main: '#FFCE1B',
+      light: '#FFE37E',
     },
     steelBlue: {
       main: '#007fff',
@@ -38,6 +40,9 @@ export default createMuiTheme({
     black: {
       main: '#292929',
     },
+  },
+  typography: {
+    fontFamily: 'Geomanist',
   },
   fonts: {
     primary: 'Geomanist',

@@ -1,11 +1,11 @@
 import React from 'react'
-import Header from '@components/Header'
+import Home from '@views/home'
 
-const Home = () => (
+const HomePage = () => (
   <>
-    <Header />
+    <Home />
     {/* TODO: add Features Grid with Grid Container !!! */}
   </>
 )
 
-export default Home
+export default HomePage
