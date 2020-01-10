@@ -1,9 +1,10 @@
-const breakpointSizes = {
+export const breakpointSizes = {
   mo: 0,
+  xxs: 360,
   xs: 576,
   sm: 768,
   md: 992,
-  lg: 1200,
+  lg: 1300,
   xl: 1900,
 }
 
@@ -21,12 +22,15 @@ const breakpoints = {
     return `@media only screen and (min-width: ${breakpointSizes[min]}px) and (max-width: ${breakpointSizes[max]}px)`
   },
   only(...allSizes) {
-    const { xs, sm, md, lg, xl } = breakpointSizes
+    const { xxs, xs, sm, md, lg, xl } = breakpointSizes
     const sizes = []
     allSizes.forEach(size => {
       switch (size) {
         case 'mo':
           sizes.push(`(max-width: ${xs}px)`)
+          break
+        case 'xxs':
+          sizes.push(`(min-width: ${xxs}px) and (max-width: ${xs}px)`)
           break
         case 'xs':
           sizes.push(`(min-width: ${xs}px) and (max-width: ${sm}px)`)

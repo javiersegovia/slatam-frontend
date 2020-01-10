@@ -10,48 +10,51 @@ import { StyledResponsiveNav } from './styled'
 
 const ResponsiveNav = props => {
   return (
-    <StyledResponsiveNav>
-      <ul className="ResponsiveNav__list">
-        <li className="ResponsiveNav__listItem">
-          <Link href="/">
-            <a className="ResponsiveNav__listButton">
-              <HomeIcon />
-              <span>Home</span>
-            </a>
-          </Link>
-        </li>
-        <li className="ResponsiveNav__listItem">
-          <Link href="/notifications">
-            <a className="ResponsiveNav__listButton">
-              <NotificationsIcon />
-              <span>Notifications</span>
-            </a>
-          </Link>
-        </li>
-        <li className="ResponsiveNav__listItem">
-          <Link href="/cart">
-            <a className="ResponsiveNav__listButton">
-              <ShoppingCartIcon />
-              <span>Cart</span>
-            </a>
-          </Link>
-        </li>
-        <li className="ResponsiveNav__listItem">
-          <Link href="/account">
-            <a className="ResponsiveNav__listButton">
-              <PersonIcon />
-              <span>Account</span>
-            </a>
-          </Link>
-        </li>
-        <li className="ResponsiveNav__listItem">
-          <button className="ResponsiveNav__listButton" type="button">
-            <MenuIcon />
-            <span>More</span>
-          </button>
-        </li>
-      </ul>
-    </StyledResponsiveNav>
+    <>
+      <StyledResponsiveNav>
+        <ul className="ResponsiveNav__list">
+          <li className="ResponsiveNav__listItem">
+            <Link href="/">
+              <a className="ResponsiveNav__listButton">
+                <HomeIcon />
+                <span>Home</span>
+              </a>
+            </Link>
+          </li>
+          <li className="ResponsiveNav__listItem">
+            <Link href="/notifications">
+              <a className="ResponsiveNav__listButton">
+                <NotificationsIcon />
+                <span>Notifications</span>
+              </a>
+            </Link>
+          </li>
+          <li className="ResponsiveNav__listItem">
+            <Link href="/cart">
+              <a className="ResponsiveNav__listButton">
+                <ShoppingCartIcon />
+                <span>Cart</span>
+              </a>
+            </Link>
+          </li>
+          <li className="ResponsiveNav__listItem">
+            <Link href="/account">
+              <a className="ResponsiveNav__listButton">
+                <PersonIcon />
+                <span>Account</span>
+              </a>
+            </Link>
+          </li>
+          <li className="ResponsiveNav__listItem">
+            <button className="ResponsiveNav__listButton" type="button">
+              <MenuIcon />
+              <span>More</span>
+            </button>
+          </li>
+        </ul>
+      </StyledResponsiveNav>
+      <div style={{ height: 65 }} />
+    </>
   )
 }
 

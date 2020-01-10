@@ -13,7 +13,6 @@ const NavSecondaryOptions = props => {
   const [openDropdowns, setOpenDropdowns] = useState({})
   const [anchorEl, setAnchorEl] = useState(null)
   const [language, setLanguage] = useState('EN')
-  // const [checkedCountries, setCheckedCountries] = useState({})
 
   const handleMouseEnter = event => {
     const { name } = event.target

@@ -4,17 +4,29 @@ import styled from 'styled-components'
 
 const Styles = styled.div`
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 60px;
   width: 100%;
-  ${props => props.theme.breakpoints.only('xs')} {
-    max-width: 100%;
+
+  ${props => props.theme.breakpoints.down('lg')} {
     padding: 0 30px;
+  }
+
+  ${props => props.theme.breakpoints.down('sm')} {
+    padding: 0 30px;
+    ${props => props.fullWidth === 'sm' && `padding: 0;`}
+  }
+
+  ${props => props.theme.breakpoints.down('xs')} {
+    max-width: 100%;
+    padding: 0 15px;
+    ${props =>
+      (props.fullWidth === 'sm' || props.fullWidth === 'xs') && `padding: 0;`}
   }
 
   ${props =>
     props.limited &&
     `
-    max-width: 1300px;
+    max-width: 1500px;
   `}
 `
 

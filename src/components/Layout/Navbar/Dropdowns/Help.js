@@ -29,7 +29,7 @@ const HelpDropdown = () => {
         <Link href="/">
           <a className="HelpDropdown__listButton">Report Abuse</a>
         </Link>
-      </li>{' '}
+      </li>
       <li className="HelpDropdown__listItem">
         <Link href="/">
           <a className="HelpDropdown__listButton">Contact us</a>

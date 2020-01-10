@@ -8,7 +8,17 @@ export const StyledTitle = styled.h3`
   font-weight: 400;
   margin: 0;
   color: ${props => props.theme.palette.primary.main};
+
+  ${props => props.theme.breakpoints.down('sm')} {
+    font-size: 1.5rem;
+  }
 `
+
+export const MD = ({ children }) => (
+  <ReactMarkdown disallowedTypes={['paragraph']} unwrapDisallowed>
+    {children}
+  </ReactMarkdown>
+)
 
 export const Title = ({ children, ...props }) => {
   return (

@@ -3,10 +3,22 @@ import PropTypes from 'prop-types'
 import { Title } from '@components/UI/Typography'
 import styled from 'styled-components'
 
-const SeeMoreButton = styled.a`
+const SeeMoreButton = styled.span`
   margin-left: 20px;
   font-size: 1rem;
   color: ${props => props.theme.palette.primary.main};
+
+  ${props => props.theme.breakpoints.down('md')} {
+    font-size: 0.9375rem;
+  }
+
+  ${props => props.theme.breakpoints.down('sm')} {
+    font-size: 0.875rem;
+  }
+
+  @media only screen and (max-width: 390px) {
+    display: none;
+  }
 
   &:after {
     content: '';
@@ -21,18 +33,22 @@ const SeeMoreButton = styled.a`
   }
 `
 
+const Wrapper = styled.a`
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+
+  ${props => props.theme.breakpoints.down('xs')} {
+    margin-bottom: 30px;
+  }
+`
+
 const SectionTitle = ({ children, href, seeMore }) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        marginBottom: 60,
-      }}
-    >
+    <Wrapper href={href}>
       <Title>{children}</Title>
-      <SeeMoreButton href={href}>{seeMore}</SeeMoreButton>
-    </div>
+      <SeeMoreButton>{seeMore}</SeeMoreButton>
+    </Wrapper>
   )
 }
 

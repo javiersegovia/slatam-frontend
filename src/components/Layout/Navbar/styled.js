@@ -9,7 +9,7 @@ export const StyledNavBar = styled.div`
   border-bottom: 2px solid ${props => props.theme.palette.gray.light};
   z-index: ${props => props.theme.zIndex.appBar};
 
-  ${props => props.theme.media.down('md')} {
+  ${props => props.theme.breakpoints.down('md')} {
     padding: 20px 0;
   }
 
@@ -68,11 +68,11 @@ export const NavRow = styled.div`
   display: flex;
   align-items: stretch;
 
-  ${props => props.theme.media.down('md')} {
+  ${props => props.theme.breakpoints.down('md')} {
     display: ${props => (props.hideOnResponsive ? 'none' : 'flex')};
     padding: 0 30px;
   }
-  ${props => props.theme.media.down('sm')} {
+  ${props => props.theme.breakpoints.down('sm')} {
     padding: 0 15px;
   }
 `
@@ -85,11 +85,11 @@ export const Logo = styled.div`
   display: flex;
   align-items: center;
 
-  ${props => props.theme.media.down('md')} {
+  ${props => props.theme.breakpoints.down('md')} {
     min-width: 140px;
   }
 
-  ${props => props.theme.media.down('xs')} {
+  ${props => props.theme.breakpoints.down('xs')} {
     min-width: 100px;
     max-width: 140px;
   }
@@ -114,7 +114,7 @@ export const StyledPrimaryLinks = styled.ul`
   align-items: center;
   font-size: 1rem;
 
-  ${props => props.theme.media.down('md')} {
+  ${props => props.theme.breakpoints.down('md')} {
     display: none;
   }
 
@@ -130,7 +130,7 @@ export const StyledSecondaryLinks = styled.ul`
   padding: 0 0 10px 0;
   margin: 0;
 
-  ${props => props.theme.media.down('md')} {
+  ${props => props.theme.breakpoints.down('md')} {
     display: none;
   }
 
@@ -164,7 +164,7 @@ export const StyledSecondaryOptions = styled.ul`
     }
   }
 
-  ${props => props.theme.media.down('md')} {
+  ${props => props.theme.breakpoints.down('md')} {
     display: none;
   }
 

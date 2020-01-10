@@ -9,18 +9,8 @@ import SectionTitle from './SectionTitle'
 const SectionWrapper = styled.div`
   margin-top: 60px;
 `
-// id: ID! @id
-// title: String!
-// description: String!
-// sku: String
-// image: [ItemImage]! @relation(onDelete: CASCADE)
-// price: Int!
-// owner: Company!
-// status: ItemStatus! @default(value: PRIVATE)
-// createdAt: DateTime! @createdAt
-// updatedAt: DateTime! @updatedAt
 
-const generatedProducts = Array(40)
+const generatedProducts = Array(12)
   .fill(null)
   .map(item => ({
     id: faker.random.uuid(),
@@ -29,7 +19,8 @@ const generatedProducts = Array(40)
     maxPrice: faker.commerce.price(),
     minimumOrder: Math.floor(Math.random() * 100) + 1,
     countryCode: faker.address.countryCode(),
-    image: faker.image.imageUrl(),
+    image:
+      'https://www.ordenadoresgaming.top/wp-content/uploads/2018/02/Pack-PC-completo-gaming.jpg',
     owner: {
       name: faker.company.companyName(),
       isVerified: faker.random.boolean(),
@@ -41,7 +32,7 @@ const RelatedProducts = props => {
     <SectionWrapper>
       <Container limited>
         <SectionTitle href="/" seeMore="See more">
-          Related to your **search history**
+          Related to your **search**
         </SectionTitle>
         <ProductsGrid products={generatedProducts} />
       </Container>

@@ -25,19 +25,31 @@ const features = [
 
 const StyledFeatures = styled.div`
   margin-top: 60px;
+  ${props => props.theme.breakpoints.down('md')} {
+    margin-top: 30px;
+  }
+
+  ${props => props.theme.breakpoints.down('sm')} {
+    margin: 0;
+  }
+
   .Features__grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     box-shadow: ${props => props.theme.bShadows.searchBar};
     border-radius: 4px;
     overflow: hidden;
+
+    ${props => props.theme.breakpoints.down('md')} {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 `
 
 const FeaturesGrid = props => {
   return (
     <StyledFeatures>
-      <Container limited>
+      <Container limited fullWidth="sm">
         <div className="Features__grid">
           {features.map(feature => (
             <Feature

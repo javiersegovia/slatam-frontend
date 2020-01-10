@@ -10,6 +10,11 @@ export const StyledResponsiveNav = styled.div`
   border-top: 1.5px solid ${props => props.theme.palette.gray.light};
   z-index: ${props => props.theme.zIndex.appBar};
   padding: 0px 15px 10px;
+  display: none;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    display: block;
+  }
 
   .ResponsiveNav__list {
     display: grid;

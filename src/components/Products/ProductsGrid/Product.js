@@ -7,7 +7,19 @@ const StyledProduct = styled.div`
   border-radius: 4px;
   position: relative;
   width: 100%;
-  height: 180px;
+  height: 200px;
+  box-shadow: ${props => props.theme.bShadows.product};
+
+  ${props => props.theme.breakpoints.down('lg')} {
+    height: 220px;
+  }
+
+  ${props => props.theme.breakpoints.down('md')} {
+    height: 220px;
+    &.hideMobile {
+      display: none;
+    }
+  }
 
   .Product__image {
     background-repeat: no-repeat;
@@ -34,9 +46,9 @@ const StyledProduct = styled.div`
   }
 `
 
-const Product = ({ product }) => {
+const Product = ({ product, ...otherProps }) => {
   return (
-    <StyledProduct>
+    <StyledProduct {...otherProps}>
       <div
         className="Product__image"
         style={{ backgroundImage: `url(${product.image})` }}

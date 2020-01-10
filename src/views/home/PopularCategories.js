@@ -6,10 +6,6 @@ import SectionTitle from './SectionTitle'
 
 const SectionWrapper = styled.div`
   margin-top: 60px;
-  .PopularCategories__titleWrapper {
-    display: flex;
-    align-items: center;
-  }
 `
 
 const PopularCategories = props => {

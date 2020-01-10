@@ -11,6 +11,7 @@ import WindowSizeProvider from './context/WindowSize'
 
 import theme from './theme'
 import NavBar from './Navbar'
+import ResponsiveNav from './Navbar/ResponsiveNav'
 import AppMeta from './AppMeta'
 
 import '../../../public/scss/application.scss'
@@ -25,6 +26,7 @@ const AppLayout = props => {
             <AppMeta />
             <NavBar />
             {props.children}
+            <ResponsiveNav />
           </WindowSizeProvider>
         </ThemeProvider>
       </MuiThemeProvider>

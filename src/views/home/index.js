@@ -3,7 +3,10 @@ import PropTypes from 'prop-types'
 import Header from './Header'
 import FeaturesGrid from './FeaturesGrid'
 import PopularCategories from './PopularCategories'
-import ProductsGrid from './RelatedProducts'
+import RelatedProducts from './RelatedProducts'
+import BestSellers from './BestSellers'
+import VerifiedSuppliers from './VerifiedSuppliers'
+import StartSelling from './StartSelling'
 
 const Home = props => {
   return (
@@ -11,7 +14,10 @@ const Home = props => {
       <Header />
       <FeaturesGrid />
       <PopularCategories />
-      <ProductsGrid />
+      <RelatedProducts />
+      <BestSellers />
+      <VerifiedSuppliers />
+      <StartSelling />
     </>
   )
 }

@@ -98,17 +98,13 @@ const StyledDropdownWrapper = styled.ul`
     }
 
     .checkbox__icon {
-      border-radius: 3px;
-      width: 18px;
-      height: 18px;
-      box-shadow: inset 0 0 0 1px rgba(16, 22, 26, 0.2),
-        inset 0 -1px 0 rgba(16, 22, 26, 0.1);
-      background-color: #f5f8fa;
-      background-image: linear-gradient(
-        180deg,
-        hsla(0, 0%, 100%, 0.8),
-        hsla(0, 0%, 100%, 0)
-      );
+      border-radius: 4px;
+      width: 19px;
+      height: 19px;
+      background-color: #f2f4f9;
+      box-shadow: 0px 0px 4px rgb(226, 226, 230) inset;
+      border: 1px solid gray;
+      border: 1px solid #e0e0e0;
 
       input:hover ~ & {
         background-color: #ebf1f5;
@@ -120,14 +116,7 @@ const StyledDropdownWrapper = styled.ul`
     }
 
     .checkbox__checkedIcon {
-      background-color: ${props => props.theme.palette.secondary.main};
-      box-shadow: inset 0 0 0 1px rgba(187, 189, 71, 0.2),
-        inset 0 -1px 0 rgba(16, 22, 26, 0.1);
-      background-image: linear-gradient(
-        180deg,
-        hsla(0, 0%, 100%, 0.1),
-        hsla(0, 0%, 100%, 0)
-      );
+      /* background-color: white; */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -135,13 +124,12 @@ const StyledDropdownWrapper = styled.ul`
       &:before {
         display: block;
         content: '';
-        width: 6px;
-        height: 11px;
-        border-bottom: 2px solid white;
-        border-right: 2px solid white;
+        width: 5px;
+        height: 9px;
+        border-bottom: 2px solid ${props => props.theme.palette.primary.main};
+        border-right: 2px solid ${props => props.theme.palette.primary.main};
         transform: rotate(45deg);
         margin-bottom: 1px;
-        border-radius: 1px;
       }
       input:hover ~ & {
         background-color: #106ba3;

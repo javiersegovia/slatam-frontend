@@ -25,6 +25,10 @@ export const SearchBarWrapper = styled.div`
     padding: 0 15px;
     cursor: pointer;
 
+    ${props => props.theme.breakpoints.down('md')} {
+      display: none;
+    }
+
     span {
       display: flex;
       align-items: center;
