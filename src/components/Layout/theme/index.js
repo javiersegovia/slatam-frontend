@@ -36,6 +36,9 @@ export default createMuiTheme({
     blue: {
       main: '#0f4eff',
     },
+    lightBlue: {
+      main: '#bfd8f1',
+    },
     gray: {
       dark: '#82878b',
       main: '#e8ebee',
@@ -44,7 +47,7 @@ export default createMuiTheme({
     },
     slategray: {
       dark: '#374456',
-      main: '#647a99',
+      main: '#758da5',
       light: '#92a7ba',
       extralight: '#b7d0e2',
     },

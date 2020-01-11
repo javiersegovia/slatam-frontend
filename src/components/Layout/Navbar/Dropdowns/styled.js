@@ -42,6 +42,8 @@ const StyledDropdownWrapper = styled.ul`
   .Shipping__description {
     max-width: 200px;
     color: ${props => props.theme.palette.gray.dark};
+    margin: 20px auto;
+    text-align: center;
   }
 
   .Shipping__searchInput {
@@ -50,7 +52,6 @@ const StyledDropdownWrapper = styled.ul`
     width: 100%;
     border: 1px solid ${props => props.theme.palette.gray.main};
     background: ${props => props.theme.palette.gray.extralight};
-    box-shadow: ${props => props.theme.bShadows.inputText};
 
     &::placeholder {
       color: ${props => rgba(props.theme.palette.gray.dark, 0.75)};
@@ -61,11 +62,10 @@ const StyledDropdownWrapper = styled.ul`
   .Shipping__list {
     padding: 10px;
     margin-top: 20px;
-    background: ${props => props.theme.palette.gray.extralight};
-    border: 1px solid ${props => props.theme.palette.gray.main};
+    background: ${props => props.theme.palette.snow.extralight};
+    border: 1px solid ${props => props.theme.palette.lightBlue.main};
     border-radius: 6px;
     margin-bottom: 10px;
-    box-shadow: ${props => props.theme.bShadows.inputText};
     max-height: 270px;
     overflow: auto;
   }
@@ -116,7 +116,6 @@ const StyledDropdownWrapper = styled.ul`
     }
 
     .checkbox__checkedIcon {
-      /* background-color: white; */
       display: flex;
       align-items: center;
       justify-content: center;

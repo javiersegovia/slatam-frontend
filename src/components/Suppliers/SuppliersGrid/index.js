@@ -32,6 +32,7 @@ const SuppliersGrid = ({ suppliers }) => {
     <StyledSuppliersGrid>
       {suppliers.map((supplier, idx) => (
         <Supplier
+          key={supplier.id}
           supplier={supplier}
           className={cx({
             hideLG: idx > 3,

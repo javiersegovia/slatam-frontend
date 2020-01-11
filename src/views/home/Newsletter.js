@@ -91,7 +91,7 @@ const Newsletter = props => {
           </Button>
         </div>
         <Text size="body2" className="Newsletter__underlineText">
-          You can unsubscribe anytime you want. Read our privacy terms.
+          You can unsubscribe anytime you want.
         </Text>
       </Container>
     </SectionWrapper>

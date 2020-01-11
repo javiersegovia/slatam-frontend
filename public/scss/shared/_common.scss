@@ -18,43 +18,6 @@ body {
   font-family: $font-primary;
 }
 
-a {
-  text-decoration: none;
-  line-height: normal;
-  color: inherit;
-}
-
-h1 {
-  font-size: 3.5rem;
-}
-
-h2 {
-  font-size: 3rem;
-}
-
-h3 {
-  font-size: 2.5rem;
-}
-
-h4 {
-  font-size: 2rem;
-}
-
-h5 {
-  font-size: 1.5rem;
-}
-
-h6 {
-  font-size: 1.25rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-p {
-  font-size: 0.875rem;
-  letter-spacing: 0.6px;
-}
-
 input {
   font-family: $font-primary;
   letter-spacing: 0.35px;
@@ -85,7 +48,6 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   -webkit-transition-delay: 99999s;
   font-size: inherit;
-  // -webkit-text-fill-color: #d7d8ce;
 }
 
 button {
@@ -95,12 +57,15 @@ button {
   font-size: 1rem;
   font-family: $font-primary;
   padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
 }
 
 li {
   list-style: none;
-}
-
-.mainContainer {
-  padding: 0 30px;
 }

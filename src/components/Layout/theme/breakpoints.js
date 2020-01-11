@@ -1,6 +1,6 @@
 export const breakpointSizes = {
   mo: 0,
-  xxs: 360,
+  xxs: 375,
   xs: 576,
   sm: 768,
   md: 992,

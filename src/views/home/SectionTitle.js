@@ -34,7 +34,7 @@ const SeeMoreButton = styled.span`
 `
 
 const Wrapper = styled.a`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   margin-bottom: 60px;
 
