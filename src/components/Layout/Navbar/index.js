@@ -5,8 +5,9 @@ import { StyledNavBar, NavRow, Logo } from './styled'
 import NavPrimaryLinks from './NavPrimaryLinks'
 import NavSecondaryLinks from './NavSecondaryLinks'
 import NavSecondaryOptions from './NavSecondaryOptions'
+import ResponsiveNav from './ResponsiveNav'
 
-const NavBar = () => {
+const NavBar = ({ children }) => {
   return (
     <>
       <StyledNavBar>
@@ -26,6 +27,8 @@ const NavBar = () => {
           <NavSecondaryOptions />
         </NavRow>
       </StyledNavBar>
+      {children}
+      <ResponsiveNav />
     </>
   )
 }

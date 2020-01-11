@@ -47,4 +47,11 @@ export const StyledResponsiveNav = styled.div`
   }
 `
 
-export const Cdsdcs = 1
+export const ResponsiveNavPadding = styled.div`
+  padding-top: 65px;
+  display: none;
+
+  ${props => props.theme.breakpoints.down('md')} {
+    display: block;
+  }
+`

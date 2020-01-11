@@ -6,7 +6,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart'
 import PersonIcon from '@material-ui/icons/Person'
 import MenuIcon from '@material-ui/icons/Menu'
 import Link from 'next/link'
-import { StyledResponsiveNav } from './styled'
+import { StyledResponsiveNav, ResponsiveNavPadding } from './styled'
 
 const ResponsiveNav = props => {
   return (
@@ -53,7 +53,7 @@ const ResponsiveNav = props => {
           </li>
         </ul>
       </StyledResponsiveNav>
-      <div style={{ height: 65 }} />
+      <ResponsiveNavPadding />
     </>
   )
 }

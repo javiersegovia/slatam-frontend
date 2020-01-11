@@ -43,11 +43,10 @@ export const StyledNavBar = styled.div`
     &:after {
       content: '';
       border-style: solid;
-      /* border-color: inherit; */
       border-width: 0 1.5px 1.5px 0;
       display: inline-block;
       margin-left: 6px;
-      margin-top: 3px;
+      margin-bottom: 3px;
       padding: 1.75px;
       transform: rotate(45deg);
       transition: all 0.15s ease;
@@ -55,7 +54,7 @@ export const StyledNavBar = styled.div`
     &.opened {
       &:after {
         transform: rotate(-135deg);
-        margin-top: 5px;
+        margin-bottom: 0;
       }
     }
   }

@@ -11,7 +11,6 @@ export const SearchBarWrapper = styled.div`
   margin: auto auto auto 30px;
   color: ${props => rgba(props.theme.palette.gray.dark, 0.65)};
   font-size: 1rem;
-  max-height: 40px;
   ${props => props.theme.breakpoints.up('sm')} {
     min-width: 370px;
   }
@@ -61,13 +60,14 @@ export const SearchBarWrapper = styled.div`
 `
 
 export const StyledInput = styled.input`
-  padding: 10px 15px;
+  padding: 15px;
   border: none;
   outline: none;
   border-radius: 35px;
   flex: 1;
+  margin-top: 2px;
   color: ${props => props.theme.palette.black.dark};
-  font-size: 0.95rem;
+  font-size: 1rem;
 
   &::placeholder {
     color: ${props => rgba(props.theme.palette.gray.dark, 0.65)};

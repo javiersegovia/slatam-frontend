@@ -7,6 +7,7 @@ import RelatedProducts from './RelatedProducts'
 import BestSellers from './BestSellers'
 import VerifiedSuppliers from './VerifiedSuppliers'
 import StartSelling from './StartSelling'
+import Newsletter from './Newsletter'
 
 const Home = props => {
   return (
@@ -18,6 +19,7 @@ const Home = props => {
       <BestSellers />
       <VerifiedSuppliers />
       <StartSelling />
+      <Newsletter />
     </>
   )
 }

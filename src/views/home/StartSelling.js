@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Container from '@components/UI/Container'
 import Button from '@components/UI/Button'
+import { Text } from '@components/UI/Typography'
 
 const StyledWrapper = styled.div`
   margin: 120px 0 60px;
@@ -92,19 +93,19 @@ const StartSelling = props => {
           <h3 className="StartSelling__title">
             Sell your products to the world
           </h3>
-          <p className="StartSelling__description">
+          <Text className="StartSelling__description">
             If you got a business or a product and you would like to know more
             about the B2B e-commerce, you are in the right place. Our goal is to
             get your business going, find new clients and expand your brand
             beyond the borders.
-          </p>
+          </Text>
           <div className="StartSelling__callToAction">
             <Button
               type="button"
               size="lg"
               className="StartSelling__buttonPrimary"
             >
-              Get started
+              Create account
             </Button>
             <Button
               type="button"

@@ -6,7 +6,7 @@ const StyledButton = styled.button`
   padding: 12px 16px;
   outline: none;
   border: none;
-  background: linear-gradient(67deg, #174592, #0a5fbb);
+  background: ${props => props.theme.gradients.primary.main};
   box-shadow: ${props => props.theme.bShadows.button};
   color: white;
   font-weight: 500;
@@ -25,7 +25,7 @@ const StyledButton = styled.button`
   ${props =>
     props.size === 'lg' &&
     `
-    font-size: 1.125rem;
+    /* font-size: 1.125rem; */
     padding: 14px 22px;
     /* text-transform: uppercase; */
   `}

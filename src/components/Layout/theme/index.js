@@ -16,6 +16,11 @@ export default createMuiTheme({
     button: '0 4px 6px rgba(50, 50, 93, 0.08), 0 1px 3px rgba(0,0,0,.08)',
   },
   breakpoints,
+  gradients: {
+    primary: {
+      main: 'linear-gradient(67deg,#174592,#0a5fbb)',
+    },
+  },
   palette: {
     primary: {
       main: '#002882',
@@ -47,6 +52,12 @@ export default createMuiTheme({
       main: '#d5dbe3',
       light: '#f4f6f8',
       extralight: '#f9fafb',
+    },
+    palelilac: {
+      dark: '#ccd9f5',
+      main: '#ebebf0',
+      light: '#e6f0f7',
+      extralight: '#fafcfd',
     },
     gold: {
       main: '#FFAB00',
