@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import Container from '@components/UI/Container'
 import styled from 'styled-components'
 import faker from 'faker'
@@ -12,7 +12,7 @@ const SectionWrapper = styled.div`
 
 const generatedProducts = Array(12)
   .fill(null)
-  .map(item => ({
+  .map(() => ({
     id: faker.random.uuid(),
     title: faker.commerce.productName(),
     minPrice: faker.commerce.price(),
@@ -24,10 +24,14 @@ const generatedProducts = Array(12)
     owner: {
       name: faker.company.companyName(),
       isVerified: faker.random.boolean(),
+      rating: {
+        average: Math.random() * 5 + 1,
+        numberOfRatings: Math.floor(Math.random() * 200) + 1,
+      },
     },
   }))
 
-const BestSellers = props => {
+const BestSellers = () => {
   return (
     <SectionWrapper>
       <Container limited>

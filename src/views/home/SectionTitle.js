@@ -52,6 +52,9 @@ const SectionTitle = ({ children, href, seeMore }) => {
   )
 }
 
-SectionTitle.propTypes = {}
-
+SectionTitle.propTypes = {
+  children: PropTypes.string.isRequired,
+  seeMore: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+}
 export default SectionTitle

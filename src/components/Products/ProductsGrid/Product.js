@@ -1,21 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FlagIcon } from 'react-flag-kit'
+import ProductContent from './ProductContent'
 
-const StyledProduct = styled.div`
+const StyledProduct = styled.a`
   border-radius: 4px;
   position: relative;
   width: 100%;
-  height: 200px;
   box-shadow: ${props => props.theme.bShadows.product};
-
-  ${props => props.theme.breakpoints.down('lg')} {
-    height: 220px;
-  }
+  cursor: pointer;
 
   ${props => props.theme.breakpoints.down('md')} {
-    height: 220px;
     &.hideMobile {
       display: none;
     }
@@ -25,8 +21,16 @@ const StyledProduct = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 100%;
+    height: 200px;
     border-radius: 4px;
+
+    ${props => props.theme.breakpoints.down('lg')} {
+      height: 220px;
+    }
+
+    ${props => props.theme.breakpoints.down('md')} {
+      height: 220px;
+    }
   }
 
   .Product__countryCode {
@@ -44,11 +48,28 @@ const StyledProduct = styled.div`
       margin-left: 5px;
     }
   }
+
+  ${props =>
+    props.isActive &&
+    `
+  .Product__content {
+    display: block;
+  }
+  `}
 `
 
 const Product = ({ product, ...otherProps }) => {
+  const [isHovered, setIsHovered] = useState(false)
+  const onMouseEnter = () => setIsHovered(true)
+  const onMouseLeave = () => setIsHovered(false)
+
   return (
-    <StyledProduct {...otherProps}>
+    <StyledProduct
+      {...otherProps}
+      href={`/products/${product.id}`}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       <div
         className="Product__image"
         style={{ backgroundImage: `url(${product.image})` }}
@@ -57,10 +78,20 @@ const Product = ({ product, ...otherProps }) => {
         <FlagIcon code={product.countryCode} size={22} />
         <span>{product.countryCode}</span>
       </div>
+      <ProductContent product={product} isActive={isHovered} />
     </StyledProduct>
   )
 }
 
-Product.propTypes = {}
+Product.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    countryCode: PropTypes.string.isRequired,
+    // TODO: uncomment when using real data
+    // minPrice: PropTypes.number.isRequired,
+    // maxPrice: PropTypes.number.isRequired,
+  }),
+}
 
 export default Product

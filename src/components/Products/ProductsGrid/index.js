@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import cx from 'classnames'
@@ -20,6 +20,10 @@ const StyledProductsGrid = styled.div`
   ${props => props.theme.breakpoints.down('sm')} {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 15px;
+  }
+
+  .Product__popper {
+    z-index: 5;
   }
 `
 

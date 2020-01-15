@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import PublicIcon from '@material-ui/icons/Public'
+// import PropTypes from 'prop-types'
+// import PublicIcon from '@material-ui/icons/Public'
 import Popper from '@material-ui/core/Popper'
 import Portal from '@material-ui/core/Portal'
 import TransparentOverlay from '@components/UI/TransparentOverlay'
@@ -9,7 +9,7 @@ import LanguagesDropdown from './Dropdowns/Languages'
 import ShippingDropdown from './Dropdowns/ShippingCountries'
 import { StyledSecondaryOptions } from './styled'
 
-const NavSecondaryOptions = props => {
+const NavSecondaryOptions = () => {
   const [openDropdowns, setOpenDropdowns] = useState({})
   const [anchorEl, setAnchorEl] = useState(null)
   const [language, setLanguage] = useState('EN')
