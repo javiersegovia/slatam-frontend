@@ -22,6 +22,7 @@ const generatedProducts = Array(12)
     image:
       'https://www.ordenadoresgaming.top/wp-content/uploads/2018/02/Pack-PC-completo-gaming.jpg',
     owner: {
+      id: faker.random.uuid(),
       name: faker.company.companyName(),
       isVerified: faker.random.boolean(),
       rating: {

@@ -22,6 +22,7 @@ const generatedProducts = Array(12)
     image:
       'https://storage.sg.content-cdn.io/in-resources/fc93a3a8-f69b-444c-8b76-9848de9338d0/Images/userimages/topcategories-img1.jpg',
     owner: {
+      id: faker.random.uuid(),
       name: faker.company.companyName(),
       isVerified: faker.random.boolean(),
       rating: {

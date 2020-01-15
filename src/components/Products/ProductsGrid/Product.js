@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { FlagIcon } from 'react-flag-kit'
 import ProductContent from './ProductContent'
 
-const StyledProduct = styled.a`
+const StyledProduct = styled.div`
   border-radius: 4px;
   position: relative;
   width: 100%;
   box-shadow: ${props => props.theme.bShadows.product};
-  cursor: pointer;
 
   ${props => props.theme.breakpoints.down('md')} {
     &.hideMobile {
@@ -34,6 +33,7 @@ const StyledProduct = styled.a`
   }
 
   .Product__countryCode {
+    box-shadow: ${props => props.theme.bShadows.product};
     background: white;
     border-radius: 4px;
     position: absolute;
@@ -49,13 +49,13 @@ const StyledProduct = styled.a`
     }
   }
 
-  ${props =>
+  /* ${props =>
     props.isActive &&
     `
   .Product__content {
     display: block;
   }
-  `}
+  `} */
 `
 
 const Product = ({ product, ...otherProps }) => {
@@ -63,22 +63,28 @@ const Product = ({ product, ...otherProps }) => {
   const onMouseEnter = () => setIsHovered(true)
   const onMouseLeave = () => setIsHovered(false)
 
+  const memoProductContent = useMemo(
+    () => <ProductContent product={product} />,
+    [product]
+  )
+
   return (
     <StyledProduct
       {...otherProps}
-      href={`/products/${product.id}`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <div
-        className="Product__image"
-        style={{ backgroundImage: `url(${product.image})` }}
-      />
+      <a href={`/products/${product.id}`}>
+        <div
+          className="Product__image"
+          style={{ backgroundImage: `url(${product.image})` }}
+        />
+      </a>
       <div className="Product__countryCode">
         <FlagIcon code={product.countryCode} size={22} />
         <span>{product.countryCode}</span>
       </div>
-      <ProductContent product={product} isActive={isHovered} />
+      {isHovered && memoProductContent}
     </StyledProduct>
   )
 }
@@ -88,9 +94,6 @@ Product.propTypes = {
     id: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     countryCode: PropTypes.string.isRequired,
-    // TODO: uncomment when using real data
-    // minPrice: PropTypes.number.isRequired,
-    // maxPrice: PropTypes.number.isRequired,
   }),
 }
 
