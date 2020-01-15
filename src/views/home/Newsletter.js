@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward'
 import Container from '@components/UI/Container'
@@ -62,7 +61,7 @@ const SectionWrapper = styled.div`
     font-style: italic;
   }
 `
-const Newsletter = props => {
+const Newsletter = () => {
   const [inputValue, setInputValue] = useState('')
 
   const handleChange = e => {

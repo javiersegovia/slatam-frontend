@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Link from 'next/link'
 import styled from 'styled-components'
 import Container from '@components/UI/Container'
@@ -193,7 +192,7 @@ const FooterCopyright = styled.div`
   }
 `
 
-const Footer = props => {
+const Footer = () => {
   return (
     <StyledFooter>
       <Container limited className="StyledFooter__container">
