@@ -22,8 +22,7 @@ export const StyledText = styled.p`
     `
     font-size: 1rem;
     line-height: 30px;
-  `} {
-
+  `}
 
   ${props => props.theme.breakpoints.down('sm')} {
     font-size: 1rem;
@@ -32,9 +31,8 @@ export const StyledText = styled.p`
       props.size === 'body2' &&
       `
     font-size: 0.875rem;
-  `} {
+  `}
   }
-
 `
 
 export const MD = ({ children }) => (

@@ -82,14 +82,14 @@ export default class ShippingCountries extends Component {
     return (
       <StyledDropdownWrapper as="div">
         <p className="Shipping__description">
-          Please select the countries you may ship for
+          Select the countries you may ship for
         </p>
         <input
           type="text"
           value={this.state.inputValue}
           onChange={this.handleChange}
           className="Shipping__searchInput"
-          placeholder="Search four your country..."
+          placeholder="Type to find your country"
         />
         <ul className="Shipping__list">
           <ShippingCountriesList

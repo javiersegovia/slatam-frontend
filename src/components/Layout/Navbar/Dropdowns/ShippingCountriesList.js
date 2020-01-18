@@ -30,7 +30,7 @@ const ShippingCountriesList = ({
             />
           </>
         }
-        label={name}
+        label={<div className="Shipping__label">{name}</div>}
         labelPlacement="start"
         name={code}
       />

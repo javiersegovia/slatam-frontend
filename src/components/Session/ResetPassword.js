@@ -14,7 +14,7 @@ const ResetPassword = () => {
   const [formValues, setFormValues] = useState({
     password: '',
     confirm_password: '',
-    showPassword: false
+    showPassword: false,
   })
 
   const handleChange = name => event =>

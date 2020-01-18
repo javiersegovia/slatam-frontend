@@ -18,7 +18,7 @@ const SignUp = () => {
     last_name: '',
     password: '',
     confirm_password: '',
-    showPassword: false
+    showPassword: false,
   })
 
   const handleChange = name => event =>

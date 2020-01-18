@@ -5,7 +5,7 @@ import Container from '@components/UI/Container'
 import Button from '@components/UI/Button'
 import { Text } from '@components/UI/Typography'
 
-const StyledWrapper = styled.div`
+const StyledStartSelling = styled.div`
   margin: 120px 0 60px;
 
   ${props => props.theme.breakpoints.up('lg')} {
@@ -84,7 +84,7 @@ const StyledWrapper = styled.div`
 
 const StartSelling = props => {
   return (
-    <StyledWrapper>
+    <StyledStartSelling>
       <Container limited className="StartSelling__container">
         <div className="StartSelling__imageWrapper">
           <img src="/images/img-world.png" alt="World" />
@@ -118,7 +118,7 @@ const StartSelling = props => {
           </div>
         </div>
       </Container>
-    </StyledWrapper>
+    </StyledStartSelling>
   )
 }
 

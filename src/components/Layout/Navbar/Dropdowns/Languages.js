@@ -15,7 +15,7 @@ const LanguagesDropdown = ({ language, selectLanguage, closeDropdown }) => {
   return (
     <StyledDropdownWrapper as="div">
       <p className="LanguagesDropdown__description">
-        Please choose your language
+        Choose your preferred language
       </p>
       <ul className="LanguagesDropdown__list">
         <li className="LanguagesDropdown__listItem">

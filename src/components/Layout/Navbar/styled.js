@@ -27,6 +27,10 @@ export const StyledNavBar = styled.div`
     padding: 10px;
   }
 
+  .Navbar__listItemSvg {
+    font-size: 2rem;
+  }
+
   .Navbar__divider {
     height: 30px;
     width: 1px;
@@ -46,7 +50,7 @@ export const StyledNavBar = styled.div`
       border-width: 0 1.5px 1.5px 0;
       display: inline-block;
       margin-left: 6px;
-      margin-bottom: 3px;
+      margin-bottom: 0;
       padding: 1.75px;
       transform: rotate(45deg);
       transition: all 0.15s ease;
@@ -54,7 +58,7 @@ export const StyledNavBar = styled.div`
     &.opened {
       &:after {
         transform: rotate(-135deg);
-        margin-bottom: 0;
+        margin-bottom: -3px;
       }
     }
   }
@@ -121,6 +125,17 @@ export const StyledPrimaryLinks = styled.ul`
   li:last-child button {
     padding-right: 0;
   }
+
+  .Navbar__accountButton {
+    color: ${props => props.theme.palette.blue.main};
+    svg {
+      font-size: 2rem;
+    }
+  }
+
+  .PrimaryLinks__popper {
+    z-index: 11;
+  }
 `
 export const StyledSecondaryLinks = styled.ul`
   display: flex;
@@ -144,7 +159,7 @@ export const StyledSecondaryLinks = styled.ul`
     }
 
     .opened {
-      color: ${props => props.theme.palette.primary.main};
+      color: ${({ theme }) => theme.palette.primary.main};
     }
   }
 `

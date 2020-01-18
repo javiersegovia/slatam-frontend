@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'next/link'
 import SearchBar from './SearchBar'
 import { StyledNavBar, NavRow, Logo } from './styled'
@@ -31,6 +32,10 @@ const NavBar = ({ children }) => {
       <ResponsiveNav />
     </>
   )
+}
+
+NavBar.propTypes = {
+  children: PropTypes.any.isRequired,
 }
 
 export default NavBar

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Header from './Header'
 import FeaturesGrid from './FeaturesGrid'
 import PopularCategories from './PopularCategories'
@@ -9,7 +8,7 @@ import VerifiedSuppliers from './VerifiedSuppliers'
 import StartSelling from './StartSelling'
 import Newsletter from './Newsletter'
 
-const Home = props => {
+const Home = () => {
   return (
     <>
       <Header />
@@ -23,7 +22,5 @@ const Home = props => {
     </>
   )
 }
-
-Home.propTypes = {}
 
 export default Home

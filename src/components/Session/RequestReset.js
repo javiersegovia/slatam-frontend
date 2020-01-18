@@ -6,7 +6,7 @@ import { StyledCard, StyledTextField } from './styled'
 
 const RequestReset = () => {
   const [formValues, setFormValues] = useState({
-    email: ''
+    email: '',
   })
 
   const handleChange = name => event =>

@@ -34,7 +34,7 @@ export default createMuiTheme({
       main: '#007fff',
     },
     blue: {
-      main: '#0f4eff',
+      main: '#0a5fbb',
     },
     lightBlue: {
       main: '#bfd8f1',

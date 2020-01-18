@@ -14,7 +14,7 @@ const SignIn = () => {
   const [formValues, setFormValues] = useState({
     username: '',
     password: '',
-    showPassword: false
+    showPassword: false,
   })
 
   const handleChange = name => event =>

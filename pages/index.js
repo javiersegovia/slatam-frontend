@@ -1,10 +1,14 @@
 import React from 'react'
 import Home from '@views/home'
+import NavBar from '@components/Layout/Navbar'
+import Footer from '@components/Layout/Footer'
 
 const HomePage = () => (
   <>
-    <Home />
-    {/* TODO: add Features Grid with Grid Container !!! */}
+    <NavBar>
+      <Home />
+      <Footer />
+    </NavBar>
   </>
 )
 

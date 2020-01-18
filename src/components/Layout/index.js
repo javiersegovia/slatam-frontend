@@ -8,26 +8,24 @@ import { ThemeProvider } from 'styled-components'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
 import WindowSizeProvider from './context/WindowSize'
+import AppConfigProvider from './context/AppConfig'
 
 import theme from './theme'
-import NavBar from './Navbar'
-import Footer from './Footer'
 import AppMeta from './AppMeta'
 
 import '../../../public/scss/application.scss'
 
-const AppLayout = props => {
+const AppLayout = ({ children }) => {
   return (
     <StylesProvider injectFirst>
       <MuiThemeProvider theme={theme}>
         <ThemeProvider theme={theme}>
           <WindowSizeProvider>
-            <CssBaseline />
-            <AppMeta />
-            <NavBar>
-              {props.children}
-              <Footer />
-            </NavBar>
+            <AppConfigProvider>
+              <CssBaseline />
+              <AppMeta />
+              {children}
+            </AppConfigProvider>
           </WindowSizeProvider>
         </ThemeProvider>
       </MuiThemeProvider>

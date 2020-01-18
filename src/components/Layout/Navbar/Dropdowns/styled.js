@@ -1,15 +1,36 @@
 import styled from 'styled-components'
 import { rgba } from 'polished'
 
-const StyledDropdownWrapper = styled.ul`
+const StyledDropdown = styled.ul`
   background: white;
   border-radius: 6px;
   box-shadow: ${props => props.theme.bShadows.searchBar};
   padding: 10px 20px;
   font-size: 0.875rem;
+  font-family: ${props => props.theme.fonts.secondary};
+  margin-top: 5px;
+
+  .StyledDropdown__arrow,
+  .StyledDropdown__arrowInner {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid ${({ theme }) => theme.palette.gray.dark};
+    position: absolute;
+    top: -5px;
+    right: 15px;
+  }
+
+  .StyledDropdown__arrowInner {
+    border-bottom: 10px solid white;
+    right: -10px;
+    top: 0;
+  }
 
   .HelpDropdown__listItem {
     margin: 10px 0;
+    font-weight: 500;
   }
 
   .HelpDropdown__listButton:hover {
@@ -23,6 +44,7 @@ const StyledDropdownWrapper = styled.ul`
     padding: 4px 8px;
     border-radius: 4px;
     width: 100%;
+    font-family: ${props => props.theme.fonts.secondary};
 
     &:hover {
       background: ${props => props.theme.palette.gray.main};
@@ -41,9 +63,11 @@ const StyledDropdownWrapper = styled.ul`
   .LanguagesDropdown__description,
   .Shipping__description {
     max-width: 200px;
-    color: ${props => props.theme.palette.gray.dark};
+    color: ${props => props.theme.palette.black.dark};
+    font-weight: 500;
     margin: 20px auto;
     text-align: center;
+    letter-spacing: 0;
   }
 
   .Shipping__searchInput {
@@ -52,6 +76,7 @@ const StyledDropdownWrapper = styled.ul`
     width: 100%;
     border: 1px solid ${props => props.theme.palette.gray.main};
     background: ${props => props.theme.palette.gray.extralight};
+    font-family: ${props => props.theme.fonts.secondary};
 
     &::placeholder {
       color: ${props => rgba(props.theme.palette.gray.dark, 0.75)};
@@ -84,6 +109,10 @@ const StyledDropdownWrapper = styled.ul`
   .Shipping__checkboxWrapper {
     flex: 1;
     justify-content: space-between;
+  }
+
+  .Shipping__label {
+    font-family: ${props => props.theme.fonts.secondary};
   }
 
   .Shipping__checkbox {
@@ -140,4 +169,13 @@ const StyledDropdownWrapper = styled.ul`
     font-size: 0.875rem;
   }
 `
+const StyledDropdownWrapper = ({ children, ...otherProps }) => (
+  <StyledDropdown {...otherProps}>
+    <div className="StyledDropdown__arrow">
+      <div className="StyledDropdown__arrowInner" />
+    </div>
+    {children}
+  </StyledDropdown>
+)
+
 export default StyledDropdownWrapper
