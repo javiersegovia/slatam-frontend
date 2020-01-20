@@ -91,10 +91,10 @@ const columns = [
 ]
 
 export const StyledFooter = styled.footer`
-  padding: 60px 0 0;
   background: white;
   border-top: 1px solid ${props => props.theme.palette.palelilac.dark};
   color: ${props => props.theme.palette.slategray.main};
+  font-family: ${({ theme }) => theme.fonts.secondary};
 
   .StyledFooter__chooseLanguage {
     display: none;
@@ -110,7 +110,7 @@ export const StyledFooter = styled.footer`
 const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-bottom: 60px;
+  padding: 30px 0;
   ${props => props.theme.breakpoints.up('lg')} {
     padding-left: 60px;
     padding-right: 60px;
@@ -154,7 +154,8 @@ const FooterColumn = styled.ul`
 
 const FooterCopyright = styled.div`
   border-top: 1px solid ${props => props.theme.palette.palelilac.dark};
-  background: ${props => props.theme.palette.snow.light};
+  background: ${props => props.theme.gradients.primary.main};
+  color: white;
   position: relative;
 
   ${props => props.theme.breakpoints.down('md')} {
@@ -165,19 +166,13 @@ const FooterCopyright = styled.div`
     padding-top: 20px;
     padding-bottom: 20px;
     display: flex;
-    justify-content: center;
-  }
-
-  .FooterCopyright__logo {
-    position: absolute;
-    margin: auto;
+    justify-content: space-between;
   }
 
   .FooterCopyright__languages {
     display: grid;
     grid-auto-flow: column;
     grid-gap: 20px;
-    margin-right: auto;
   }
 
   .FooterCopyright__languageButton.active {
@@ -236,9 +231,6 @@ const Footer = () => {
             <button type="button" className="FooterCopyright__languageButton">
               Español
             </button>
-          </div>
-          <div className="FooterCopyright__logo">
-            <img src="/images/slatam-logo.svg" alt="Logo" />
           </div>
           <ul className="FooterCopyright__policies">
             <li className="FooterCopyright__listItem">

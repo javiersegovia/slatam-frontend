@@ -25,7 +25,7 @@ const VerifiedSuppliers = props => {
   return (
     <SectionWrapper>
       <Container limited>
-        <SectionTitle href="/" seeMore="See more">
+        <SectionTitle href="/" seeMore="See all suppliers">
           Verified **suppliers**
         </SectionTitle>
         <SuppliersGrid suppliers={generatedSuppliers} />

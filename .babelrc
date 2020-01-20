@@ -1,13 +1,14 @@
 {
   "presets": ["next/babel"],
   "plugins": [
+    ["inline-react-svg"],
+    ["@babel/plugin-proposal-class-properties"],
     [
       "styled-components",
       {
         "ssr": true
       }
     ],
-    ["@babel/plugin-proposal-class-properties"],
     [
       "module-resolver",
       {
@@ -19,6 +20,7 @@
           "@lib": "./src/lib",
           "@hooks": "./src/hooks",
           "@pages": "./pages",
+          "@public": "./public",
           "@root": "./",
           "@views": "./src/views"
         }

@@ -12,7 +12,7 @@ const PopularCategories = props => {
   return (
     <SectionWrapper>
       <Container limited>
-        <SectionTitle href="/" seeMore="See more">
+        <SectionTitle href="/" seeMore="See all categories">
           Popular **categories**
         </SectionTitle>
         <h5>Categories grid should be here soon...</h5>

@@ -40,7 +40,13 @@
       }
     ],
     "jsx-a11y/anchor-is-valid": 0,
-    "jsx-a11y/accessible-emoji": 0
+    "jsx-a11y/accessible-emoji": 0,
+    "jsx-a11y/label-has-associated-control": [
+      1,
+      {
+        "assert": "either"
+      }
+    ]
   },
   "globals": {
     "window": true,
@@ -58,6 +64,7 @@
           "@lib": "./src/lib",
           "@hooks": "./src/hooks",
           "@pages": "./pages",
+          "@public": "./public",
           "@root": "./",
           "@views": "./src/views"
         }

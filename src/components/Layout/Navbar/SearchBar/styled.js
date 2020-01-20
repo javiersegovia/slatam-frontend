@@ -11,6 +11,7 @@ export const SearchBarWrapper = styled.div`
   margin: auto auto auto 30px;
   color: ${props => rgba(props.theme.palette.gray.dark, 0.65)};
   font-size: 1rem;
+
   ${props => props.theme.breakpoints.up('sm')} {
     min-width: 370px;
   }
@@ -68,6 +69,7 @@ export const StyledInput = styled.input`
   margin-top: 2px;
   color: ${props => props.theme.palette.black.dark};
   font-size: 1rem;
+  font-family: ${({ theme }) => theme.fonts.secondary};
 
   &::placeholder {
     color: ${props => rgba(props.theme.palette.gray.dark, 0.65)};

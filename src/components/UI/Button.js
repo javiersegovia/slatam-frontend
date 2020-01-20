@@ -29,6 +29,12 @@ const StyledButton = styled.button`
     padding: 14px 22px;
     /* text-transform: uppercase; */
   `}
+
+  ${props =>
+    props.rounded &&
+    `
+    border-radius: 35px;
+  `}
 `
 
 const Button = ({ children, ...otherProps }) => {
