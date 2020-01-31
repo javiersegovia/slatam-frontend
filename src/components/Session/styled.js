@@ -29,16 +29,12 @@ export const StyledCard = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  border-radius: 6px;
-
-  .StyledCard__Stepper {
-    display: grid;
-    grid-auto-flow: column;
-  }
+  border-radius: 15px;
+  box-shadow: ${({ theme }) => theme.bShadows.cards};
 
   .StyledCard__divider {
     margin: 30px 0;
-    height: 2px;
+    height: 1px;
     background: ${({ theme }) => theme.palette.slategray.extralight};
   }
 
@@ -54,7 +50,13 @@ export const StyledCard = styled.div`
     display: grid;
     grid-gap: 25px;
     margin-top: 30px;
-    width: 380px;
+
+    &.AboutUser {
+      width: 550px;
+    }
+    &.Company {
+      width: 550px;
+    }
   }
 
   .StyledCard__gridContainer {
@@ -66,11 +68,16 @@ export const StyledCard = styled.div`
   .StyledCard__submitButton {
     margin-top: 60px;
     width: 100%;
+
+    &.submitModal {
+      margin: 0;
+    }
   }
 
   .StyledCard__redirect {
     padding-top: 30px;
     text-align: center;
+    margin: 0;
 
     a {
       color: ${({ theme }) => theme.palette.primary.main};

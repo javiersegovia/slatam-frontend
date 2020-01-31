@@ -4,13 +4,17 @@ import { rgba } from 'polished'
 export const StyledNavBar = styled.div`
   width: 100%;
   background: ${props => props.theme.palette.gray.extralight};
-  position: relative;
+  position: absolute;
   padding: 10px 0 0px;
   border-bottom: 2px solid ${props => props.theme.palette.gray.light};
   z-index: ${props => props.theme.zIndex.appBar};
 
   ${props => props.theme.breakpoints.down('md')} {
     padding: 20px 0;
+  }
+
+  .body__open-popper & {
+    padding-right: 17px;
   }
 
   .Navbar__listItemButton {

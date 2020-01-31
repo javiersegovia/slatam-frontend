@@ -2,15 +2,10 @@ import { useLayoutEffect } from 'react'
 
 export default function useLockBodyScroll() {
   useLayoutEffect(() => {
-    const originalOverflow = window.getComputedStyle(document.body).overflow
-    const originalPosition = window.getComputedStyle(document.body).position
-
-    document.body.style.overflow = 'hidden'
-    document.body.style.position = 'fixed'
+    document.body.classList.add('body__open-popper')
 
     return () => {
-      document.body.style.overflow = originalOverflow
-      document.body.style.position = originalPosition
+      document.body.classList.remove('body__open-popper')
     }
   }, [])
 }

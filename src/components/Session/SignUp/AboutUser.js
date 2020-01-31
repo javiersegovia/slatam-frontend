@@ -1,17 +1,40 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
-import Link from 'next/link'
 import Button from '@components/UI/Button'
 import Input from '@components/Forms/Input'
-import Visibility from '@material-ui/icons/Visibility'
-import VisibilityOff from '@material-ui/icons/VisibilityOff'
-import { StyledWrapper, StyledCard } from '../styled'
+import Select from '@components/Forms/Select'
+import Label from '@components/Forms/Label'
+import countriesData from '@data/countries.json'
+import { FlagIcon } from 'react-flag-kit'
+import { StyledWrapper } from '../styled'
 
-const AboutUser = ({ formValues, handleChange, togglePassword, onSubmit }) => {
+const AboutUser = ({ formValues, handleChange, onSubmit }) => {
+  const countries = useMemo(
+    () =>
+      countriesData.map(({ name, code2 }) => ({
+        value: code2,
+        description: name,
+        // preffix: <FlagIcon code={code2} />,
+      })),
+    []
+  )
+
+  console.log(countries)
+
+  const contItems = [
+    { value: 'BLA', description: 'This is bla' },
+    { value: 'BLE', description: 'This is blea' },
+    { value: 'BLAEE', description: 'This is bleea' },
+  ]
+
+  const displayCountry = formValues.country && (
+    <FlagIcon code={formValues.country} />
+  )
+
   return (
     <StyledWrapper>
       <h2 className="StyledCard__title">About you</h2>
-      <div className="StyledCard__inner">
+      <div className="StyledCard__inner AboutUser">
         <div className="StyledCard__gridContainer">
           <Input
             value={formValues['firstName']}
@@ -20,7 +43,7 @@ const AboutUser = ({ formValues, handleChange, togglePassword, onSubmit }) => {
             type="text"
             name="firstName"
             id="signUp__firstName"
-            label="First Name"
+            label="First name"
           />
           <Input
             value={formValues['lastName']}
@@ -29,18 +52,19 @@ const AboutUser = ({ formValues, handleChange, togglePassword, onSubmit }) => {
             type="text"
             name="lastName"
             id="signUp__lastName"
-            label="Last Name"
+            label="Last name"
           />
         </div>
         <div className="StyledCard__gridContainer">
-          <Input
+          <Select
             value={formValues['country']}
+            displayValue={displayCountry}
             onChange={handleChange('country')}
-            parentProps={{ className: 'StyledCard__flexItem' }}
             type="text"
             name="country"
             id="signUp__country"
             label="Country"
+            selectItems={countries}
           />
           <Input
             value={formValues['city']}
@@ -49,31 +73,37 @@ const AboutUser = ({ formValues, handleChange, togglePassword, onSubmit }) => {
             type="text"
             name="city"
             id="signUp__city"
-            label="City"
+            label="City of residence"
           />
         </div>
-        <Input
-          value={formValues['phone']}
-          onChange={handleChange('phone')}
-          type="phone"
-          name="phone"
-          id="signUp__email"
-          label="Phone"
-        />
+        <div className="StyledCard__gridContainer">
+          <Input
+            value={formValues['phone']}
+            onChange={handleChange('phone')}
+            type="phone"
+            name="phone"
+            id="signUp__phone"
+            label="Contact number"
+          />
+          <Input
+            value={formValues['birthDate']}
+            onChange={handleChange('birthDate')}
+            type="birthDate"
+            name="birthDate"
+            id="signUp__birthDate"
+            label="Date of birth"
+          />
+        </div>
       </div>
       <Button
         type="submit"
         className="StyledCard__submitButton"
         onClick={onSubmit}
+        color="yellow"
+        name="aboutUser"
       >
         Continue
       </Button>
-      <p className="StyledCard__redirect">
-        Already have an account?{' '}
-        <Link href="/">
-          <a>Sign in</a>
-        </Link>
-      </p>
     </StyledWrapper>
   )
 }
@@ -81,7 +111,6 @@ const AboutUser = ({ formValues, handleChange, togglePassword, onSubmit }) => {
 AboutUser.propTypes = {
   formValues: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
-  togglePassword: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
 }
 

@@ -11,7 +11,7 @@ import ResponsiveNav from './ResponsiveNav'
 const NavBar = ({ children }) => {
   return (
     <>
-      <StyledNavBar>
+      <StyledNavBar id="main-navbar">
         <NavRow>
           <Logo>
             <Link href="/">
@@ -28,6 +28,7 @@ const NavBar = ({ children }) => {
           <NavSecondaryOptions />
         </NavRow>
       </StyledNavBar>
+      <div style={{ paddingBottom: 131 }} />
       {children}
       <ResponsiveNav />
     </>

@@ -7,7 +7,7 @@ const StyledFullScreen = styled(FullScreen)`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: ${({ theme }) => theme.gradients.primary.main};
+  background: ${({ theme }) => theme.gradients.primary.left};
 `
 
 const SignUp = props => {

@@ -3,17 +3,16 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const StyledButton = styled.button`
-  padding: 12px 16px;
+  padding: 12px 16px 13px;
   outline: none;
   border: none;
   background: ${props => props.theme.gradients.primary.main};
   box-shadow: ${props => props.theme.bShadows.button};
   color: white;
-  font-weight: 500;
-  border-radius: 35px;
   cursor: pointer;
   letter-spacing: 0.8px;
   border-radius: 6px;
+  font-weight: 500;
 
   ${props =>
     props.secondary &&
@@ -25,10 +24,16 @@ const StyledButton = styled.button`
   ${props =>
     props.size === 'lg' &&
     `
-    /* font-size: 1.125rem; */
-    padding: 14px 22px;
-    /* text-transform: uppercase; */
+    padding: 14px 22px 15px;
   `}
+
+  ${props =>
+    props.color === 'yellow' &&
+    `
+    background: ${props.theme.palette.secondary.light};
+    color: ${props.theme.palette.darkYellow.main};
+  `}
+
 
   ${props =>
     props.rounded &&

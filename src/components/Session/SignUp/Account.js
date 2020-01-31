@@ -5,8 +5,7 @@ import Button from '@components/UI/Button'
 import Input from '@components/Forms/Input'
 import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
-import LogoSVG from '@public/images/slatam-logo.svg'
-import { StyledWrapper, StyledCard } from '../styled'
+import { StyledWrapper } from '../styled'
 
 const AccountInfo = ({
   formValues,
@@ -17,25 +16,7 @@ const AccountInfo = ({
   return (
     <StyledWrapper>
       <h2 className="StyledCard__title">Create account</h2>
-      <div className="StyledCard__inner">
-        {/* <Input
-            value={formValues['firstName']}
-            onChange={handleChange('firstName')}
-            parentProps={{ className: 'StyledCard__flexItem' }}
-            type="text"
-            name="firstName"
-            id="signUp__firstName"
-            label="First Name"
-          />
-          <Input
-            value={formValues['lastName']}
-            onChange={handleChange('lastName')}
-            parentProps={{ className: 'StyledCard__flexItem' }}
-            type="text"
-            name="lastName"
-            id="signUp__lastName"
-            label="Last Name"
-          /> */}
+      <div className="StyledCard__inner Account">
         <Input
           value={formValues['email']}
           onChange={handleChange('email')}
@@ -85,6 +66,8 @@ const AccountInfo = ({
         type="submit"
         className="StyledCard__submitButton"
         onClick={onSubmit}
+        color="yellow"
+        name="account"
       >
         Continue
       </Button>

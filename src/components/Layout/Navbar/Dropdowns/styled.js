@@ -42,7 +42,6 @@ const StyledDropdown = styled.ul`
     display: flex;
     align-items: center;
     padding: 4px 8px;
-    border-radius: 4px;
     width: 100%;
     font-family: ${props => props.theme.fonts.secondary};
 
@@ -85,20 +84,23 @@ const StyledDropdown = styled.ul`
 
   .LanguagesDropdown__list,
   .Shipping__list {
-    padding: 10px;
     margin-top: 20px;
     background: ${props => props.theme.palette.snow.extralight};
-    border: 1px solid ${props => props.theme.palette.lightBlue.main};
+    border: 1px solid ${props => props.theme.palette.gray.main};
     border-radius: 6px;
     margin-bottom: 10px;
-    max-height: 270px;
-    overflow: auto;
+    max-height: 300px;
+    max-width: 280px;
+    overflow: hidden;
+  }
+
+  .Shipping__windowWrapper {
+    overflow-x: hidden !important;
   }
 
   .Shipping__listItem {
     display: flex;
     align-items: center;
-    border-radius: 6px;
     padding: 0 10px;
 
     &:hover {
@@ -115,8 +117,15 @@ const StyledDropdown = styled.ul`
     font-family: ${props => props.theme.fonts.secondary};
   }
 
+  .Shipping__button {
+    width: 100%;
+    height: 100%;
+  }
+
   .Shipping__checkbox {
     padding-left: 35px;
+    padding-top: 0;
+    padding-bottom: 0;
     &:hover {
       background-color: transparent;
     }

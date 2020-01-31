@@ -58,6 +58,7 @@
     "import/resolver": {
       "babel-module": {
         "alias": {
+          "@data": "./data",
           "@config": "./config",
           "@components": "./src/components",
           "@graphql": "./graphql",

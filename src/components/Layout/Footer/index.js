@@ -154,7 +154,7 @@ const FooterColumn = styled.ul`
 
 const FooterCopyright = styled.div`
   border-top: 1px solid ${props => props.theme.palette.palelilac.dark};
-  background: ${props => props.theme.gradients.primary.main};
+  background: ${props => props.theme.gradients.primary.left};
   color: white;
   position: relative;
 

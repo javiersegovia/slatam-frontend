@@ -18,7 +18,8 @@ export default createMuiTheme({
   breakpoints,
   gradients: {
     primary: {
-      main: 'linear-gradient(67deg,#174592,#0a5fbb)',
+      main: 'linear-gradient(0, #174592, #0a5fbb)',
+      left: 'linear-gradient(67deg, #174592, #0a5fbb)',
     },
   },
   palette: {
@@ -28,7 +29,7 @@ export default createMuiTheme({
     },
     secondary: {
       main: '#FFCE1B',
-      light: '#FFE37E',
+      light: '#ffdf68',
     },
     steelBlue: {
       main: '#007fff',
@@ -38,6 +39,9 @@ export default createMuiTheme({
     },
     lightBlue: {
       main: '#bfd8f1',
+    },
+    darkYellow: {
+      main: '#524d27',
     },
     gray: {
       dark: '#82878b',

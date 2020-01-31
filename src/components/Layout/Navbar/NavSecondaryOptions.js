@@ -73,7 +73,6 @@ const NavSecondaryOptions = () => {
             onMouseOver={handleMouseEnter}
             onFocus={handleMouseEnter}
           >
-            {/* <PublicIcon /> */}
             {language}
           </button>
         </li>

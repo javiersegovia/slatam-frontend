@@ -1,23 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Label from './Label'
 
 export const StyledInput = styled.div`
-  label {
-    font-weight: 500;
-    color: ${({ theme }) => theme.palette.primary.main};
-    margin-left: 10px;
-  }
-
   .inputWrapper {
     width: 100%;
-    border-radius: 4px;
-    border: 2px solid ${({ theme }) => theme.palette.slategray.extralight};
+    border-radius: 6px;
+    border: 1px solid ${({ theme }) => theme.palette.slategray.extralight};
     background: ${({ theme }) => theme.palette.snow.extralight};
     display: flex;
     align-items: stretch;
     height: 48px;
-    padding: 8px 16px;
 
     ${props =>
       props.rounded &&
@@ -30,13 +24,14 @@ export const StyledInput = styled.div`
     width: 100%;
     font-size: 1rem;
     font-family: ${({ theme }) => theme.fonts.secondary};
-    padding: 0;
+    padding: 8px 16px;
   }
 
   .inputIcon {
     color: ${({ theme }) => theme.palette.slategray.light};
     display: flex;
     align-items: center;
+    padding-right: 16px;
   }
 `
 
@@ -51,7 +46,7 @@ const Input = ({
 }) => {
   return (
     <StyledInput rounded={rounded} {...parentProps}>
-      {label && <label htmlFor={id}>{label}</label>}
+      {label && <Label htmlFor={id}>{label}</Label>}
       <div className="inputWrapper">
         {((icon && iconPosition === null) || iconPosition === 'start') && (
           <div className="inputIcon">{icon}</div>
@@ -65,6 +60,13 @@ const Input = ({
   )
 }
 
-Input.propTypes = {}
+Input.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  label: PropTypes.string,
+  rounded: PropTypes.bool,
+  parentProps: PropTypes.object,
+  icon: PropTypes.node,
+  iconPosition: PropTypes.string,
+}
 
 export default Input
