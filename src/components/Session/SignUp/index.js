@@ -25,12 +25,12 @@ const SignUp = () => {
     confirmPassword: '',
     showPassword: false,
     country: '',
-    city: '',
+    state: '',
     phone: '',
     role: '',
     companyName: '',
     companyCountry: '',
-    companyCity: '',
+    companyState: '',
     companyEmployees: '',
     companyCategories: '',
   })
@@ -60,8 +60,8 @@ const SignUp = () => {
   }
 
   const handleChange = name => event => {
-    console.log(event.target)
-    setFormValues({ ...formValues, [name]: event.target.value })
+    if (event) setFormValues({ ...formValues, [name]: event.target.value })
+    else setFormValues({ ...formValues, [name]: '' })
   }
 
   const togglePassword = () =>
@@ -75,10 +75,10 @@ const SignUp = () => {
       [name]: true,
     })
 
-    if (name === 'aboutUser') {
-      setIsModalOpen(true)
-      return
-    }
+    // if (name === 'aboutUser') {
+    //   setIsModalOpen(true)
+    //   return
+    // }
 
     // if (redirectTo) return // TODO: handle redirection
     handleNext()
@@ -94,11 +94,11 @@ const SignUp = () => {
         </Link>
       </div>
       <StyledCard>
-        <SignUpStepper
+        {/* <SignUpStepper
           activeIndex={activeIndex}
           handleStepper={handleStepper}
-        />
-        <div className="StyledCard__divider" />
+        /> */}
+        {/* <div className="StyledCard__divider" /> */}
         {stepsItems[activeIndex]({
           formValues,
           handleChange,
@@ -107,12 +107,14 @@ const SignUp = () => {
           onSubmit,
         })}
       </StyledCard>
-      <p className="UnderText">
-        By creating an account you agree to our{' '}
-        <Link href="/">
-          <a>Terms and Conditions</a>
-        </Link>
-      </p>
+      {activeIndex === 0 && (
+        <p className="UnderText">
+          By creating an account you agree to our{' '}
+          <Link href="/">
+            <a>Terms and Conditions</a>
+          </Link>
+        </p>
+      )}
       <HaveCompanyModal
         isModalOpen={isModalOpen}
         setIsModalOpen={setIsModalOpen}

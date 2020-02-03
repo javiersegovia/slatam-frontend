@@ -16,67 +16,69 @@ const AccountInfo = ({
   return (
     <StyledWrapper>
       <h2 className="StyledCard__title">Create account</h2>
-      <div className="StyledCard__inner Account">
-        <Input
-          value={formValues['email']}
-          onChange={handleChange('email')}
-          type="email"
-          name="email"
-          id="signUp__email"
-          label="Email"
-        />
-        <Input
-          value={formValues['password']}
-          onChange={handleChange('password')}
-          type={formValues.showPassword ? 'text' : 'password'}
-          name="password"
-          id="signUp__password"
-          label="Password"
-          icon={
-            <button
-              type="button"
-              aria-label="toggle password visibility"
-              onClick={togglePassword}
-            >
-              {formValues.showPassword ? <Visibility /> : <VisibilityOff />}
-            </button>
-          }
-          iconPosition="end"
-        />
-        <Input
-          value={formValues['confirmPassword']}
-          onChange={handleChange('confirmPassword')}
-          type={formValues.showPassword ? 'text' : 'password'}
-          name="confirmPassword"
-          id="signUp__confirmPassword"
-          label="Confirm Password"
-          icon={
-            <button
-              type="button"
-              aria-label="toggle password visibility"
-              onClick={togglePassword}
-            >
-              {formValues.showPassword ? <Visibility /> : <VisibilityOff />}
-            </button>
-          }
-          iconPosition="end"
-        />
+      <form onSubmit={onSubmit} className="StyledCard__innerPadding">
+        <div className="StyledCard__inner Account">
+          <Input
+            value={formValues['email']}
+            onChange={handleChange('email')}
+            type="email"
+            name="email"
+            id="signUp__email"
+            label="Email"
+            autoComplete="email"
+          />
+          <Input
+            value={formValues['password']}
+            onChange={handleChange('password')}
+            type={formValues.showPassword ? 'text' : 'password'}
+            label="Password"
+            icon={
+              <button
+                type="button"
+                aria-label="toggle password visibility"
+                onClick={togglePassword}
+              >
+                {formValues.showPassword ? <Visibility /> : <VisibilityOff />}
+              </button>
+            }
+            iconPosition="end"
+          />
+          <Input
+            value={formValues['confirmPassword']}
+            onChange={handleChange('confirmPassword')}
+            type={formValues.showPassword ? 'text' : 'password'}
+            label="Confirm Password"
+            icon={
+              <button
+                type="button"
+                aria-label="toggle password visibility"
+                onClick={togglePassword}
+              >
+                {formValues.showPassword ? <Visibility /> : <VisibilityOff />}
+              </button>
+            }
+            iconPosition="end"
+          />
+        </div>
+        <Button
+          type="submit"
+          className="StyledCard__submitButton"
+          onClick={onSubmit}
+          color="yellow"
+          name="account"
+          size="lg"
+        >
+          Continue
+        </Button>
+      </form>
+      <div className="StyledCard__redirectWrapper">
+        <p className="StyledCard__redirect">
+          Already have an account?{' '}
+          <Link href="/">
+            <a>Sign in</a>
+          </Link>
+        </p>
       </div>
-      <Button
-        type="submit"
-        className="StyledCard__submitButton"
-        onClick={onSubmit}
-        color="yellow"
-        name="account"
-      >
-        Continue
-      </Button>
-      <p className="StyledCard__redirect">
-        Already have an account?{' '}
-        <Link href="/">
-          <a>Sign in</a>
-        </Link>
-      </p>
     </StyledWrapper>
   )
 }

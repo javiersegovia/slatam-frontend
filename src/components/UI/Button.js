@@ -24,14 +24,15 @@ const StyledButton = styled.button`
   ${props =>
     props.size === 'lg' &&
     `
-    padding: 14px 22px 15px;
+    padding: 16px 22px 17px;
+    font-size: 1.125rem;
   `}
 
   ${props =>
     props.color === 'yellow' &&
     `
-    background: ${props.theme.palette.secondary.light};
-    color: ${props.theme.palette.darkYellow.main};
+    background: ${props.theme.gradients.secondary.main};
+    color: ${props.theme.palette.black.main};
   `}
 
 

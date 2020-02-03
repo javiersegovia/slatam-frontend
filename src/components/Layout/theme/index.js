@@ -21,6 +21,9 @@ export default createMuiTheme({
       main: 'linear-gradient(0, #174592, #0a5fbb)',
       left: 'linear-gradient(67deg, #174592, #0a5fbb)',
     },
+    secondary: {
+      main: 'linear-gradient(67deg, #FFA061, #FFF454)',
+    },
   },
   palette: {
     primary: {
@@ -74,6 +77,7 @@ export default createMuiTheme({
     },
     black: {
       main: '#292929',
+      light: '#3B435A',
     },
   },
   typography: {

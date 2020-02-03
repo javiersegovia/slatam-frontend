@@ -14,96 +14,125 @@ const AboutUser = ({ formValues, handleChange, onSubmit }) => {
       countriesData.map(({ name, code2 }) => ({
         value: code2,
         description: name,
-        // preffix: <FlagIcon code={code2} />,
       })),
     []
   )
 
-  console.log(countries)
+  const states = useMemo(() => {
+    const selectedCountry = countriesData.find(
+      country => country.code2 === formValues.country
+    )
 
-  const contItems = [
-    { value: 'BLA', description: 'This is bla' },
-    { value: 'BLE', description: 'This is blea' },
-    { value: 'BLAEE', description: 'This is bleea' },
-  ]
+    return (selectedCountry && selectedCountry.states) || []
+  }, [formValues.country])
 
   const displayCountry = formValues.country && (
-    <FlagIcon code={formValues.country} />
+    <>
+      <div className="country">
+        <FlagIcon code={formValues.country} />
+      </div>
+    </>
   )
+
+  // const modifiedCountries = () =>
+  //   countriesData.map(country => {
+  //     let newCountry
+
+  //     if (country.states.length > 0) {
+  //       const newStates = country.states.map((state, idx) => ({
+  //         value: `${country.code2}__${idx}`,
+  //         description: state.name,
+  //       }))
+
+  //       newCountry = {
+  //         ...country,
+  //         states: [...newStates],
+  //       }
+  //     }
+
+  //     return newCountry || country
+  //   })
 
   return (
     <StyledWrapper>
       <h2 className="StyledCard__title">About you</h2>
-      <div className="StyledCard__inner AboutUser">
-        <div className="StyledCard__gridContainer">
-          <Input
-            value={formValues['firstName']}
-            onChange={handleChange('firstName')}
-            parentProps={{ className: 'StyledCard__flexItem' }}
-            type="text"
-            name="firstName"
-            id="signUp__firstName"
-            label="First name"
-          />
-          <Input
-            value={formValues['lastName']}
-            onChange={handleChange('lastName')}
-            parentProps={{ className: 'StyledCard__flexItem' }}
-            type="text"
-            name="lastName"
-            id="signUp__lastName"
-            label="Last name"
-          />
+      <form className="StyledCard__innerPadding">
+        <input type="hidden" value="medmasdsajdsake" />
+        <div className="StyledCard__inner AboutUser">
+          <p className="StyledCard__description">
+            Welcome to Slatam! Please, introduce yourself.
+          </p>
+          <div className="StyledCard__gridContainer">
+            <Input
+              value={formValues['firstName']}
+              onChange={handleChange('firstName')}
+              parentProps={{ className: 'StyledCard__flexItem' }}
+              type="text"
+              label="First name"
+            />
+            <Input
+              value={formValues['lastName']}
+              onChange={handleChange('lastName')}
+              parentProps={{ className: 'StyledCard__flexItem' }}
+              type="text"
+              label="Last name"
+            />
+          </div>
+          <div className="StyledCard__gridContainer">
+            <Select
+              value={formValues['country']}
+              displayValue={displayCountry}
+              displayTag="country"
+              onChange={handleChange('country')}
+              type="text"
+              label="Country"
+              selectItems={countries}
+              hasFilter
+            />
+            <Select
+              value={formValues['state']}
+              onChange={handleChange('state')}
+              type="text"
+              label="State"
+              disabled={states.length === 0}
+              selectItems={states}
+            />
+            {/* <Input
+              value={formValues['city']}
+              onChange={handleChange('city')}
+              parentProps={{ className: 'StyledCard__flexItem' }}
+              type="text"
+              label="City of residence"
+            /> */}
+          </div>
+          <div className="StyledCard__gridContainer">
+            <Input
+              value={formValues['phone']}
+              onChange={handleChange('phone')}
+              type="phone"
+              label="Contact number"
+            />
+            <Input
+              value={formValues['birthDate']}
+              onChange={handleChange('birthDate')}
+              type="birthDate"
+              label="Date of birth"
+            />
+          </div>
         </div>
-        <div className="StyledCard__gridContainer">
-          <Select
-            value={formValues['country']}
-            displayValue={displayCountry}
-            onChange={handleChange('country')}
-            type="text"
-            name="country"
-            id="signUp__country"
-            label="Country"
-            selectItems={countries}
-          />
-          <Input
-            value={formValues['city']}
-            onChange={handleChange('city')}
-            parentProps={{ className: 'StyledCard__flexItem' }}
-            type="text"
-            name="city"
-            id="signUp__city"
-            label="City of residence"
-          />
+        <div className="StyledCard__submitButtonWrapper">
+          <Button
+            type="submit"
+            className="StyledCard__submitButton limited"
+            onClick={onSubmit}
+            color="yellow"
+            name="aboutUser"
+            size="lg"
+          >
+            Continue
+          </Button>
         </div>
-        <div className="StyledCard__gridContainer">
-          <Input
-            value={formValues['phone']}
-            onChange={handleChange('phone')}
-            type="phone"
-            name="phone"
-            id="signUp__phone"
-            label="Contact number"
-          />
-          <Input
-            value={formValues['birthDate']}
-            onChange={handleChange('birthDate')}
-            type="birthDate"
-            name="birthDate"
-            id="signUp__birthDate"
-            label="Date of birth"
-          />
-        </div>
-      </div>
-      <Button
-        type="submit"
-        className="StyledCard__submitButton"
-        onClick={onSubmit}
-        color="yellow"
-        name="aboutUser"
-      >
-        Continue
-      </Button>
+      </form>
     </StyledWrapper>
   )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import uuid from 'uuid/v4'
 import Label from './Label'
 
 export const StyledInput = styled.div`
@@ -12,6 +13,7 @@ export const StyledInput = styled.div`
     display: flex;
     align-items: stretch;
     height: 48px;
+    background: #fff;
 
     ${props =>
       props.rounded &&
@@ -42,16 +44,29 @@ const Input = ({
   parentProps = {},
   icon,
   iconPosition,
+  value,
+  onChange,
+  type,
+  autoComplete,
   ...inputProps
 }) => {
+  const randomID = uuid()
+  const addProps = autoComplete ? { ...inputProps } : {}
   return (
     <StyledInput rounded={rounded} {...parentProps}>
-      {label && <Label htmlFor={id}>{label}</Label>}
+      {label && <Label htmlFor={randomID}>{label}</Label>}
       <div className="inputWrapper">
         {((icon && iconPosition === null) || iconPosition === 'start') && (
           <div className="inputIcon">{icon}</div>
         )}
-        <input type="text" id={id} {...inputProps} />
+        <input
+          {...addProps}
+          type={type || 'text'}
+          value={value}
+          onChange={onChange}
+          id={randomID}
+          autoComplete={autoComplete || randomID}
+        />
         {icon && iconPosition === 'end' && (
           <div className="inputIcon">{icon}</div>
         )}

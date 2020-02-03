@@ -118,3 +118,6 @@ const NavSecondaryOptions = () => {
 NavSecondaryOptions.propTypes = {}
 
 export default NavSecondaryOptions
+
+// TODO: Popper dropdown should be encapsulated inside every component
+// so we can match the dropdown arrow with the Li item arrow

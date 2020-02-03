@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import MuiSelect from '@material-ui/core/Select'
 import InputBase from '@material-ui/core/InputBase'
@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import { FixedSizeList as List } from 'react-window'
 import Popper from '@material-ui/core/Popper'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
+import uuid from 'uuid/v4'
 import Label from './Label'
 
 const StyledSelect = styled.div`
@@ -20,15 +21,45 @@ const StyledSelect = styled.div`
     display: flex;
     align-items: stretch;
     height: 48px;
+    background: #fff;
+    position: relative;
+
+    ${props =>
+      props.disabled &&
+      `
+      background: ${props.theme.palette.slategray.extralight};
+    `};
   }
 
   .StyledSelect__currentValue {
-    padding: 8px 0 8px 16px;
+    padding: 8px 16px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    & > div {
+      max-width: 60px;
+      display: flex;
+      align-items: center;
+    }
+
+    ${props =>
+      props.disabled &&
+      `
+      cursor: default;
+    `};
   }
 
   .StyledSelect__input {
-    padding: 8px 16px;
+    padding: 8px 16px 8px 0;
     width: 100%;
+    margin-left: 16px;
+    z-index: 2;
+    font-size: 1rem;
+
+    &.spaceAtLeft {
+      margin-left: 60px;
+    }
   }
 
   .StyledSelect__dropdownWrapper {
@@ -52,10 +83,10 @@ const StyledSelect = styled.div`
   .StyledSelect__currentValue {
     display: flex;
     align-items: center;
-  }
 
-  .StyledSelect__currentValueTag {
-    background: ${({ theme }) => theme.palette.primary.main};
+    .country {
+      margin-right: 10px;
+    }
   }
 
   .StyledSelect__listButton {
@@ -74,7 +105,7 @@ const StyledSelect = styled.div`
   }
 
   .StyledSelect__popper {
-    width: 100%;
+    width: 101%;
   }
 `
 
@@ -130,14 +161,19 @@ const Select = ({
   onChange,
   selectItems,
   label,
+  disabled = false,
+  hasFilter = false,
   ...inputProps
 }) => {
+  const [searchValue, setSearchValue] = useState('')
   const [anchorEl, setAnchorEl] = useState(null)
+  const [filteredItems, setFilteredItems] = useState(selectItems)
+
   const myRef = useRef(null)
 
   const handleFocus = event => {
-    const { name } = event.target
-    setAnchorEl(event.currentTarget)
+    if (disabled) return
+    setAnchorEl(myRef.current)
   }
 
   const handleClose = () => {
@@ -149,38 +185,79 @@ const Select = ({
     handleClose()
   }
 
+  const handleInputChange = event => {
+    const { value: inputVal } = event.target
+    setSearchValue(inputVal)
+  }
+
+  const handleReset = () => {
+    onChange(false)
+  }
+
+  const currentValue = useMemo(
+    () =>
+      selectItems.find(item => {
+        return item.value === value
+      }),
+    [value]
+  )
+
+  useEffect(() => {
+    if (currentValue && hasFilter) setSearchValue(currentValue.description)
+  }, [currentValue])
+
+  useEffect(() => {
+    handleReset()
+    setFilteredItems(selectItems)
+  }, [selectItems])
+
+  useEffect(() => {
+    const results = selectItems.filter(item =>
+      item.description.toLowerCase().includes(searchValue.toLowerCase())
+    )
+
+    setFilteredItems(results)
+  }, [searchValue])
+
+  const randomID = uuid()
+
   return (
     <ClickAwayListener onClickAway={() => setAnchorEl(null)}>
-      <StyledSelect>
-        {label && <Label htmlFor={id}>{label}</Label>}
-        <div className="StyledSelect__selectWrapper">
-          {value && (
-            <div className="StyledSelect__currentValue">
-              <button
-                type="button"
-                onClick={handleFocus}
-                className="StyledSelect__currentValueTag"
-              >
-                {displayValue || value}
-              </button>
-            </div>
-          )}
-          <input
-            {...inputProps}
-            type="text"
-            className="StyledSelect__input"
-            onFocus={handleFocus}
+      <StyledSelect disabled={disabled}>
+        {label && <Label htmlFor={randomID}>{label}</Label>}
+
+        <div className="StyledSelect__selectWrapper" ref={myRef}>
+          <button
+            className="StyledSelect__currentValue"
+            type="button"
             onClick={handleFocus}
-            autoComplete="new-password"
-            ref={myRef}
-          />
+          >
+            {displayValue && displayValue}
+            {!hasFilter && currentValue && currentValue.description}
+          </button>
+
+          {hasFilter && (
+            <input
+              // {...inputProps}
+              type="text"
+              className={`StyledSelect__input ${
+                displayValue ? 'spaceAtLeft' : ''
+              }`}
+              value={searchValue}
+              onChange={handleInputChange}
+              onFocus={handleFocus}
+              onClick={handleFocus}
+              id={randomID}
+              autoComplete="new-password"
+            />
+          )}
         </div>
         <Popper
           anchorEl={anchorEl}
           open={!!anchorEl}
           onClose={handleClose}
           disablePortal
-          placement="bottom-end"
+          placement="bottom-start"
           className="StyledSelect__popper"
           modifiers={{
             computeStyle: {
@@ -190,10 +267,13 @@ const Select = ({
         >
           <div className="StyledSelect__dropdownWrapper">
             <div className="StyledSelect__dropdown">
-              {selectItems.length > 50 ? (
-                <WindowList items={selectItems} handleChange={handleChange} />
+              {filteredItems.length > 50 ? (
+                <WindowList items={filteredItems} handleChange={handleChange} />
               ) : (
-                <DefaultList items={selectItems} handleChange={handleChange} />
+                <DefaultList
+                  items={filteredItems}
+                  handleChange={handleChange}
+                />
               )}
             </div>
           </div>

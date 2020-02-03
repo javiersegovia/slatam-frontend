@@ -93,7 +93,6 @@ const CategoriesContent = ({
   categoryItems,
   featuredItems = tempFeaturedItems,
 }) => {
-  console.log('rerender content')
   return category ? (
     <StyledCategoriesContent className="SubcategoriesList__content">
       <div className="SubcategoriesList__listContainer">
