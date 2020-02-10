@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import uuid from 'uuid/v4'
@@ -38,7 +38,6 @@ export const StyledInput = styled.div`
 `
 
 const Input = ({
-  id,
   label,
   rounded = false,
   parentProps = {},
@@ -50,7 +49,7 @@ const Input = ({
   autoComplete,
   ...inputProps
 }) => {
-  const randomID = uuid()
+  const randomID = useMemo(() => uuid(), [])
   const addProps = autoComplete ? { ...inputProps } : {}
   return (
     <StyledInput rounded={rounded} {...parentProps}>
@@ -76,12 +75,15 @@ const Input = ({
 }
 
 Input.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   label: PropTypes.string,
   rounded: PropTypes.bool,
   parentProps: PropTypes.object,
   icon: PropTypes.node,
   iconPosition: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  type: PropTypes.string,
+  autoComplete: PropTypes.string,
 }
 
 export default Input

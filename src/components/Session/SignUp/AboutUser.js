@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Button from '@components/UI/Button'
 import Input from '@components/Forms/Input'
 import Select from '@components/Forms/Select'
+import SelectPhone from '@components/Forms/SelectPhone'
 import Label from '@components/Forms/Label'
 import countriesData from '@data/countries.json'
 import { FlagIcon } from 'react-flag-kit'
@@ -56,7 +57,7 @@ const AboutUser = ({ formValues, handleChange, onSubmit }) => {
   return (
     <StyledWrapper>
       <h2 className="StyledCard__title">About you</h2>
-      <form className="StyledCard__innerPadding">
+      <form onSubmit={onSubmit} className="StyledCard__innerPadding">
         <input type="hidden" value="medmasdsajdsake" />
         <div className="StyledCard__inner AboutUser">
           <p className="StyledCard__description">
@@ -95,21 +96,17 @@ const AboutUser = ({ formValues, handleChange, onSubmit }) => {
               type="text"
               label="State"
               disabled={states.length === 0}
+              displayRequirement={!!formValues.country}
+              placeholder="Choose your state"
+              disabledPlaceholder="Select your country"
+              disabledWithDisplayRequirementMet="No states found"
               selectItems={states}
             />
-            {/* <Input
-              value={formValues['city']}
-              onChange={handleChange('city')}
-              parentProps={{ className: 'StyledCard__flexItem' }}
-              type="text"
-              label="City of residence"
-            /> */}
           </div>
           <div className="StyledCard__gridContainer">
-            <Input
+            <SelectPhone
               value={formValues['phone']}
               onChange={handleChange('phone')}
-              type="phone"
               label="Contact number"
             />
             <Input

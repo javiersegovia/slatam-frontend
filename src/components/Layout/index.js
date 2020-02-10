@@ -13,8 +13,6 @@ import AppConfigProvider from './context/AppConfig'
 import theme from './theme'
 import AppMeta from './AppMeta'
 
-import '../../../public/scss/application.scss'
-
 const AppLayout = ({ children }) => {
   return (
     <StylesProvider injectFirst>
