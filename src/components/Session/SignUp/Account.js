@@ -68,7 +68,7 @@ const AccountInfo = ({
           name="account"
           size="lg"
         >
-          Continue
+          Create account
         </Button>
       </form>
       <div className="StyledCard__redirectWrapper">

@@ -35,23 +35,18 @@ const AboutUser = ({ formValues, handleChange, onSubmit }) => {
     </>
   )
 
+  const handlePhone = e => {
+    console.log(e)
+  }
+
   // const modifiedCountries = () =>
   //   countriesData.map(country => {
   //     let newCountry
 
-  //     if (country.states.length > 0) {
-  //       const newStates = country.states.map((state, idx) => ({
-  //         value: `${country.code2}__${idx}`,
-  //         description: state.name,
-  //       }))
-
-  //       newCountry = {
-  //         ...country,
-  //         states: [...newStates],
-  //       }
+  //     return {
+  //       ...country,
+  //       phoneCode: phonecodess[country.code2],
   //     }
-
-  //     return newCountry || country
   //   })
 
   return (
@@ -106,8 +101,9 @@ const AboutUser = ({ formValues, handleChange, onSubmit }) => {
           <div className="StyledCard__gridContainer">
             <SelectPhone
               value={formValues['phone']}
-              onChange={handleChange('phone')}
+              onChange={handlePhone}
               label="Contact number"
+              defaultCountry={formValues['country']}
             />
             <Input
               value={formValues['birthDate']}

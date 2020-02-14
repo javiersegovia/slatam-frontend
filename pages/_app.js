@@ -4,7 +4,6 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import AppLayout from '@components/Layout'
 import { ApolloProvider } from '@apollo/react-hooks'
 import withApollo from '@graphql/apollo'
-import 'react-phone-number-input/style.css'
 import '../public/scss/application.scss'
 
 class MyApp extends App {
@@ -42,4 +41,3 @@ class MyApp extends App {
 }
 
 export default withApollo(MyApp)
-// export default MyApp

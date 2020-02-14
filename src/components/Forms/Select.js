@@ -94,6 +94,13 @@ const StyledSelect = styled.div`
     align-items: center;
     width: 100%;
     height: 100%;
+    padding: 0 15px;
+    min-height: 45px;
+    text-align: left;
+
+    &:hover {
+      background: ${({ theme }) => theme.palette.snow.light};
+    }
   }
 
   .StyledSelect__preffix {

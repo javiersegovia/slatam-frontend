@@ -143,7 +143,8 @@
         "value": "AF__33",
         "description": "Zābul"
       }
-    ]
+    ],
+    "phoneCode": "93"
   },
   {
     "code2": "AX",
@@ -152,7 +153,8 @@
     "capital": "Mariehamn",
     "region": "Europe",
     "subregion": "Northern Europe",
-    "states": []
+    "states": [],
+    "phoneCode": "+358-18"
   },
   {
     "code2": "AL",
@@ -210,7 +212,8 @@
         "value": "AL__11",
         "description": "Vlorë"
       }
-    ]
+    ],
+    "phoneCode": "355"
   },
   {
     "code2": "DZ",
@@ -412,7 +415,8 @@
         "value": "DZ__47",
         "description": "Tébessa"
       }
-    ]
+    ],
+    "phoneCode": "213"
   },
   {
     "code2": "AS",
@@ -421,7 +425,8 @@
     "capital": "Pago Pago",
     "region": "Oceania",
     "subregion": "Polynesia",
-    "states": []
+    "states": [],
+    "phoneCode": "+1-684"
   },
   {
     "code2": "AD",
@@ -459,7 +464,8 @@
         "value": "AD__6",
         "description": "Sant Julià de Lòria"
       }
-    ]
+    ],
+    "phoneCode": "376"
   },
   {
     "code2": "AO",
@@ -541,7 +547,8 @@
         "value": "AO__17",
         "description": "Zaire"
       }
-    ]
+    ],
+    "phoneCode": "244"
   },
   {
     "code2": "AI",
@@ -550,7 +557,8 @@
     "capital": "The Valley",
     "region": "Americas",
     "subregion": "Caribbean",
-    "states": []
+    "states": [],
+    "phoneCode": "+1-264"
   },
   {
     "code2": "AQ",
@@ -559,7 +567,8 @@
     "capital": "",
     "region": "Polar",
     "subregion": "",
-    "states": []
+    "states": [],
+    "phoneCode": ""
   },
   {
     "code2": "AG",
@@ -601,7 +610,8 @@
         "value": "AG__7",
         "description": "Saint Philip"
       }
-    ]
+    ],
+    "phoneCode": "+1-268"
   },
   {
     "code2": "AR",
@@ -707,7 +717,8 @@
         "value": "AR__23",
         "description": "Tucumán"
       }
-    ]
+    ],
+    "phoneCode": "54"
   },
   {
     "code2": "AM",
@@ -761,7 +772,8 @@
         "value": "AM__10",
         "description": "Širak"
       }
-    ]
+    ],
+    "phoneCode": "374"
   },
   {
     "code2": "AW",
@@ -770,7 +782,8 @@
     "capital": "Oranjestad",
     "region": "Americas",
     "subregion": "Caribbean",
-    "states": []
+    "states": [],
+    "phoneCode": "297"
   },
   {
     "code2": "AU",
@@ -812,7 +825,8 @@
         "value": "AU__7",
         "description": "Western Australia"
       }
-    ]
+    ],
+    "phoneCode": "61"
   },
   {
     "code2": "AT",
@@ -858,7 +872,8 @@
         "value": "AT__8",
         "description": "Wien"
       }
-    ]
+    ],
+    "phoneCode": "43"
   },
   {
     "code2": "AZ",
@@ -872,7 +887,8 @@
         "value": "AZ__0",
         "description": "Naxçıvan"
       }
-    ]
+    ],
+    "phoneCode": "994"
   },
   {
     "code2": "BS",
@@ -1006,7 +1022,8 @@
         "value": "BS__30",
         "description": "West Grand Bahama"
       }
-    ]
+    ],
+    "phoneCode": "+1-242"
   },
   {
     "code2": "BH",
@@ -1036,7 +1053,8 @@
         "value": "BH__4",
         "description": "Ash Shamālīyah"
       }
-    ]
+    ],
+    "phoneCode": "973"
   },
   {
     "code2": "BD",
@@ -1074,7 +1092,8 @@
         "value": "BD__6",
         "description": "Sylhet"
       }
-    ]
+    ],
+    "phoneCode": "880"
   },
   {
     "code2": "BB",
@@ -1128,7 +1147,8 @@
         "value": "BB__10",
         "description": "Saint Thomas"
       }
-    ]
+    ],
+    "phoneCode": "+1-246"
   },
   {
     "code2": "BY",
@@ -1166,7 +1186,8 @@
         "value": "BY__6",
         "description": "Vitsyebskaya voblasts'"
       }
-    ]
+    ],
+    "phoneCode": "375"
   },
   {
     "code2": "BE",
@@ -1188,7 +1209,8 @@
         "value": "BE__2",
         "description": "Vlaams Gewest"
       }
-    ]
+    ],
+    "phoneCode": "32"
   },
   {
     "code2": "BZ",
@@ -1222,7 +1244,8 @@
         "value": "BZ__5",
         "description": "Toledo"
       }
-    ]
+    ],
+    "phoneCode": "501"
   },
   {
     "code2": "BJ",
@@ -1280,7 +1303,8 @@
         "value": "BJ__11",
         "description": "Zou"
       }
-    ]
+    ],
+    "phoneCode": "229"
   },
   {
     "code2": "BM",
@@ -1289,7 +1313,8 @@
     "capital": "Hamilton",
     "region": "Americas",
     "subregion": "Northern America",
-    "states": []
+    "states": [],
+    "phoneCode": "+1-441"
   },
   {
     "code2": "BT",
@@ -1379,7 +1404,8 @@
         "value": "BT__19",
         "description": "Zhemgang"
       }
-    ]
+    ],
+    "phoneCode": "975"
   },
   {
     "code2": "BO",
@@ -1425,7 +1451,8 @@
         "value": "BO__8",
         "description": "Tarija"
       }
-    ]
+    ],
+    "phoneCode": "591"
   },
   {
     "code2": "BQ",
@@ -1434,7 +1461,8 @@
     "capital": "Kralendijk",
     "region": "Americas",
     "subregion": "Caribbean",
-    "states": []
+    "states": [],
+    "phoneCode": "599"
   },
   {
     "code2": "BA",
@@ -1456,7 +1484,8 @@
         "value": "BA__2",
         "description": "Republika Srpska"
       }
-    ]
+    ],
+    "phoneCode": "387"
   },
   {
     "code2": "BW",
@@ -1530,7 +1559,8 @@
         "value": "BW__15",
         "description": "Sowa Town"
       }
-    ]
+    ],
+    "phoneCode": "267"
   },
   {
     "code2": "BV",
@@ -1539,7 +1569,8 @@
     "capital": "",
     "region": "",
     "subregion": "",
-    "states": []
+    "states": [],
+    "phoneCode": ""
   },
   {
     "code2": "BR",
@@ -1657,7 +1688,8 @@
         "value": "BR__26",
         "description": "Tocantins"
       }
-    ]
+    ],
+    "phoneCode": "55"
   },
   {
     "code2": "IO",
@@ -1666,7 +1698,8 @@
     "capital": "Diego Garcia",
     "region": "Africa",
     "subregion": "Eastern Africa",
-    "states": []
+    "states": [],
+    "phoneCode": "246"
   },
   {
     "code2": "UM",
@@ -1712,7 +1745,8 @@
         "value": "UM__8",
         "description": "Wake Island"
       }
-    ]
+    ],
+    "phoneCode": "1"
   },
   {
     "code2": "VG",
@@ -1721,7 +1755,8 @@
     "capital": "Road Town",
     "region": "Americas",
     "subregion": "Caribbean",
-    "states": []
+    "states": [],
+    "phoneCode": "+1-284"
   },
   {
     "code2": "VI",
@@ -1730,7 +1765,8 @@
     "capital": "Charlotte Amalie",
     "region": "Americas",
     "subregion": "Caribbean",
-    "states": []
+    "states": [],
+    "phoneCode": "+1-340"
   },
   {
     "code2": "BN",
@@ -1756,7 +1792,8 @@
         "value": "BN__3",
         "description": "Tutong"
       }
-    ]
+    ],
+    "phoneCode": "673"
   },
   {
     "code2": "BG",
@@ -1878,7 +1915,8 @@
         "value": "BG__27",
         "description": "Yambol"
       }
-    ]
+    ],
+    "phoneCode": "359"
   },
   {
     "code2": "BF",
@@ -1940,7 +1978,8 @@
         "value": "BF__12",
         "description": "Sud-Ouest"
       }
-    ]
+    ],
+    "phoneCode": "226"
   },
   {
     "code2": "BI",
@@ -2018,7 +2057,8 @@
         "value": "BI__16",
         "description": "Ruyigi"
       }
-    ]
+    ],
+    "phoneCode": "257"
   },
   {
     "code2": "KH",
@@ -2124,7 +2164,8 @@
         "value": "KH__23",
         "description": "Taakaev"
       }
-    ]
+    ],
+    "phoneCode": "855"
   },
   {
     "code2": "CM",
@@ -2174,7 +2215,8 @@
         "value": "CM__9",
         "description": "West"
       }
-    ]
+    ],
+    "phoneCode": "237"
   },
   {
     "code2": "CA",
@@ -2236,7 +2278,8 @@
         "value": "CA__12",
         "description": "Yukon"
       }
-    ]
+    ],
+    "phoneCode": "1"
   },
   {
     "code2": "CV",
@@ -2254,7 +2297,8 @@
         "value": "CV__1",
         "description": "Ilhas de Sotavento"
       }
-    ]
+    ],
+    "phoneCode": "238"
   },
   {
     "code2": "KY",
@@ -2263,7 +2307,8 @@
     "capital": "George Town",
     "region": "Americas",
     "subregion": "Caribbean",
-    "states": []
+    "states": [],
+    "phoneCode": "+1-345"
   },
   {
     "code2": "CF",
@@ -2341,7 +2386,8 @@
         "value": "CF__16",
         "description": "Vakaga"
       }
-    ]
+    ],
+    "phoneCode": "236"
   },
   {
     "code2": "TD",
@@ -2439,7 +2485,8 @@
         "value": "TD__21",
         "description": "Ḥajjar Lamīs"
       }
-    ]
+    ],
+    "phoneCode": "235"
   },
   {
     "code2": "CL",
@@ -2509,7 +2556,8 @@
         "value": "CL__14",
         "description": "Valparaíso"
       }
-    ]
+    ],
+    "phoneCode": "56"
   },
   {
     "code2": "CN",
@@ -2667,7 +2715,8 @@
         "value": "CN__36",
         "description": "New Territories"
       }
-    ]
+    ],
+    "phoneCode": "86"
   },
   {
     "code2": "CX",
@@ -2676,7 +2725,8 @@
     "capital": "Flying Fish Cove",
     "region": "Oceania",
     "subregion": "Australia and New Zealand",
-    "states": []
+    "states": [],
+    "phoneCode": "61"
   },
   {
     "code2": "CC",
@@ -2685,7 +2735,8 @@
     "capital": "West Island",
     "region": "Oceania",
     "subregion": "Australia and New Zealand",
-    "states": []
+    "states": [],
+    "phoneCode": "61"
   },
   {
     "code2": "CO",
@@ -2827,7 +2878,8 @@
         "value": "CO__32",
         "description": "Vichada"
       }
-    ]
+    ],
+    "phoneCode": "57"
   },
   {
     "code2": "KM",
@@ -2849,7 +2901,8 @@
         "value": "KM__2",
         "description": "Mohéli"
       }
-    ]
+    ],
+    "phoneCode": "269"
   },
   {
     "code2": "CG",
@@ -2907,7 +2960,8 @@
         "value": "CG__11",
         "description": "Sangha"
       }
-    ]
+    ],
+    "phoneCode": "242"
   },
   {
     "code2": "CD",
@@ -2961,7 +3015,8 @@
         "value": "CD__10",
         "description": "Équateur"
       }
-    ]
+    ],
+    "phoneCode": "243"
   },
   {
     "code2": "CK",
@@ -2970,7 +3025,8 @@
     "capital": "Avarua",
     "region": "Oceania",
     "subregion": "Polynesia",
-    "states": []
+    "states": [],
+    "phoneCode": "682"
   },
   {
     "code2": "CR",
@@ -3008,7 +3064,8 @@
         "value": "CR__6",
         "description": "San José"
       }
-    ]
+    ],
+    "phoneCode": "506"
   },
   {
     "code2": "HR",
@@ -3102,7 +3159,8 @@
         "value": "HR__20",
         "description": "Šibensko-kninska županija"
       }
-    ]
+    ],
+    "phoneCode": "385"
   },
   {
     "code2": "CU",
@@ -3176,7 +3234,8 @@
         "value": "CU__15",
         "description": "Villa Clara"
       }
-    ]
+    ],
+    "phoneCode": "53"
   },
   {
     "code2": "CW",
@@ -3185,7 +3244,8 @@
     "capital": "Willemstad",
     "region": "Americas",
     "subregion": "Caribbean",
-    "states": []
+    "states": [],
+    "phoneCode": "599"
   },
   {
     "code2": "CY",
@@ -3219,7 +3279,8 @@
         "value": "CY__5",
         "description": "Pafos"
       }
-    ]
+    ],
+    "phoneCode": "357"
   },
   {
     "code2": "CZ",
@@ -3285,7 +3346,8 @@
         "value": "CZ__13",
         "description": "Ústecký kraj"
       }
-    ]
+    ],
+    "phoneCode": "420"
   },
   {
     "code2": "DK",
@@ -3315,7 +3377,8 @@
         "value": "DK__4",
         "description": "Syddanmark"
       }
-    ]
+    ],
+    "phoneCode": "45"
   },
   {
     "code2": "DJ",
@@ -3349,7 +3412,8 @@
         "value": "DJ__5",
         "description": "Tadjourah"
       }
-    ]
+    ],
+    "phoneCode": "253"
   },
   {
     "code2": "DM",
@@ -3399,7 +3463,8 @@
         "value": "DM__9",
         "description": "Saint Peter"
       }
-    ]
+    ],
+    "phoneCode": "+1-767"
   },
   {
     "code2": "DO",
@@ -3449,7 +3514,8 @@
         "value": "DO__9",
         "description": "Yuma"
       }
-    ]
+    ],
+    "phoneCode": "+1-809 and 1-829"
   },
   {
     "code2": "EC",
@@ -3555,7 +3621,8 @@
         "value": "EC__23",
         "description": "Zamora-Chinchipe"
       }
-    ]
+    ],
+    "phoneCode": "593"
   },
   {
     "code2": "EG",
@@ -3681,7 +3748,8 @@
         "value": "EG__28",
         "description": "Ḩulwān"
       }
-    ]
+    ],
+    "phoneCode": "20"
   },
   {
     "code2": "SV",
@@ -3747,7 +3815,8 @@
         "value": "SV__13",
         "description": "Usulután"
       }
-    ]
+    ],
+    "phoneCode": "503"
   },
   {
     "code2": "GQ",
@@ -3765,7 +3834,8 @@
         "value": "GQ__1",
         "description": "Región Insular"
       }
-    ]
+    ],
+    "phoneCode": "240"
   },
   {
     "code2": "ER",
@@ -3799,7 +3869,8 @@
         "value": "ER__5",
         "description": "Shimālī al Baḩrī al Aḩmar"
       }
-    ]
+    ],
+    "phoneCode": "291"
   },
   {
     "code2": "EE",
@@ -3869,7 +3940,8 @@
         "value": "EE__14",
         "description": "Võrumaa"
       }
-    ]
+    ],
+    "phoneCode": "372"
   },
   {
     "code2": "ET",
@@ -3923,7 +3995,8 @@
         "value": "ET__10",
         "description": "Āmara"
       }
-    ]
+    ],
+    "phoneCode": "251"
   },
   {
     "code2": "FK",
@@ -3932,7 +4005,8 @@
     "capital": "Stanley",
     "region": "Americas",
     "subregion": "South America",
-    "states": []
+    "states": [],
+    "phoneCode": "500"
   },
   {
     "code2": "FO",
@@ -3941,7 +4015,8 @@
     "capital": "Tórshavn",
     "region": "Europe",
     "subregion": "Northern Europe",
-    "states": []
+    "states": [],
+    "phoneCode": "298"
   },
   {
     "code2": "FJ",
@@ -3971,7 +4046,8 @@
         "value": "FJ__4",
         "description": "Western"
       }
-    ]
+    ],
+    "phoneCode": "679"
   },
   {
     "code2": "FI",
@@ -4057,7 +4133,8 @@
         "value": "FI__18",
         "description": "Varsinais-Suomi"
       }
-    ]
+    ],
+    "phoneCode": "358"
   },
   {
     "code2": "FR",
@@ -4155,7 +4232,8 @@
         "value": "FR__21",
         "description": "Île-de-France"
       }
-    ]
+    ],
+    "phoneCode": "33"
   },
   {
     "code2": "GF",
@@ -4164,7 +4242,8 @@
     "capital": "Cayenne",
     "region": "Americas",
     "subregion": "South America",
-    "states": []
+    "states": [],
+    "phoneCode": "594"
   },
   {
     "code2": "PF",
@@ -4173,7 +4252,8 @@
     "capital": "Papeetē",
     "region": "Oceania",
     "subregion": "Polynesia",
-    "states": []
+    "states": [],
+    "phoneCode": "689"
   },
   {
     "code2": "TF",
@@ -4182,7 +4262,8 @@
     "capital": "Port-aux-Français",
     "region": "Africa",
     "subregion": "Southern Africa",
-    "states": []
+    "states": [],
+    "phoneCode": ""
   },
   {
     "code2": "GA",
@@ -4228,7 +4309,8 @@
         "value": "GA__8",
         "description": "Woleu-Ntem"
       }
-    ]
+    ],
+    "phoneCode": "241"
   },
   {
     "code2": "GM",
@@ -4262,7 +4344,8 @@
         "value": "GM__5",
         "description": "Western"
       }
-    ]
+    ],
+    "phoneCode": "220"
   },
   {
     "code2": "GE",
@@ -4320,7 +4403,8 @@
         "value": "GE__11",
         "description": "Tbilisi"
       }
-    ]
+    ],
+    "phoneCode": "995"
   },
   {
     "code2": "DE",
@@ -4394,7 +4478,8 @@
         "value": "DE__15",
         "description": "Thüringen"
       }
-    ]
+    ],
+    "phoneCode": "49"
   },
   {
     "code2": "GH",
@@ -4444,7 +4529,8 @@
         "value": "GH__9",
         "description": "Western"
       }
-    ]
+    ],
+    "phoneCode": "233"
   },
   {
     "code2": "GI",
@@ -4453,7 +4539,8 @@
     "capital": "Gibraltar",
     "region": "Europe",
     "subregion": "Southern Europe",
-    "states": []
+    "states": [],
+    "phoneCode": "350"
   },
   {
     "code2": "GR",
@@ -4515,7 +4602,8 @@
         "value": "GR__12",
         "description": "Voreio Aigaio"
       }
-    ]
+    ],
+    "phoneCode": "30"
   },
   {
     "code2": "GL",
@@ -4541,7 +4629,8 @@
         "value": "GL__3",
         "description": "Qeqqata Kommunia"
       }
-    ]
+    ],
+    "phoneCode": "299"
   },
   {
     "code2": "GD",
@@ -4579,7 +4668,8 @@
         "value": "GD__6",
         "description": "Southern Grenadine Islands"
       }
-    ]
+    ],
+    "phoneCode": "+1-473"
   },
   {
     "code2": "GP",
@@ -4588,7 +4678,8 @@
     "capital": "Basse-Terre",
     "region": "Americas",
     "subregion": "Caribbean",
-    "states": []
+    "states": [],
+    "phoneCode": "590"
   },
   {
     "code2": "GU",
@@ -4597,7 +4688,8 @@
     "capital": "Hagåtña",
     "region": "Oceania",
     "subregion": "Micronesia",
-    "states": []
+    "states": [],
+    "phoneCode": "+1-671"
   },
   {
     "code2": "GT",
@@ -4695,7 +4787,8 @@
         "value": "GT__21",
         "description": "Zacapa"
       }
-    ]
+    ],
+    "phoneCode": "502"
   },
   {
     "code2": "GG",
@@ -4704,7 +4797,8 @@
     "capital": "St. Peter Port",
     "region": "Europe",
     "subregion": "Northern Europe",
-    "states": []
+    "states": [],
+    "phoneCode": "+44-1481"
   },
   {
     "code2": "GN",
@@ -4746,7 +4840,8 @@
         "value": "GN__7",
         "description": "Nzérékoré"
       }
-    ]
+    ],
+    "phoneCode": "224"
   },
   {
     "code2": "GW",
@@ -4768,7 +4863,8 @@
         "value": "GW__2",
         "description": "Sul"
       }
-    ]
+    ],
+    "phoneCode": "245"
   },
   {
     "code2": "GY",
@@ -4818,7 +4914,8 @@
         "value": "GY__9",
         "description": "Upper Takutu-Upper Essequibo"
       }
-    ]
+    ],
+    "phoneCode": "592"
   },
   {
     "code2": "HT",
@@ -4868,7 +4965,8 @@
         "value": "HT__9",
         "description": "Sud-Est"
       }
-    ]
+    ],
+    "phoneCode": "509"
   },
   {
     "code2": "HM",
@@ -4877,7 +4975,8 @@
     "capital": "",
     "region": "",
     "subregion": "",
-    "states": []
+    "states": [],
+    "phoneCode": " "
   },
   {
     "code2": "VA",
@@ -4886,7 +4985,8 @@
     "capital": "Rome",
     "region": "Europe",
     "subregion": "Southern Europe",
-    "states": []
+    "states": [],
+    "phoneCode": "379"
   },
   {
     "code2": "HN",
@@ -4968,7 +5068,8 @@
         "value": "HN__17",
         "description": "Yoro"
       }
-    ]
+    ],
+    "phoneCode": "504"
   },
   {
     "code2": "HK",
@@ -4977,7 +5078,8 @@
     "capital": "City of Victoria",
     "region": "Asia",
     "subregion": "Eastern Asia",
-    "states": []
+    "states": [],
+    "phoneCode": "852"
   },
   {
     "code2": "HU",
@@ -5159,7 +5261,8 @@
         "value": "HU__42",
         "description": "Érd"
       }
-    ]
+    ],
+    "phoneCode": "36"
   },
   {
     "code2": "IS",
@@ -5205,7 +5308,8 @@
         "value": "IS__8",
         "description": "Vesturland"
       }
-    ]
+    ],
+    "phoneCode": "354"
   },
   {
     "code2": "IN",
@@ -5359,7 +5463,8 @@
         "value": "IN__35",
         "description": "West Bengal"
       }
-    ]
+    ],
+    "phoneCode": "91"
   },
   {
     "code2": "ID",
@@ -5397,7 +5502,8 @@
         "value": "ID__6",
         "description": "Sumatera"
       }
-    ]
+    ],
+    "phoneCode": "62"
   },
   {
     "code2": "CI",
@@ -5483,7 +5589,8 @@
         "value": "CI__18",
         "description": "Zanzan"
       }
-    ]
+    ],
+    "phoneCode": "225"
   },
   {
     "code2": "IR",
@@ -5617,7 +5724,8 @@
         "value": "IR__30",
         "description": "Īlām"
       }
-    ]
+    ],
+    "phoneCode": "98"
   },
   {
     "code2": "IQ",
@@ -5699,7 +5807,8 @@
         "value": "IQ__17",
         "description": "Şalāḩ ad Dīn"
       }
-    ]
+    ],
+    "phoneCode": "964"
   },
   {
     "code2": "IE",
@@ -5725,7 +5834,8 @@
         "value": "IE__3",
         "description": "Ulster"
       }
-    ]
+    ],
+    "phoneCode": "353"
   },
   {
     "code2": "IM",
@@ -5734,7 +5844,8 @@
     "capital": "Douglas",
     "region": "Europe",
     "subregion": "Northern Europe",
-    "states": []
+    "states": [],
+    "phoneCode": "+44-1624"
   },
   {
     "code2": "IL",
@@ -5768,7 +5879,8 @@
         "value": "IL__5",
         "description": "Yerushalayim"
       }
-    ]
+    ],
+    "phoneCode": "972"
   },
   {
     "code2": "IT",
@@ -5858,7 +5970,8 @@
         "value": "IT__19",
         "description": "Veneto"
       }
-    ]
+    ],
+    "phoneCode": "39"
   },
   {
     "code2": "JM",
@@ -5924,7 +6037,8 @@
         "value": "JM__13",
         "description": "Westmoreland"
       }
-    ]
+    ],
+    "phoneCode": "+1-876"
   },
   {
     "code2": "JP",
@@ -6122,7 +6236,8 @@
         "value": "JP__46",
         "description": "Ôsaka"
       }
-    ]
+    ],
+    "phoneCode": "81"
   },
   {
     "code2": "JE",
@@ -6131,7 +6246,8 @@
     "capital": "Saint Helier",
     "region": "Europe",
     "subregion": "Northern Europe",
-    "states": []
+    "states": [],
+    "phoneCode": "+44-1534"
   },
   {
     "code2": "JO",
@@ -6189,7 +6305,8 @@
         "value": "JO__11",
         "description": "‘Ammān"
       }
-    ]
+    ],
+    "phoneCode": "962"
   },
   {
     "code2": "KZ",
@@ -6263,7 +6380,8 @@
         "value": "KZ__15",
         "description": "Zhambyl oblysy"
       }
-    ]
+    ],
+    "phoneCode": "7"
   },
   {
     "code2": "KE",
@@ -6305,7 +6423,8 @@
         "value": "KE__7",
         "description": "Western"
       }
-    ]
+    ],
+    "phoneCode": "254"
   },
   {
     "code2": "KI",
@@ -6327,7 +6446,8 @@
         "value": "KI__2",
         "description": "Phoenix Islands"
       }
-    ]
+    ],
+    "phoneCode": "686"
   },
   {
     "code2": "KW",
@@ -6361,7 +6481,8 @@
         "value": "KW__5",
         "description": "Ḩawallī"
       }
-    ]
+    ],
+    "phoneCode": "965"
   },
   {
     "code2": "KG",
@@ -6403,7 +6524,8 @@
         "value": "KG__7",
         "description": "Ysyk-Köl"
       }
-    ]
+    ],
+    "phoneCode": "996"
   },
   {
     "code2": "LA",
@@ -6485,7 +6607,8 @@
         "value": "LA__17",
         "description": "Xékong"
       }
-    ]
+    ],
+    "phoneCode": "856"
   },
   {
     "code2": "LV",
@@ -6971,7 +7094,8 @@
         "value": "LV__118",
         "description": "Ķekavas novads"
       }
-    ]
+    ],
+    "phoneCode": "371"
   },
   {
     "code2": "LB",
@@ -7013,7 +7137,8 @@
         "value": "LB__7",
         "description": "Nabatîyé"
       }
-    ]
+    ],
+    "phoneCode": "961"
   },
   {
     "code2": "LS",
@@ -7063,7 +7188,8 @@
         "value": "LS__9",
         "description": "Thaba-Tseka"
       }
-    ]
+    ],
+    "phoneCode": "266"
   },
   {
     "code2": "LR",
@@ -7133,7 +7259,8 @@
         "value": "LR__14",
         "description": "Sinoe"
       }
-    ]
+    ],
+    "phoneCode": "231"
   },
   {
     "code2": "LY",
@@ -7231,7 +7358,8 @@
         "value": "LY__21",
         "description": "Ţarābulus"
       }
-    ]
+    ],
+    "phoneCode": "218"
   },
   {
     "code2": "LI",
@@ -7285,7 +7413,8 @@
         "value": "LI__10",
         "description": "Vaduz"
       }
-    ]
+    ],
+    "phoneCode": "423"
   },
   {
     "code2": "LT",
@@ -7335,7 +7464,8 @@
         "value": "LT__9",
         "description": "Šiaulių Apskritis"
       }
-    ]
+    ],
+    "phoneCode": "370"
   },
   {
     "code2": "LU",
@@ -7357,7 +7487,8 @@
         "value": "LU__2",
         "description": "Luxembourg"
       }
-    ]
+    ],
+    "phoneCode": "352"
   },
   {
     "code2": "MO",
@@ -7366,7 +7497,8 @@
     "capital": "",
     "region": "Asia",
     "subregion": "Eastern Asia",
-    "states": []
+    "states": [],
+    "phoneCode": "853"
   },
   {
     "code2": "MK",
@@ -7712,7 +7844,8 @@
         "value": "MK__83",
         "description": "Želino"
       }
-    ]
+    ],
+    "phoneCode": "389"
   },
   {
     "code2": "MG",
@@ -7746,7 +7879,8 @@
         "value": "MG__5",
         "description": "Toliara"
       }
-    ]
+    ],
+    "phoneCode": "261"
   },
   {
     "code2": "MW",
@@ -7768,7 +7902,8 @@
         "value": "MW__2",
         "description": "Southern Region"
       }
-    ]
+    ],
+    "phoneCode": "265"
   },
   {
     "code2": "MY",
@@ -7842,7 +7977,8 @@
         "value": "MY__15",
         "description": "Terengganu"
       }
-    ]
+    ],
+    "phoneCode": "60"
   },
   {
     "code2": "MV",
@@ -7884,7 +8020,8 @@
         "value": "MV__7",
         "description": "Upper South"
       }
-    ]
+    ],
+    "phoneCode": "960"
   },
   {
     "code2": "ML",
@@ -7930,7 +8067,8 @@
         "value": "ML__8",
         "description": "Tombouctou"
       }
-    ]
+    ],
+    "phoneCode": "223"
   },
   {
     "code2": "MT",
@@ -8212,7 +8350,8 @@
         "value": "MT__67",
         "description": "Żurrieq"
       }
-    ]
+    ],
+    "phoneCode": "356"
   },
   {
     "code2": "MH",
@@ -8230,7 +8369,8 @@
         "value": "MH__1",
         "description": "Ratak chain"
       }
-    ]
+    ],
+    "phoneCode": "692"
   },
   {
     "code2": "MQ",
@@ -8239,7 +8379,8 @@
     "capital": "Fort-de-France",
     "region": "Americas",
     "subregion": "Caribbean",
-    "states": []
+    "states": [],
+    "phoneCode": "596"
   },
   {
     "code2": "MR",
@@ -8301,7 +8442,8 @@
         "value": "MR__12",
         "description": "Trarza"
       }
-    ]
+    ],
+    "phoneCode": "222"
   },
   {
     "code2": "MU",
@@ -8379,7 +8521,8 @@
         "value": "MU__16",
         "description": "Vacoas-Phoenix"
       }
-    ]
+    ],
+    "phoneCode": "230"
   },
   {
     "code2": "YT",
@@ -8388,7 +8531,8 @@
     "capital": "Mamoudzou",
     "region": "Africa",
     "subregion": "Eastern Africa",
-    "states": []
+    "states": [],
+    "phoneCode": "262"
   },
   {
     "code2": "MX",
@@ -8526,7 +8670,8 @@
         "value": "MX__31",
         "description": "Zacatecas"
       }
-    ]
+    ],
+    "phoneCode": "52"
   },
   {
     "code2": "FM",
@@ -8552,7 +8697,8 @@
         "value": "FM__3",
         "description": "Yap"
       }
-    ]
+    ],
+    "phoneCode": "691"
   },
   {
     "code2": "MD",
@@ -8710,7 +8856,8 @@
         "value": "MD__36",
         "description": "Ştefan Vodă"
       }
-    ]
+    ],
+    "phoneCode": "373"
   },
   {
     "code2": "MC",
@@ -8788,7 +8935,8 @@
         "value": "MC__16",
         "description": "Vallon de la Rousse"
       }
-    ]
+    ],
+    "phoneCode": "377"
   },
   {
     "code2": "MN",
@@ -8886,7 +9034,8 @@
         "value": "MN__21",
         "description": "Övörhangay"
       }
-    ]
+    ],
+    "phoneCode": "976"
   },
   {
     "code2": "ME",
@@ -8988,7 +9137,8 @@
         "value": "ME__22",
         "description": "Žabljak"
       }
-    ]
+    ],
+    "phoneCode": "382"
   },
   {
     "code2": "MS",
@@ -8997,7 +9147,8 @@
     "capital": "Plymouth",
     "region": "Americas",
     "subregion": "Caribbean",
-    "states": []
+    "states": [],
+    "phoneCode": "+1-664"
   },
   {
     "code2": "MA",
@@ -9071,7 +9222,8 @@
         "value": "MA__15",
         "description": "Taza-Al Hoceima-Taounate"
       }
-    ]
+    ],
+    "phoneCode": "212"
   },
   {
     "code2": "MZ",
@@ -9125,7 +9277,8 @@
         "value": "MZ__10",
         "description": "Zambézia"
       }
-    ]
+    ],
+    "phoneCode": "258"
   },
   {
     "code2": "MM",
@@ -9191,7 +9344,8 @@
         "value": "MM__13",
         "description": "Yangon"
       }
-    ]
+    ],
+    "phoneCode": "95"
   },
   {
     "code2": "NA",
@@ -9257,7 +9411,8 @@
         "value": "NA__13",
         "description": "Zambezi"
       }
-    ]
+    ],
+    "phoneCode": "264"
   },
   {
     "code2": "NR",
@@ -9323,7 +9478,8 @@
         "value": "NR__13",
         "description": "Yaren"
       }
-    ]
+    ],
+    "phoneCode": "674"
   },
   {
     "code2": "NP",
@@ -9353,7 +9509,8 @@
         "value": "NP__4",
         "description": "Sudur Pashchimanchal"
       }
-    ]
+    ],
+    "phoneCode": "977"
   },
   {
     "code2": "NL",
@@ -9435,7 +9592,8 @@
         "value": "NL__17",
         "description": "Sint Eustatius"
       }
-    ]
+    ],
+    "phoneCode": "31"
   },
   {
     "code2": "NC",
@@ -9444,7 +9602,8 @@
     "capital": "Nouméa",
     "region": "Oceania",
     "subregion": "Melanesia",
-    "states": []
+    "states": [],
+    "phoneCode": "687"
   },
   {
     "code2": "NZ",
@@ -9530,7 +9689,8 @@
         "value": "NZ__18",
         "description": "Tasman District"
       }
-    ]
+    ],
+    "phoneCode": "64"
   },
   {
     "code2": "NI",
@@ -9608,7 +9768,8 @@
         "value": "NI__16",
         "description": "Río San Juan"
       }
-    ]
+    ],
+    "phoneCode": "505"
   },
   {
     "code2": "NE",
@@ -9650,7 +9811,8 @@
         "value": "NE__7",
         "description": "Zinder"
       }
-    ]
+    ],
+    "phoneCode": "227"
   },
   {
     "code2": "NG",
@@ -9808,7 +9970,8 @@
         "value": "NG__36",
         "description": "Zamfara"
       }
-    ]
+    ],
+    "phoneCode": "234"
   },
   {
     "code2": "NU",
@@ -9817,7 +9980,8 @@
     "capital": "Alofi",
     "region": "Oceania",
     "subregion": "Polynesia",
-    "states": []
+    "states": [],
+    "phoneCode": "683"
   },
   {
     "code2": "NF",
@@ -9826,7 +9990,8 @@
     "capital": "Kingston",
     "region": "Oceania",
     "subregion": "Australia and New Zealand",
-    "states": []
+    "states": [],
+    "phoneCode": "672"
   },
   {
     "code2": "KP",
@@ -9880,7 +10045,8 @@
         "value": "KP__10",
         "description": "South Pyongan"
       }
-    ]
+    ],
+    "phoneCode": "850"
   },
   {
     "code2": "MP",
@@ -9889,7 +10055,8 @@
     "capital": "Saipan",
     "region": "Oceania",
     "subregion": "Micronesia",
-    "states": []
+    "states": [],
+    "phoneCode": "+1-670"
   },
   {
     "code2": "NO",
@@ -9983,7 +10150,8 @@
         "value": "NO__20",
         "description": "Østfold"
       }
-    ]
+    ],
+    "phoneCode": "47"
   },
   {
     "code2": "OM",
@@ -10029,7 +10197,8 @@
         "value": "OM__8",
         "description": "Z̧ufār"
       }
-    ]
+    ],
+    "phoneCode": "968"
   },
   {
     "code2": "PK",
@@ -10071,7 +10240,8 @@
         "value": "PK__7",
         "description": "Sindh"
       }
-    ]
+    ],
+    "phoneCode": "92"
   },
   {
     "code2": "PW",
@@ -10145,7 +10315,8 @@
         "value": "PW__15",
         "description": "Sonsorol"
       }
-    ]
+    ],
+    "phoneCode": "680"
   },
   {
     "code2": "PS",
@@ -10219,7 +10390,8 @@
         "value": "PS__15",
         "description": "Tulkarm"
       }
-    ]
+    ],
+    "phoneCode": "970"
   },
   {
     "code2": "PA",
@@ -10281,7 +10453,8 @@
         "value": "PA__12",
         "description": "Veraguas"
       }
-    ]
+    ],
+    "phoneCode": "507"
   },
   {
     "code2": "PG",
@@ -10371,7 +10544,8 @@
         "value": "PG__19",
         "description": "Western Highlands"
       }
-    ]
+    ],
+    "phoneCode": "675"
   },
   {
     "code2": "PY",
@@ -10453,7 +10627,8 @@
         "value": "PY__17",
         "description": "Ñeembucú"
       }
-    ]
+    ],
+    "phoneCode": "595"
   },
   {
     "code2": "PE",
@@ -10567,7 +10742,8 @@
         "value": "PE__25",
         "description": "Ucayali"
       }
-    ]
+    ],
+    "phoneCode": "51"
   },
   {
     "code2": "PH",
@@ -10645,7 +10821,8 @@
         "value": "PH__16",
         "description": "Zamboanga Peninsula"
       }
-    ]
+    ],
+    "phoneCode": "63"
   },
   {
     "code2": "PN",
@@ -10654,7 +10831,8 @@
     "capital": "Adamstown",
     "region": "Oceania",
     "subregion": "Polynesia",
-    "states": []
+    "states": [],
+    "phoneCode": "870"
   },
   {
     "code2": "PL",
@@ -10728,7 +10906,8 @@
         "value": "PL__15",
         "description": "Świętokrzyskie"
       }
-    ]
+    ],
+    "phoneCode": "48"
   },
   {
     "code2": "PT",
@@ -10818,7 +10997,8 @@
         "value": "PT__19",
         "description": "Évora"
       }
-    ]
+    ],
+    "phoneCode": "351"
   },
   {
     "code2": "PR",
@@ -10827,7 +11007,8 @@
     "capital": "San Juan",
     "region": "Americas",
     "subregion": "Caribbean",
-    "states": []
+    "states": [],
+    "phoneCode": "+1-787 and 1-939"
   },
   {
     "code2": "QA",
@@ -10865,7 +11046,8 @@
         "value": "QA__6",
         "description": "Umm Şalāl"
       }
-    ]
+    ],
+    "phoneCode": "974"
   },
   {
     "code2": "XK",
@@ -10874,7 +11056,8 @@
     "capital": "Pristina",
     "region": "Europe",
     "subregion": "Eastern Europe",
-    "states": []
+    "states": [],
+    "phoneCode": ""
   },
   {
     "code2": "RE",
@@ -10883,7 +11066,8 @@
     "capital": "Saint-Denis",
     "region": "Africa",
     "subregion": "Eastern Africa",
-    "states": []
+    "states": [],
+    "phoneCode": "262"
   },
   {
     "code2": "RO",
@@ -11061,7 +11245,8 @@
         "value": "RO__41",
         "description": "Vâlcea"
       }
-    ]
+    ],
+    "phoneCode": "40"
   },
   {
     "code2": "RU",
@@ -11403,7 +11588,8 @@
         "value": "RU__82",
         "description": "Udmurtskaya Respublika"
       }
-    ]
+    ],
+    "phoneCode": "7"
   },
   {
     "code2": "RW",
@@ -11433,7 +11619,8 @@
         "value": "RW__4",
         "description": "Ville de Kigali"
       }
-    ]
+    ],
+    "phoneCode": "250"
   },
   {
     "code2": "BL",
@@ -11442,7 +11629,8 @@
     "capital": "Gustavia",
     "region": "Americas",
     "subregion": "Caribbean",
-    "states": []
+    "states": [],
+    "phoneCode": "590"
   },
   {
     "code2": "SH",
@@ -11464,7 +11652,8 @@
         "value": "SH__2",
         "description": "Tristan da Cunha"
       }
-    ]
+    ],
+    "phoneCode": "290"
   },
   {
     "code2": "KN",
@@ -11482,7 +11671,8 @@
         "value": "KN__1",
         "description": "Saint Kitts"
       }
-    ]
+    ],
+    "phoneCode": "+1-869"
   },
   {
     "code2": "LC",
@@ -11536,7 +11726,8 @@
         "value": "LC__10",
         "description": "Vieux Fort"
       }
-    ]
+    ],
+    "phoneCode": "+1-758"
   },
   {
     "code2": "MF",
@@ -11545,7 +11736,8 @@
     "capital": "Marigot",
     "region": "Americas",
     "subregion": "Caribbean",
-    "states": []
+    "states": [],
+    "phoneCode": "590"
   },
   {
     "code2": "PM",
@@ -11554,7 +11746,8 @@
     "capital": "Saint-Pierre",
     "region": "Americas",
     "subregion": "Northern America",
-    "states": []
+    "states": [],
+    "phoneCode": "508"
   },
   {
     "code2": "VC",
@@ -11588,7 +11781,8 @@
         "value": "VC__5",
         "description": "Saint Patrick"
       }
-    ]
+    ],
+    "phoneCode": "+1-784"
   },
   {
     "code2": "WS",
@@ -11642,7 +11836,8 @@
         "value": "WS__10",
         "description": "Vaisigano"
       }
-    ]
+    ],
+    "phoneCode": "685"
   },
   {
     "code2": "SM",
@@ -11688,7 +11883,8 @@
         "value": "SM__8",
         "description": "Serravalle"
       }
-    ]
+    ],
+    "phoneCode": "378"
   },
   {
     "code2": "ST",
@@ -11706,7 +11902,8 @@
         "value": "ST__1",
         "description": "São Tomé"
       }
-    ]
+    ],
+    "phoneCode": "239"
   },
   {
     "code2": "SA",
@@ -11768,7 +11965,8 @@
         "value": "SA__12",
         "description": "Ḩā'il"
       }
-    ]
+    ],
+    "phoneCode": "966"
   },
   {
     "code2": "SN",
@@ -11834,7 +12032,8 @@
         "value": "SN__13",
         "description": "Ziguinchor"
       }
-    ]
+    ],
+    "phoneCode": "221"
   },
   {
     "code2": "RS",
@@ -11852,7 +12051,8 @@
         "value": "RS__1",
         "description": "Vojvodina"
       }
-    ]
+    ],
+    "phoneCode": "381"
   },
   {
     "code2": "SC",
@@ -11962,7 +12162,8 @@
         "value": "SC__24",
         "description": "Takamaka"
       }
-    ]
+    ],
+    "phoneCode": "248"
   },
   {
     "code2": "SL",
@@ -11988,7 +12189,8 @@
         "value": "SL__3",
         "description": "Western Area"
       }
-    ]
+    ],
+    "phoneCode": "232"
   },
   {
     "code2": "SG",
@@ -12018,7 +12220,8 @@
         "value": "SG__4",
         "description": "South West"
       }
-    ]
+    ],
+    "phoneCode": "65"
   },
   {
     "code2": "SX",
@@ -12027,7 +12230,8 @@
     "capital": "Philipsburg",
     "region": "Americas",
     "subregion": "Caribbean",
-    "states": []
+    "states": [],
+    "phoneCode": "599"
   },
   {
     "code2": "SK",
@@ -12069,7 +12273,8 @@
         "value": "SK__7",
         "description": "Žilinský kraj"
       }
-    ]
+    ],
+    "phoneCode": "421"
   },
   {
     "code2": "SI",
@@ -12919,7 +13124,8 @@
         "value": "SI__209",
         "description": "Žužemberk"
       }
-    ]
+    ],
+    "phoneCode": "386"
   },
   {
     "code2": "SB",
@@ -12969,7 +13175,8 @@
         "value": "SB__9",
         "description": "Western"
       }
-    ]
+    ],
+    "phoneCode": "677"
   },
   {
     "code2": "SO",
@@ -13051,7 +13258,8 @@
         "value": "SO__17",
         "description": "Woqooyi Galbeed"
       }
-    ]
+    ],
+    "phoneCode": "252"
   },
   {
     "code2": "ZA",
@@ -13097,7 +13305,8 @@
         "value": "ZA__8",
         "description": "Western Cape"
       }
-    ]
+    ],
+    "phoneCode": "27"
   },
   {
     "code2": "GS",
@@ -13106,7 +13315,8 @@
     "capital": "King Edward Point",
     "region": "Americas",
     "subregion": "South America",
-    "states": []
+    "states": [],
+    "phoneCode": ""
   },
   {
     "code2": "KR",
@@ -13184,7 +13394,8 @@
         "value": "KR__16",
         "description": "Ulsan-gwangyeoksi"
       }
-    ]
+    ],
+    "phoneCode": "82"
   },
   {
     "code2": "SS",
@@ -13234,7 +13445,8 @@
         "value": "SS__9",
         "description": "Western Equatoria"
       }
-    ]
+    ],
+    "phoneCode": "211"
   },
   {
     "code2": "ES",
@@ -13520,7 +13732,8 @@
         "value": "ES__68",
         "description": "Valenciana, Comunidad"
       }
-    ]
+    ],
+    "phoneCode": "34"
   },
   {
     "code2": "LK",
@@ -13566,7 +13779,8 @@
         "value": "LK__8",
         "description": "Western Province"
       }
-    ]
+    ],
+    "phoneCode": "94"
   },
   {
     "code2": "SD",
@@ -13644,7 +13858,8 @@
         "value": "SD__16",
         "description": "Zalingei"
       }
-    ]
+    ],
+    "phoneCode": "249"
   },
   {
     "code2": "SR",
@@ -13694,7 +13909,8 @@
         "value": "SR__9",
         "description": "Wanica"
       }
-    ]
+    ],
+    "phoneCode": "597"
   },
   {
     "code2": "SJ",
@@ -13703,7 +13919,8 @@
     "capital": "Longyearbyen",
     "region": "Europe",
     "subregion": "Northern Europe",
-    "states": []
+    "states": [],
+    "phoneCode": "47"
   },
   {
     "code2": "SZ",
@@ -13729,7 +13946,8 @@
         "value": "SZ__3",
         "description": "Shiselweni"
       }
-    ]
+    ],
+    "phoneCode": "268"
   },
   {
     "code2": "SE",
@@ -13823,7 +14041,8 @@
         "value": "SE__20",
         "description": "Östergötlands län"
       }
-    ]
+    ],
+    "phoneCode": "46"
   },
   {
     "code2": "CH",
@@ -13937,7 +14156,8 @@
         "value": "CH__25",
         "description": "Zürich"
       }
-    ]
+    ],
+    "phoneCode": "41"
   },
   {
     "code2": "SY",
@@ -14003,7 +14223,8 @@
         "value": "SY__13",
         "description": "Ḩimş"
       }
-    ]
+    ],
+    "phoneCode": "963"
   },
   {
     "code2": "TW",
@@ -14105,7 +14326,8 @@
         "value": "TW__22",
         "description": "Yunlin"
       }
-    ]
+    ],
+    "phoneCode": "886"
   },
   {
     "code2": "TJ",
@@ -14131,7 +14353,8 @@
         "value": "TJ__3",
         "description": "Sughd"
       }
-    ]
+    ],
+    "phoneCode": "992"
   },
   {
     "code2": "TZ",
@@ -14245,7 +14468,8 @@
         "value": "TZ__25",
         "description": "Tanga"
       }
-    ]
+    ],
+    "phoneCode": "255"
   },
   {
     "code2": "TH",
@@ -14567,7 +14791,8 @@
         "value": "TH__77",
         "description": "Yasothon"
       }
-    ]
+    ],
+    "phoneCode": "66"
   },
   {
     "code2": "TL",
@@ -14629,7 +14854,8 @@
         "value": "TL__12",
         "description": "Viqueque"
       }
-    ]
+    ],
+    "phoneCode": "670"
   },
   {
     "code2": "TG",
@@ -14659,7 +14885,8 @@
         "value": "TG__4",
         "description": "Savannes"
       }
-    ]
+    ],
+    "phoneCode": "228"
   },
   {
     "code2": "TK",
@@ -14668,7 +14895,8 @@
     "capital": "Fakaofo",
     "region": "Oceania",
     "subregion": "Polynesia",
-    "states": []
+    "states": [],
+    "phoneCode": "690"
   },
   {
     "code2": "TO",
@@ -14698,7 +14926,8 @@
         "value": "TO__4",
         "description": "Vava'u"
       }
-    ]
+    ],
+    "phoneCode": "676"
   },
   {
     "code2": "TT",
@@ -14772,7 +15001,8 @@
         "value": "TT__15",
         "description": "Western Tobago"
       }
-    ]
+    ],
+    "phoneCode": "+1-868"
   },
   {
     "code2": "TN",
@@ -14878,7 +15108,8 @@
         "value": "TN__23",
         "description": "Zaghouan"
       }
-    ]
+    ],
+    "phoneCode": "216"
   },
   {
     "code2": "TR",
@@ -15212,7 +15443,8 @@
         "value": "TR__80",
         "description": "Şırnak"
       }
-    ]
+    ],
+    "phoneCode": "90"
   },
   {
     "code2": "TM",
@@ -15246,7 +15478,8 @@
         "value": "TM__5",
         "description": "Mary"
       }
-    ]
+    ],
+    "phoneCode": "993"
   },
   {
     "code2": "TC",
@@ -15255,7 +15488,8 @@
     "capital": "Cockburn Town",
     "region": "Americas",
     "subregion": "Caribbean",
-    "states": []
+    "states": [],
+    "phoneCode": "+1-649"
   },
   {
     "code2": "TV",
@@ -15297,7 +15531,8 @@
         "value": "TV__7",
         "description": "Vaitupu"
       }
-    ]
+    ],
+    "phoneCode": "688"
   },
   {
     "code2": "UG",
@@ -15323,7 +15558,8 @@
         "value": "UG__3",
         "description": "Western"
       }
-    ]
+    ],
+    "phoneCode": "256"
   },
   {
     "code2": "UA",
@@ -15441,7 +15677,8 @@
         "value": "UA__26",
         "description": "Zhytomyrs'ka Oblast'"
       }
-    ]
+    ],
+    "phoneCode": "380"
   },
   {
     "code2": "AE",
@@ -15479,7 +15716,8 @@
         "value": "AE__6",
         "description": "Umm al Qaywayn"
       }
-    ]
+    ],
+    "phoneCode": "971"
   },
   {
     "code2": "GB",
@@ -16445,7 +16683,8 @@
         "value": "GB__238",
         "description": "York"
       }
-    ]
+    ],
+    "phoneCode": "44"
   },
   {
     "code2": "US",
@@ -16683,7 +16922,8 @@
         "value": "US__56",
         "description": "Wyoming"
       }
-    ]
+    ],
+    "phoneCode": "1"
   },
   {
     "code2": "UY",
@@ -16769,7 +17009,8 @@
         "value": "UY__18",
         "description": "Treinta y Tres"
       }
-    ]
+    ],
+    "phoneCode": "598"
   },
   {
     "code2": "UZ",
@@ -16835,7 +17076,8 @@
         "value": "UZ__13",
         "description": "Xorazm"
       }
-    ]
+    ],
+    "phoneCode": "998"
   },
   {
     "code2": "VU",
@@ -16869,7 +17111,8 @@
         "value": "VU__5",
         "description": "Torba"
       }
-    ]
+    ],
+    "phoneCode": "678"
   },
   {
     "code2": "VE",
@@ -16979,7 +17222,8 @@
         "value": "VE__24",
         "description": "Zulia"
       }
-    ]
+    ],
+    "phoneCode": "58"
   },
   {
     "code2": "VN",
@@ -17245,7 +17489,8 @@
         "value": "VN__63",
         "description": "Đồng Tháp"
       }
-    ]
+    ],
+    "phoneCode": "84"
   },
   {
     "code2": "WF",
@@ -17254,7 +17499,8 @@
     "capital": "Mata-Utu",
     "region": "Oceania",
     "subregion": "Polynesia",
-    "states": []
+    "states": [],
+    "phoneCode": "681"
   },
   {
     "code2": "EH",
@@ -17263,7 +17509,8 @@
     "capital": "El Aaiún",
     "region": "Africa",
     "subregion": "Northern Africa",
-    "states": []
+    "states": [],
+    "phoneCode": "212"
   },
   {
     "code2": "YE",
@@ -17357,7 +17604,8 @@
         "value": "YE__20",
         "description": "Ḩaḑramawt"
       }
-    ]
+    ],
+    "phoneCode": "967"
   },
   {
     "code2": "ZM",
@@ -17403,7 +17651,8 @@
         "value": "ZM__8",
         "description": "Western"
       }
-    ]
+    ],
+    "phoneCode": "260"
   },
   {
     "code2": "ZW",
@@ -17453,6 +17702,7 @@
         "value": "ZW__9",
         "description": "Midlands"
       }
-    ]
+    ],
+    "phoneCode": "263"
   }
 ]
