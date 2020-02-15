@@ -4,12 +4,12 @@ import Button from '@components/UI/Button'
 import Input from '@components/Forms/Input'
 import Select from '@components/Forms/Select'
 import SelectPhone from '@components/Forms/SelectPhone'
-import Label from '@components/Forms/Label'
+import DatePicker from '@components/Forms/DatePicker'
 import countriesData from '@data/countries.json'
 import { FlagIcon } from 'react-flag-kit'
 import { StyledWrapper } from '../styled'
 
-const AboutUser = ({ formValues, handleChange, onSubmit }) => {
+const AboutUser = ({ formValues, handleUpdate, onSubmit }) => {
   const countries = useMemo(
     () =>
       countriesData.map(({ name, code2 }) => ({
@@ -35,40 +35,23 @@ const AboutUser = ({ formValues, handleChange, onSubmit }) => {
     </>
   )
 
-  const handlePhone = e => {
-    console.log(e)
-  }
-
-  // const modifiedCountries = () =>
-  //   countriesData.map(country => {
-  //     let newCountry
-
-  //     return {
-  //       ...country,
-  //       phoneCode: phonecodess[country.code2],
-  //     }
-  //   })
-
   return (
     <StyledWrapper>
       <h2 className="StyledCard__title">About you</h2>
       <form onSubmit={onSubmit} className="StyledCard__innerPadding">
         <input type="hidden" value="medmasdsajdsake" />
         <div className="StyledCard__inner AboutUser">
-          <p className="StyledCard__description">
-            Welcome to Slatam! Please, introduce yourself.
-          </p>
           <div className="StyledCard__gridContainer">
             <Input
               value={formValues['firstName']}
-              onChange={handleChange('firstName')}
+              handleUpdate={handleUpdate('firstName')}
               parentProps={{ className: 'StyledCard__flexItem' }}
               type="text"
               label="First name"
             />
             <Input
               value={formValues['lastName']}
-              onChange={handleChange('lastName')}
+              handleUpdate={handleUpdate('lastName')}
               parentProps={{ className: 'StyledCard__flexItem' }}
               type="text"
               label="Last name"
@@ -77,23 +60,20 @@ const AboutUser = ({ formValues, handleChange, onSubmit }) => {
           <div className="StyledCard__gridContainer">
             <Select
               value={formValues['country']}
+              handleUpdate={handleUpdate('country')}
               displayValue={displayCountry}
-              displayTag="country"
-              onChange={handleChange('country')}
-              type="text"
               label="Country"
               selectItems={countries}
               hasFilter
             />
             <Select
               value={formValues['state']}
-              onChange={handleChange('state')}
-              type="text"
+              handleUpdate={handleUpdate('state')}
               label="State"
               disabled={states.length === 0}
               displayRequirement={!!formValues.country}
               placeholder="Choose your state"
-              disabledPlaceholder="Select your country"
+              disabledPlaceholder="Select country first"
               disabledWithDisplayRequirementMet="No states found"
               selectItems={states}
             />
@@ -101,15 +81,15 @@ const AboutUser = ({ formValues, handleChange, onSubmit }) => {
           <div className="StyledCard__gridContainer">
             <SelectPhone
               value={formValues['phone']}
-              onChange={handlePhone}
+              handleUpdate={handleUpdate('phone')}
               label="Contact number"
               defaultCountry={formValues['country']}
             />
-            <Input
+            <DatePicker
               value={formValues['birthDate']}
-              onChange={handleChange('birthDate')}
-              type="birthDate"
+              handleUpdate={handleUpdate('birthDate')}
               label="Date of birth"
+              variant="birthdate"
             />
           </div>
         </div>
@@ -118,7 +98,6 @@ const AboutUser = ({ formValues, handleChange, onSubmit }) => {
             type="submit"
             className="StyledCard__submitButton limited"
             onClick={onSubmit}
-            color="yellow"
             name="aboutUser"
             size="lg"
           >
@@ -132,7 +111,7 @@ const AboutUser = ({ formValues, handleChange, onSubmit }) => {
 
 AboutUser.propTypes = {
   formValues: PropTypes.object.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  handleUpdate: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
 }
 

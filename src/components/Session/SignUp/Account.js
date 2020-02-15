@@ -9,7 +9,7 @@ import { StyledWrapper } from '../styled'
 
 const AccountInfo = ({
   formValues,
-  handleChange,
+  handleUpdate,
   togglePassword,
   onSubmit,
 }) => {
@@ -20,7 +20,7 @@ const AccountInfo = ({
         <div className="StyledCard__inner Account">
           <Input
             value={formValues['email']}
-            onChange={handleChange('email')}
+            handleUpdate={handleUpdate('email')}
             type="email"
             name="email"
             id="signUp__email"
@@ -29,7 +29,7 @@ const AccountInfo = ({
           />
           <Input
             value={formValues['password']}
-            onChange={handleChange('password')}
+            handleUpdate={handleUpdate('password')}
             type={formValues.showPassword ? 'text' : 'password'}
             label="Password"
             icon={
@@ -45,7 +45,7 @@ const AccountInfo = ({
           />
           <Input
             value={formValues['confirmPassword']}
-            onChange={handleChange('confirmPassword')}
+            handleUpdate={handleUpdate('confirmPassword')}
             type={formValues.showPassword ? 'text' : 'password'}
             label="Confirm Password"
             icon={
@@ -64,7 +64,7 @@ const AccountInfo = ({
           type="submit"
           className="StyledCard__submitButton"
           onClick={onSubmit}
-          color="yellow"
+           
           name="account"
           size="lg"
         >
@@ -85,7 +85,7 @@ const AccountInfo = ({
 
 AccountInfo.propTypes = {
   formValues: PropTypes.object.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  handleUpdate: PropTypes.func.isRequired,
   togglePassword: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
 }

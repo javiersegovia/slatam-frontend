@@ -6,6 +6,8 @@ import {
 } from '@material-ui/styles'
 import { ThemeProvider } from 'styled-components'
 import CssBaseline from '@material-ui/core/CssBaseline'
+import { MuiPickersUtilsProvider } from '@material-ui/pickers'
+import DateFnsUtils from '@date-io/date-fns'
 
 import WindowSizeProvider from './context/WindowSize'
 import AppConfigProvider from './context/AppConfig'
@@ -18,13 +20,15 @@ const AppLayout = ({ children }) => {
     <StylesProvider injectFirst>
       <MuiThemeProvider theme={theme}>
         <ThemeProvider theme={theme}>
-          <WindowSizeProvider>
-            <AppConfigProvider>
-              <CssBaseline />
-              <AppMeta />
-              {children}
-            </AppConfigProvider>
-          </WindowSizeProvider>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <WindowSizeProvider>
+              <AppConfigProvider>
+                <CssBaseline />
+                <AppMeta />
+                {children}
+              </AppConfigProvider>
+            </WindowSizeProvider>
+          </MuiPickersUtilsProvider>
         </ThemeProvider>
       </MuiThemeProvider>
     </StylesProvider>

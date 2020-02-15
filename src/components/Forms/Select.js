@@ -24,7 +24,7 @@ const StyledSelect = styled.div`
     ${props =>
       props.disabled &&
       `
-      background: ${props.theme.palette.slategray.extralight};
+      background: ${props.theme.palette.slategray.disabled};
     `};
   }
 
@@ -125,7 +125,7 @@ const RowItem = ({ value, description, handleChange, style = {} }) => (
       value={value}
       className="StyledSelect__listButton"
     >
-      {description}
+      {description || value}
     </button>
   </li>
 )
@@ -147,14 +147,14 @@ const WindowList = ({ items, handleChange }) => (
     className="StyledSelect__windowWrapper"
   >
     {({ data, index, style }) => {
-      const { value, description } = data.items[index]
+      const item = data.items[index]
       return (
         <RowItem
-          value={value}
-          description={description}
-          handleChange={data.handleChange}
+          value={item.value || item}
+          description={item.description || ''}
+          handleChange={handleChange}
+          key={item.value || item}
           style={style}
-          key={value + description}
         />
       )
     }}
@@ -167,12 +167,12 @@ WindowList.propTypes = {
 }
 
 const DefaultList = ({ items, handleChange }) =>
-  items.map(({ value, description }) => (
+  items.map(item => (
     <RowItem
-      value={value}
-      description={description}
+      value={item.value || item}
+      description={item.description || ''}
       handleChange={handleChange}
-      key={value + description}
+      key={item.value || item}
     />
   ))
 
@@ -184,7 +184,7 @@ DefaultList.propTypes = {
 const Select = ({
   value,
   displayValue,
-  onChange,
+  handleUpdate,
   selectItems,
   label,
   disabled = false,
@@ -195,8 +195,8 @@ const Select = ({
   disabledWithDisplayRequirementMet = null,
 }) => {
   const [searchValue, setSearchValue] = useState('')
-  const [anchorEl, setAnchorEl] = useState(null)
   const [filteredItems, setFilteredItems] = useState(selectItems)
+  const [anchorEl, setAnchorEl] = useState(null)
 
   const myRef = useRef(null)
 
@@ -210,29 +210,37 @@ const Select = ({
   }
 
   const handleChange = event => {
-    onChange(event)
+    handleUpdate(event.target.value)
     handleClose()
   }
 
   const handleInputChange = event => {
-    const { value: inputVal } = event.target
-    setSearchValue(inputVal)
+    setSearchValue(event.target.value)
     if (!anchorEl) handleFocus()
   }
 
   const handleReset = () => {
-    onChange(false)
+    handleUpdate(null)
   }
 
   const randomID = useMemo(() => uuid(), [])
 
   const currentItem = useMemo(
-    () => selectItems.find(item => item.value === value),
+    () =>
+      selectItems.find(item => {
+        // check if "item" is an object or a plain value
+        if (item.value) return item.value === value
+        return item === value
+      }),
     [value]
   )
 
   useEffect(() => {
-    if (currentItem && hasFilter) setSearchValue(currentItem.description)
+    if (currentItem && hasFilter) {
+      setSearchValue(
+        currentItem.description || currentItem.value || currentItem
+      )
+    }
   }, [currentItem])
 
   useEffect(() => {
@@ -241,15 +249,37 @@ const Select = ({
   }, [selectItems])
 
   useEffect(() => {
-    const results = selectItems.filter(item =>
-      item.description
-        .trim()
-        .toLowerCase()
-        .includes(searchValue.toLowerCase())
-    )
+    if (hasFilter) {
+      const results = selectItems.filter(item => {
+        const filterValue = item.description || item.value || item
 
-    setFilteredItems(results)
+        return filterValue
+          .trim()
+          .toLowerCase()
+          .includes(searchValue.toLowerCase())
+      })
+
+      setFilteredItems(results)
+    }
   }, [searchValue])
+
+  const renderDisplayWithoutFilter = () => {
+    if (currentItem) {
+      return currentItem.description || currentItem.value || currentItem
+    }
+
+    return (
+      <div className="StyledSelect__placeholder">
+        {(disabled && (
+          <span className="disabled">
+            {(!displayRequirement && disabledPlaceholder) ||
+              (displayRequirement && disabledWithDisplayRequirementMet)}
+          </span>
+        )) ||
+          placeholder}
+      </div>
+    )
+  }
 
   return (
     <ClickAwayListener onClickAway={() => setAnchorEl(null)}>
@@ -263,18 +293,7 @@ const Select = ({
             onFocus={handleFocus}
           >
             {displayValue && displayValue}
-            {!hasFilter && currentItem && currentItem.description}
-            {!hasFilter && !currentItem && (
-              <div className="StyledSelect__placeholder">
-                {(disabled && (
-                  <span className="disabled">
-                    {(!displayRequirement && disabledPlaceholder) ||
-                      (displayRequirement && disabledWithDisplayRequirementMet)}
-                  </span>
-                )) ||
-                  placeholder}
-              </div>
-            )}
+            {!hasFilter && renderDisplayWithoutFilter()}
           </button>
 
           {hasFilter && (
@@ -333,7 +352,7 @@ const Select = ({
 Select.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.array]).isRequired,
   displayValue: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  onChange: PropTypes.func.isRequired,
+  handleUpdate: PropTypes.func.isRequired,
   selectItems: PropTypes.array.isRequired,
   label: PropTypes.string,
   disabled: PropTypes.bool,

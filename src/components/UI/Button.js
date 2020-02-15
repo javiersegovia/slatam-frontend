@@ -13,6 +13,7 @@ const StyledButton = styled.button`
   letter-spacing: 0.8px;
   border-radius: 6px;
   font-weight: 500;
+  display: inline-block;
 
   ${props =>
     props.secondary &&
@@ -29,9 +30,9 @@ const StyledButton = styled.button`
   `}
 
   ${props =>
-    props.color === 'yellow' &&
+    props.color === 'default' &&
     `
-    background: ${props.theme.gradients.secondary.main};
+    background: ${props.theme.gradients.snow.main};
     color: ${props.theme.palette.black.main};
   `}
 
@@ -44,7 +45,11 @@ const StyledButton = styled.button`
 `
 
 const Button = ({ children, ...otherProps }) => {
-  return <StyledButton {...otherProps}>{children}</StyledButton>
+  return (
+    <StyledButton as={otherProps.href ? 'a' : ''} {...otherProps}>
+      {children}
+    </StyledButton>
+  )
 }
 
 Button.propTypes = {

@@ -7,7 +7,7 @@ import Company from './Company'
 import Completed from './Completed'
 import { StyledWrapper, StyledCard } from '../styled'
 import SignUpStepper from './SignUpStepper'
-import HaveCompanyModal from './HaveCompanyModal'
+import HaveCompanyModal from './SkipCompanyModal'
 
 const stepsItems = [
   passedProps => <Account {...passedProps} />,
@@ -18,21 +18,21 @@ const stepsItems = [
 
 const SignUp = () => {
   const [formValues, setFormValues] = useState({
-    firstName: '',
-    lastName: '',
     email: '',
     password: '',
     confirmPassword: '',
     showPassword: false,
+    firstName: '',
+    lastName: '',
     country: '',
     state: '',
     phone: '',
-    role: '',
     companyName: '',
     companyCountry: '',
     companyState: '',
     companyEmployees: '',
     companyCategories: '',
+    role: '',
   })
 
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -59,9 +59,8 @@ const SignUp = () => {
     setActiveIndex(newIndex)
   }
 
-  const handleChange = name => event => {
-    if (event) setFormValues({ ...formValues, [name]: event.target.value })
-    else setFormValues({ ...formValues, [name]: '' })
+  const handleUpdate = name => value => {
+    setFormValues({ ...formValues, [name]: value })
   }
 
   const togglePassword = () =>
@@ -101,7 +100,7 @@ const SignUp = () => {
         {/* <div className="StyledCard__divider" /> */}
         {stepsItems[activeIndex]({
           formValues,
-          handleChange,
+          handleUpdate,
           handleStepper,
           togglePassword,
           onSubmit,

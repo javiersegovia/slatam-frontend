@@ -22,11 +22,15 @@ export const StyledInput = styled.div`
   `}
   }
 
-  input {
+  .StyledInput__input {
     width: 100%;
     font-size: 1rem;
     font-family: ${({ theme }) => theme.fonts.secondary};
     padding: 8px 16px;
+
+    &.datepicker.no-input {
+      cursor: pointer;
+    }
   }
 
   .inputIcon {
@@ -44,13 +48,18 @@ const Input = ({
   icon,
   iconPosition,
   value,
-  onChange,
+  handleUpdate,
   type,
   autoComplete,
   ...inputProps
 }) => {
   const randomID = useMemo(() => uuid(), [])
   const addProps = autoComplete ? { ...inputProps } : {}
+
+  const handleChange = event => {
+    handleUpdate(event.target.value)
+  }
+
   return (
     <StyledInput rounded={rounded} {...parentProps}>
       {label && <Label htmlFor={randomID}>{label}</Label>}
@@ -62,9 +71,10 @@ const Input = ({
           {...addProps}
           type={type || 'text'}
           value={value}
-          onChange={onChange}
+          onChange={handleChange}
           id={randomID}
           autoComplete={autoComplete || randomID}
+          className="StyledInput__input"
         />
         {icon && iconPosition === 'end' && (
           <div className="inputIcon">{icon}</div>
@@ -81,7 +91,7 @@ Input.propTypes = {
   icon: PropTypes.node,
   iconPosition: PropTypes.string,
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  handleUpdate: PropTypes.func.isRequired,
   type: PropTypes.string,
   autoComplete: PropTypes.string,
 }

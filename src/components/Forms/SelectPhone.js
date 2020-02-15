@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo } from 'react'
+import React, { useState, useEffect, useRef, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import uuid from 'uuid/v4'
 import { FixedSizeList as List } from 'react-window'
@@ -48,11 +48,23 @@ const StyledSelectPhone = styled.div`
     z-index: ${({ theme }) => theme.zIndex.tooltip};
   }
 
-  input {
-    width: 100%;
+  .StyledSelectPhone__phoneCode {
+    padding-left: 8px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+
+  .StyledSelectPhone__phoneCode,
+  .StyledSelectPhone__input {
     font-size: 1rem;
     font-family: ${({ theme }) => theme.fonts.secondary};
-    padding: 8px 16px;
+    color: ${({ theme }) => theme.palette.black.main};
+  }
+
+  .StyledSelectPhone__input {
+    width: 100%;
+    padding: 8px 16px 8px 8px;
   }
 
   .inputIcon {
@@ -173,14 +185,9 @@ const SelectPhone = ({
   parentProps = {},
   value,
   label,
-  onChange,
-  autoComplete,
-  defaultCountry = null,
-  placeholder = null,
+  handleUpdate,
   disabled = false,
-  ...inputProps
 }) => {
-  const addProps = autoComplete ? { ...inputProps } : {}
   const listOfCountryCodes = countries.map(country => {
     return {
       value: country.phoneCode,
@@ -203,19 +210,19 @@ const SelectPhone = ({
     if (!anchorEl) setAnchorEl(myRef.current)
   }
 
-  const handleInput = e => {
-    const { value } = e.target
-    setPhoneValue(value)
+  const handleInput = event => {
+    const newValue = event.target.value
+    setPhoneValue(newValue)
   }
 
   const handleClose = () => {
     setAnchorEl(null)
   }
 
-  const handleChange = event => {
-    onChange(event)
-    handleClose()
-  }
+  useEffect(() => {
+    const phoneNumber = phoneCode + phoneValue
+    handleUpdate(phoneNumber.replace(/\D/g, ''))
+  }, [phoneCode, phoneValue])
 
   const handleCountry = event => {
     setPhoneCode(event.target.value)
@@ -238,20 +245,17 @@ const SelectPhone = ({
               {countryCode ? <FlagIcon code={countryCode} /> : <LanguageIcon />}
             </button>
           </div>
-          {/* <input
-            value={phoneValue}
-            id={randomID}
-            type="tel"
-            onChange={handleInput}
-            placeholder={placeholder || 'Enter a valid number'}
-          /> */}
+          {phoneCode && (
+            <div className="StyledSelectPhone__phoneCode">{phoneCode}</div>
+          )}
           <InputMask
             value={phoneValue}
             id={randomID}
             type="tel"
             onChange={handleInput}
-            mask={`${phoneCode || ''} (999) 999-9999`}
-            // maskChar="·"
+            mask="(999) 999-9999"
+            className="StyledSelectPhone__input"
+            placeholder="e.g. (412) 456-7891"
           />
         </div>
         <Popper
@@ -281,6 +285,13 @@ const SelectPhone = ({
   )
 }
 
-SelectPhone.propTypes = {}
+SelectPhone.propTypes = {
+  rounded: PropTypes.bool,
+  parentProps: PropTypes.object,
+  // value: PropTypes.string,
+  label: PropTypes.string,
+  handleUpdate: PropTypes.func,
+  disabled: PropTypes.bool,
+}
 
 export default SelectPhone

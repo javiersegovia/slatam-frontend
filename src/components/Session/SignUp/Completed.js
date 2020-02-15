@@ -1,18 +1,26 @@
 import React from 'react'
-import Link from 'next/link'
+import Button from '@components/UI/Button'
 import { StyledWrapper } from '../styled'
 
 const Completed = () => {
   return (
     <StyledWrapper>
-      <h2 className="StyledCard__title">Congratulations!</h2>
+      <h2 className="StyledCard__title no-bg">Congratulations!</h2>
       <div className="StyledCard__innerPadding">
         <div className="StyledCard__inner Completed">
-          You completed the register succesfully. You will be redirected soon...
+          <p className="StyledCard__description">
+            <span className="bold">You are now a member of Slatam.com!</span>
+            <br />
+            We have sent a confirmation email, please make sure to click the
+            link that you have received.
+          </p>
         </div>
-        <Link href="/">
-          <a>If you are not redirected, please click here</a>
-        </Link>
+        <div className="StyledCard__buttonsContainer">
+          <Button href="/" color="default">
+            Find products
+          </Button>
+          <Button href="/">Visit my dashboard</Button>
+        </div>
       </div>
     </StyledWrapper>
   )
