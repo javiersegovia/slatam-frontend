@@ -9,40 +9,50 @@ import { StyledWrapper } from '../styled'
 import SkipCompanyModal from './SkipCompanyModal'
 
 const selectEmployees = ['1-5', '6-11', '11-20', '21-50', '51-200', '201+']
-const selectIndustries = [
-  {
-    value: '1',
-    description: 'Computerss',
-  },
-  {
-    value: '2',
-    description: 'Agriculturr',
-  },
-  {
-    value: '3',
-    description: 'Babies',
-  },
-  {
-    value: '4',
-    description: 'Construction',
-  },
-  {
-    value: '5',
-    description: 'Food',
-  },
-  {
-    value: '6',
-    description: 'Medical',
-  },
-]
 
-const Company = ({ formValues, handleUpdate, onSubmit }) => {
+const Company = ({
+  formValues,
+  handleUpdate,
+  onSubmit,
+  handleNext,
+  handlePrev,
+}) => {
   const countries = useMemo(
     () =>
       countriesData.map(({ name, code2 }) => ({
         value: code2,
         description: name,
       })),
+    []
+  )
+
+  const selectIndustries = useMemo(
+    () => [
+      {
+        value: '1',
+        description: 'Computerss',
+      },
+      {
+        value: '2',
+        description: 'Agriculturr',
+      },
+      {
+        value: '3',
+        description: 'Babies',
+      },
+      {
+        value: '4',
+        description: 'Construction',
+      },
+      {
+        value: '5',
+        description: 'Food',
+      },
+      {
+        value: '6',
+        description: 'Medical',
+      },
+    ],
     []
   )
 
@@ -69,15 +79,20 @@ const Company = ({ formValues, handleUpdate, onSubmit }) => {
       <h2 className="StyledCard__title">Your company</h2>
       <form onSubmit={onSubmit} className="StyledCard__innerPadding">
         <div className="StyledCard__inner Company">
-          <Input
-            value={formValues['companyName']}
-            handleUpdate={handleUpdate('companyName')}
-            parentProps={{ className: 'StyledCard__flexItem' }}
-            type="text"
-            name="companyName"
-            id="signUp__companyName"
-            label="Company name"
-          />
+          <div className="StyledCard__gridContainer">
+            <Input
+              value={formValues['companyName']}
+              handleUpdate={handleUpdate('companyName')}
+              parentProps={{ className: 'StyledCard__flexItem' }}
+              label="Company name"
+            />
+            <Select
+              value={formValues['companyEmployees']}
+              handleUpdate={handleUpdate('companyEmployees')}
+              label="Number of employees"
+              selectItems={selectEmployees}
+            />
+          </div>
           <div className="StyledCard__gridContainer">
             <Select
               value={formValues['companyCountry']}
@@ -99,42 +114,50 @@ const Company = ({ formValues, handleUpdate, onSubmit }) => {
               selectItems={states}
             />
           </div>
-          <div className="StyledCard__gridContainer">
-            <Select
-              value={formValues['companyEmployees']}
-              handleUpdate={handleUpdate('companyEmployees')}
-              label="Number of employees"
-              selectItems={selectEmployees}
-            />
-            <Select
-              value={formValues['companyCategories']}
-              handleUpdate={handleUpdate('companyCategories')}
-              label="What industries are you interested in?"
-              selectItems={selectIndustries}
-              hasFilter
-            />
-          </div>
+          <Select
+            value={formValues['companyCategories']}
+            handleUpdate={handleUpdate('companyCategories')}
+            label="What industries are you interested in?"
+            selectItems={selectIndustries}
+            hasFilter
+            isMultiple
+          />
         </div>
-        <div className="StyledCard__submitButtonWrapper">
+        <div className="StyledCard__submitButtonWrapper grid">
+          <div>
+            <button
+              type="button"
+              onClick={() => handlePrev()}
+              className="StyledCard__prevButton"
+            >
+              Go back
+            </button>
+          </div>
           <Button
             type="submit"
             className="StyledCard__submitButton limited"
             onClick={onSubmit}
-             
             name="company"
             size="lg"
           >
             Create company
           </Button>
+          <div>
+            <button
+              type="button"
+              onClick={() => setIsOpenModal(true)}
+              className="StyledCard__skipButton"
+            >
+              Skip
+            </button>
+          </div>
         </div>
-        <p className="StyledCard__redirect">
-          Do not want to create a company right now?{' '}
-          <button type="button" onClick={() => setIsOpenModal(true)}>
-            <a>Skip</a>
-          </button>
-        </p>
       </form>
-      <SkipCompanyModal isOpen={isOpenModal} setIsOpen={setIsOpenModal} />
+      <SkipCompanyModal
+        isOpen={isOpenModal}
+        setIsOpen={setIsOpenModal}
+        handleNext={handleNext}
+      />
     </StyledWrapper>
   )
 }
@@ -142,6 +165,8 @@ const Company = ({ formValues, handleUpdate, onSubmit }) => {
 Company.propTypes = {
   formValues: PropTypes.object.isRequired,
   handleUpdate: PropTypes.func.isRequired,
+  handlePrev: PropTypes.func.isRequired,
+  handleNext: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
 }
 

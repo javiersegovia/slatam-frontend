@@ -1,20 +1,11 @@
 import React from 'react'
-import Router from 'next/router'
 import PropTypes from 'prop-types'
 import Dialog from '@material-ui/core/Dialog'
 import Button from '@components/UI/Button'
 import { StyledModal } from '../styled'
 
-const HaveCompanyModal = ({ isOpen = false, setIsOpen }) => {
+const HaveCompanyModal = ({ isOpen = false, setIsOpen, handleNext }) => {
   const closeModal = () => setIsOpen(false)
-
-  const handleChoice = bool => {
-    if (bool) {
-      Router.push('/')
-    } else {
-      setIsOpen(false)
-    }
-  }
 
   return (
     <Dialog open={isOpen} onClose={closeModal} PaperComponent={StyledModal}>
@@ -25,19 +16,17 @@ const HaveCompanyModal = ({ isOpen = false, setIsOpen }) => {
       </p>
       <div className="StyledModal__buttonsContainer">
         <Button
-          type="submit"
+          type="button"
           className="StyledCard__submitButton submitModal"
           color="default"
-          name="account"
-          onClick={() => handleChoice(false)}
+          onClick={() => setIsOpen(false)}
         >
-          No, go back
+          No, create company
         </Button>
         <Button
-          type="submit"
+          type="button"
           className="StyledCard__submitButton submitModal"
-          name="account"
-          onClick={() => handleChoice(true)}
+          onClick={handleNext}
         >
           Yes, skip this
         </Button>

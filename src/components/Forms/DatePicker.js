@@ -1,11 +1,20 @@
 import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { DatePicker as MuiDatePicker } from '@material-ui/pickers'
+import format from 'date-fns/format'
+import isValid from 'date-fns/isValid'
 import uuid from 'uuid/v4'
 import Label from './Label'
 import { StyledInput } from './Input'
 
-const DatePicker = ({ value, handleUpdate, label, variant = null }) => {
+const DatePicker = ({
+  value = null,
+  format: formatDate = null,
+  placeholder = null,
+  handleUpdate,
+  label,
+  variant = null,
+}) => {
   const randomID = useMemo(() => uuid(), [])
 
   const renderInput = props => (
@@ -29,6 +38,9 @@ const DatePicker = ({ value, handleUpdate, label, variant = null }) => {
     }
   }
 
+  const formattedLabel = date =>
+    date && isValid(date) ? format(date, 'MMMM dd, yyyy') : null
+
   return (
     <StyledInput>
       {label && <Label htmlFor={randomID}>{label}</Label>}
@@ -37,9 +49,11 @@ const DatePicker = ({ value, handleUpdate, label, variant = null }) => {
         <MuiDatePicker
           {...options()}
           value={value}
+          placeholder={placeholder}
           id={randomID}
           onChange={handleUpdate}
-          format="dd/MM/yyyy"
+          format={formatDate}
+          labelFunc={formattedLabel}
           TextFieldComponent={renderInput}
           autoOk
         />
@@ -50,6 +64,8 @@ const DatePicker = ({ value, handleUpdate, label, variant = null }) => {
 
 DatePicker.propTypes = {
   value: PropTypes.oneOf([PropTypes.object, PropTypes.string]),
+  format: PropTypes.string,
+  placeholder: PropTypes.string,
   handleUpdate: PropTypes.func.isRequired,
   label: PropTypes.string,
   variant: PropTypes.string,

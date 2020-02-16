@@ -188,17 +188,30 @@ const SelectPhone = ({
   handleUpdate,
   disabled = false,
 }) => {
-  const listOfCountryCodes = countries.map(country => {
-    return {
-      value: country.phoneCode,
-      description: `${country.name} (${country.phoneCode})`,
-      code: country.code2,
-    }
-  })
+  const listOfCountryCodes = useMemo(
+    () =>
+      countries
+        .map(country => ({
+          value: country.phoneCode,
+          description: `${country.name} (${country.phoneCode})`,
+          code: country.code2,
+        }))
+        .filter(x => x.value),
+    [countries]
+  )
 
-  const [phoneCode, setPhoneCode] = useState('')
-  const [phoneValue, setPhoneValue] = useState('')
-  const [countryCode, setCountryCode] = useState('')
+  const [parsedCode = '', parsedValue = ''] = value.split(' ')
+
+  const selectedCountry = useMemo(
+    () => listOfCountryCodes.find(country => country.value === parsedCode),
+    [listOfCountryCodes, parsedCode]
+  )
+
+  const [phoneCode, setPhoneCode] = useState(parsedCode)
+  const [phoneValue, setPhoneValue] = useState(parsedValue)
+  const [countryCode, setCountryCode] = useState(
+    (selectedCountry && selectedCountry.code) || ''
+  )
 
   const [anchorEl, setAnchorEl] = useState(null)
 
@@ -220,8 +233,8 @@ const SelectPhone = ({
   }
 
   useEffect(() => {
-    const phoneNumber = phoneCode + phoneValue
-    handleUpdate(phoneNumber.replace(/\D/g, ''))
+    const phoneNumber = `${phoneCode} ${phoneValue.replace(/\D/g, '')}`
+    handleUpdate(phoneNumber)
   }, [phoneCode, phoneValue])
 
   const handleCountry = event => {

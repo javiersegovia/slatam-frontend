@@ -61,6 +61,7 @@ export default createMuiTheme({
       light: '#92a7ba',
       extralight: '#b7d0e2',
       disabled: '#dae3e8',
+      chip: '#dde6f1',
     },
     snow: {
       main: '#d5dbe3',
@@ -90,5 +91,13 @@ export default createMuiTheme({
   fonts: {
     primary: 'Geomanist',
     secondary: 'BentonSans',
+  },
+  mixins: {
+    forms: {
+      focusedField: () => `
+      border: 1px solid #0e39b34d;
+      box-shadow: 0px 0px 1px 3px rgba(7, 69, 208, 0.35);
+      `,
+    },
   },
 })

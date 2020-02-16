@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { FixedSizeList as List } from 'react-window'
 import Popper from '@material-ui/core/Popper'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
+import ClearIcon from '@material-ui/icons/Clear'
 import uuid from 'uuid/v4'
 import Label from './Label'
 
@@ -17,39 +18,64 @@ const StyledSelect = styled.div`
     background: ${({ theme }) => theme.palette.snow.extralight};
     display: flex;
     align-items: stretch;
-    height: 48px;
+    min-height: 48px;
     background: #fff;
     position: relative;
+    cursor: pointer;
+    outline: none;
+
+    &:focus,
+    &:focus-within {
+      ${({ theme }) => theme.mixins.forms.focusedField()};
+    }
+
+    ${props =>
+      props.isMultiple &&
+      `
+      flex-wrap: wrap;
+      padding: 3px 11px;
+    `};
 
     ${props =>
       props.disabled &&
       `
       background: ${props.theme.palette.slategray.disabled};
+      cursor: default;
     `};
   }
 
-  .StyledSelect__currentItem {
-    padding: 8px 16px;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
+  .country {
+    margin-left: 16px;
+    max-width: 60px;
     display: flex;
     align-items: center;
+    z-index: 1;
+  }
+
+  .StyledSelect__currentItem {
+    z-index: 1;
     text-align: left;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+  }
 
-    .country {
-      margin-right: 10px;
-      max-width: 60px;
-      display: flex;
-      align-items: center;
+  .StyledSelect__currentItemChip {
+    background: ${({ theme }) => theme.palette.slategray.chip};
+    color: ${({ theme }) => theme.palette.slategray.dark};
+    border-radius: 6px;
+    padding: 4px 6px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+
+    .clearIcon {
+      font-size: 1.125rem;
+      margin-left: 6px;
+      color: ${({ theme }) => theme.palette.slategray.dark};
+      cursor: pointer;
     }
-
-    ${props =>
-      props.disabled &&
-      `
-      cursor: default;
-    `};
   }
 
   .StyledSelect__placeholder {
@@ -66,9 +92,15 @@ const StyledSelect = styled.div`
     z-index: 2;
     font-size: 1rem;
 
-    &.spaceAtLeft {
-      margin-left: 60px;
-    }
+    ${props =>
+      props.isMultiple &&
+      `
+      border-bottom: 1px solid ${props.theme.palette.slategray.light};
+      padding: 8px 16px 5px 0;
+      margin: 0 5px 5px;
+      width: auto; 
+      flex: 1;
+    `};
   }
 
   .StyledSelect__dropdownWrapper {
@@ -189,6 +221,8 @@ const Select = ({
   label,
   disabled = false,
   hasFilter = false,
+  isMultiple = false,
+  maxMultiple = false,
   displayRequirement = true,
   placeholder = null,
   disabledPlaceholder = null,
@@ -210,7 +244,20 @@ const Select = ({
   }
 
   const handleChange = event => {
-    handleUpdate(event.target.value)
+    if (isMultiple) {
+      let indexOfItem = -1
+
+      if (value && Array.isArray(value) && value.length > 0) {
+        indexOfItem = value.findIndex(val => val === event.target.value)
+      }
+
+      if (indexOfItem === -1) {
+        const newValue = [...value, event.target.value]
+        handleUpdate(newValue)
+      }
+    } else {
+      handleUpdate(event.target.value)
+    }
     handleClose()
   }
 
@@ -219,34 +266,47 @@ const Select = ({
     if (!anchorEl) handleFocus()
   }
 
-  const handleReset = () => {
-    handleUpdate(null)
+  const handleClearItem = item => {
+    handleUpdate(value.filter(val => val !== item))
   }
 
   const randomID = useMemo(() => uuid(), [])
 
-  const currentItem = useMemo(
-    () =>
-      selectItems.find(item => {
-        // check if "item" is an object or a plain value
-        if (item.value) return item.value === value
-        return item === value
-      }),
-    [value]
-  )
+  useEffect(() => {
+    setFilteredItems(selectItems)
+  }, [selectItems])
+
+  const currentItem = useMemo(() => {
+    if (!value) return null
+    if (isMultiple) {
+      const currentValues = Array.isArray(value) ? value : [value]
+      const newCurrent = currentValues.map(valueItem =>
+        selectItems.find(item => {
+          // check if "item" is an object or a plain value
+          if (item.value) return item.value === valueItem
+          return item === valueItem
+        })
+      )
+      return newCurrent
+    }
+
+    return selectItems.find(item => {
+      if (item.value) return item.value === value
+      return item === value
+    })
+  }, [value, selectItems])
 
   useEffect(() => {
     if (currentItem && hasFilter) {
-      setSearchValue(
-        currentItem.description || currentItem.value || currentItem
-      )
+      if (isMultiple) {
+        setSearchValue('')
+      } else {
+        setSearchValue(
+          currentItem.description || currentItem.value || currentItem
+        )
+      }
     }
   }, [currentItem])
-
-  useEffect(() => {
-    handleReset()
-    setFilteredItems(selectItems)
-  }, [selectItems])
 
   useEffect(() => {
     if (hasFilter) {
@@ -265,11 +325,15 @@ const Select = ({
 
   const renderDisplayWithoutFilter = () => {
     if (currentItem) {
-      return currentItem.description || currentItem.value || currentItem
+      return (
+        <div className="StyledSelect__currentItem">
+          {currentItem.description || currentItem.value || currentItem}
+        </div>
+      )
     }
 
     return (
-      <div className="StyledSelect__placeholder">
+      <div className="StyledSelect__placeholder StyledSelect__currentItem">
         {(disabled && (
           <span className="disabled">
             {(!displayRequirement && disabledPlaceholder) ||
@@ -281,41 +345,69 @@ const Select = ({
     )
   }
 
+  const renderMultipleItems = () => {
+    if (isMultiple) {
+      return (
+        (currentItem &&
+          currentItem.length > 0 &&
+          currentItem.map(item => (
+            <div className="StyledSelect__currentItemChip">
+              <span>{item.description || item.value || item}</span>
+              <ClearIcon
+                className="clearIcon"
+                name={item.value || item}
+                onClick={() => handleClearItem(item.value || item)}
+              />
+            </div>
+          ))) ||
+        null
+      )
+    }
+  }
+
   return (
     <ClickAwayListener onClickAway={() => setAnchorEl(null)}>
-      <StyledSelect disabled={disabled}>
+      <StyledSelect disabled={disabled} isMultiple={isMultiple}>
         {label && <Label htmlFor={randomID}>{label}</Label>}
-        <div className="StyledSelect__selectWrapper" ref={myRef}>
-          <button
-            className="StyledSelect__currentItem"
-            type="button"
-            onClick={handleFocus}
-            onFocus={handleFocus}
-          >
-            {displayValue && displayValue}
-            {!hasFilter && renderDisplayWithoutFilter()}
-          </button>
+        <div
+          className="StyledSelect__selectWrapper"
+          ref={myRef}
+          role="textbox"
+          onClick={handleFocus}
+          onKeyDown={handleFocus}
+          tabIndex={0}
+        >
+          {(displayValue || !hasFilter) && (
+            <>
+              {displayValue && displayValue}
+              {!hasFilter &&
+                (isMultiple
+                  ? renderMultipleItems()
+                  : renderDisplayWithoutFilter())}
+            </>
+          )}
 
           {hasFilter && (
-            <input
-              type="text"
-              className={`StyledSelect__input ${
-                displayValue ? 'spaceAtLeft' : ''
-              }`}
-              value={searchValue}
-              onChange={handleInputChange}
-              onFocus={handleFocus}
-              onClick={handleFocus}
-              id={randomID}
-              autoComplete="new-password"
-              placeholder={
-                (disabled &&
-                  ((!displayRequirement && disabledPlaceholder) ||
-                    (displayRequirement &&
-                      disabledWithDisplayRequirementMet))) ||
-                placeholder
-              }
-            />
+            <>
+              {isMultiple && renderMultipleItems()}
+              <input
+                type="text"
+                className="StyledSelect__input"
+                value={searchValue}
+                onChange={handleInputChange}
+                onFocus={handleFocus}
+                onClick={handleFocus}
+                id={randomID}
+                autoComplete="new-password"
+                placeholder={
+                  (disabled &&
+                    ((!displayRequirement && disabledPlaceholder) ||
+                      (displayRequirement &&
+                        disabledWithDisplayRequirementMet))) ||
+                  placeholder
+                }
+              />
+            </>
           )}
         </div>
         <Popper

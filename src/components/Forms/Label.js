@@ -4,8 +4,9 @@ import styled from 'styled-components'
 
 const StyledLabel = styled.label`
   color: ${({ theme }) => theme.palette.primary.main};
-  margin-left: 8px;
+  margin: 0 0 3px 8px;
   font-size: 0.875rem;
+  display: inline-block;
 `
 
 const Label = ({ htmlFor, children, ...props }) => {

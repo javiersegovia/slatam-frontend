@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import uuid from 'uuid/v4'
@@ -19,6 +19,17 @@ export const StyledInput = styled.div`
       props.rounded &&
       `
     border-radius: 35px;
+  `}
+
+    &:focus,
+    &:focus-within {
+      ${({ theme }) => theme.mixins.forms.focusedField()};
+    }
+
+    ${props =>
+      props.isFocused &&
+      `
+      ${props.theme.mixins.forms.focusedField()}
   `}
   }
 
@@ -55,13 +66,17 @@ const Input = ({
 }) => {
   const randomID = useMemo(() => uuid(), [])
   const addProps = autoComplete ? { ...inputProps } : {}
+  const [isFocused, setFocused] = useState(false)
 
   const handleChange = event => {
     handleUpdate(event.target.value)
   }
 
+  const handleFocus = () => setFocused(true)
+  const handleBlur = () => setFocused(false)
+
   return (
-    <StyledInput rounded={rounded} {...parentProps}>
+    <StyledInput rounded={rounded} {...parentProps} isFocused={isFocused}>
       {label && <Label htmlFor={randomID}>{label}</Label>}
       <div className="inputWrapper">
         {((icon && iconPosition === null) || iconPosition === 'start') && (
@@ -75,6 +90,8 @@ const Input = ({
           id={randomID}
           autoComplete={autoComplete || randomID}
           className="StyledInput__input"
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         />
         {icon && iconPosition === 'end' && (
           <div className="inputIcon">{icon}</div>

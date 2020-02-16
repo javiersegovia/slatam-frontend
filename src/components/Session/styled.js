@@ -127,6 +127,17 @@ export const StyledCard = styled.div`
     margin-top: 60px;
     text-align: center;
     width: 100%;
+
+    &.grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+
+      & > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   }
 
   .StyledCard__submitButton {
@@ -143,6 +154,14 @@ export const StyledCard = styled.div`
       padding-left: 50px;
       padding-right: 50px;
     }
+  }
+
+  .StyledCard__prevButton,
+  .StyledCard__skipButton {
+    color: ${({ theme }) => theme.palette.black.main};
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-decoration: underline;
   }
 
   .StyledCard__redirectWrapper {

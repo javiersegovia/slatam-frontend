@@ -6,8 +6,6 @@ import AboutUser from './AboutUser'
 import Company from './Company'
 import Completed from './Completed'
 import { StyledWrapper, StyledCard } from '../styled'
-import SignUpStepper from './SignUpStepper'
-import HaveCompanyModal from './SkipCompanyModal'
 
 const stepsItems = [
   passedProps => <Account {...passedProps} />,
@@ -21,7 +19,6 @@ const SignUp = () => {
     email: '',
     password: '',
     confirmPassword: '',
-    showPassword: false,
     firstName: '',
     lastName: '',
     country: '',
@@ -37,14 +34,6 @@ const SignUp = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const [completedSteps, setCompletedSteps] = useState({
-    account: false,
-    aboutUser: false,
-    haveCompany: false,
-    company: false,
-    userInterest: false,
-  })
-
   const maxIndex = stepsItems.length - 1
   const [activeIndex, setActiveIndex] = useState(0)
   const [direction, setDirection] = useState('PREV')
@@ -55,31 +44,21 @@ const SignUp = () => {
     setActiveIndex(activeIndex + 1)
   }
 
-  const handleStepper = newIndex => {
-    setActiveIndex(newIndex)
+  const handlePrev = () => {
+    setDirection('PREV')
+    if (activeIndex - 1 < 0) return
+    setActiveIndex(activeIndex - 1)
   }
 
   const handleUpdate = name => value => {
     setFormValues({ ...formValues, [name]: value })
   }
 
-  const togglePassword = () =>
-    setFormValues({ ...formValues, showPassword: !formValues.showPassword })
-
   const onSubmit = e => {
     e.preventDefault()
-    const { name } = e.target
-    setCompletedSteps({
-      ...completedSteps,
-      [name]: true,
-    })
 
-    // if (name === 'aboutUser') {
-    //   setIsModalOpen(true)
-    //   return
-    // }
+    // save info to DB here
 
-    // if (redirectTo) return // TODO: handle redirection
     handleNext()
   }
 
@@ -93,16 +72,11 @@ const SignUp = () => {
         </Link>
       </div>
       <StyledCard>
-        {/* <SignUpStepper
-          activeIndex={activeIndex}
-          handleStepper={handleStepper}
-        /> */}
-        {/* <div className="StyledCard__divider" /> */}
         {stepsItems[activeIndex]({
           formValues,
           handleUpdate,
-          handleStepper,
-          togglePassword,
+          handleNext,
+          handlePrev,
           onSubmit,
         })}
       </StyledCard>
@@ -114,11 +88,6 @@ const SignUp = () => {
           </Link>
         </p>
       )}
-      <HaveCompanyModal
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-        handleStepper={handleStepper}
-      />
     </StyledWrapper>
   )
 }

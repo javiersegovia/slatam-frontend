@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import Button from '@components/UI/Button'
@@ -7,12 +7,10 @@ import Visibility from '@material-ui/icons/Visibility'
 import VisibilityOff from '@material-ui/icons/VisibilityOff'
 import { StyledWrapper } from '../styled'
 
-const AccountInfo = ({
-  formValues,
-  handleUpdate,
-  togglePassword,
-  onSubmit,
-}) => {
+const AccountInfo = ({ formValues, handleUpdate, onSubmit }) => {
+  const [showPassword, setShowPassword] = useState(false)
+  const togglePassword = () => setShowPassword(!showPassword)
+
   return (
     <StyledWrapper>
       <h2 className="StyledCard__title">Create account</h2>
@@ -30,7 +28,7 @@ const AccountInfo = ({
           <Input
             value={formValues['password']}
             handleUpdate={handleUpdate('password')}
-            type={formValues.showPassword ? 'text' : 'password'}
+            type={showPassword ? 'text' : 'password'}
             label="Password"
             icon={
               <button
@@ -38,7 +36,7 @@ const AccountInfo = ({
                 aria-label="toggle password visibility"
                 onClick={togglePassword}
               >
-                {formValues.showPassword ? <Visibility /> : <VisibilityOff />}
+                {showPassword ? <Visibility /> : <VisibilityOff />}
               </button>
             }
             iconPosition="end"
@@ -46,7 +44,7 @@ const AccountInfo = ({
           <Input
             value={formValues['confirmPassword']}
             handleUpdate={handleUpdate('confirmPassword')}
-            type={formValues.showPassword ? 'text' : 'password'}
+            type={showPassword ? 'text' : 'password'}
             label="Confirm Password"
             icon={
               <button
@@ -54,7 +52,7 @@ const AccountInfo = ({
                 aria-label="toggle password visibility"
                 onClick={togglePassword}
               >
-                {formValues.showPassword ? <Visibility /> : <VisibilityOff />}
+                {showPassword ? <Visibility /> : <VisibilityOff />}
               </button>
             }
             iconPosition="end"
@@ -64,7 +62,6 @@ const AccountInfo = ({
           type="submit"
           className="StyledCard__submitButton"
           onClick={onSubmit}
-           
           name="account"
           size="lg"
         >
