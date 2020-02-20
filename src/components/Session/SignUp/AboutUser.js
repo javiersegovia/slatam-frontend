@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import Button from '@components/UI/Button'
 import Input from '@components/Forms/Input'
@@ -7,9 +7,55 @@ import SelectPhone from '@components/Forms/SelectPhone'
 import DatePicker from '@components/Forms/DatePicker'
 import countriesData from '@data/countries.json'
 import { FlagIcon } from 'react-flag-kit'
+import { useForm, NOT_EMPTY } from '@hooks/useForm'
 import { StyledWrapper } from '../styled'
 
-const AboutUser = ({ formValues, handleUpdate, onSubmit }) => {
+const errorValidations = {
+  firstName: {
+    fieldName: 'firstName',
+    validations: [
+      {
+        type: NOT_EMPTY,
+        errorMessage: 'Please enter your first name.',
+      },
+    ],
+  },
+  lastName: {
+    fieldName: 'lastName',
+    validations: [
+      {
+        type: NOT_EMPTY,
+        errorMessage: 'Please enter your last name.',
+      },
+    ],
+  },
+}
+
+const AboutUser = ({ handleNext }) => {
+  const [formValues, setFormValues] = useState({
+    firstName: '',
+    lastName: '',
+    country: '',
+    state: '',
+    phone: '',
+  })
+
+  const { formErrors, handleFormErrors, handleUpdate } = useForm({
+    formValues,
+    setFormValues,
+    errorValidations,
+  })
+
+  const onSubmit = e => {
+    e.preventDefault()
+    const hasErrors = handleFormErrors()
+
+    if (!hasErrors) {
+      // save info to DB here
+      handleNext()
+    }
+  }
+
   const countries = useMemo(
     () =>
       countriesData.map(({ name, code2 }) => ({
@@ -45,16 +91,18 @@ const AboutUser = ({ formValues, handleUpdate, onSubmit }) => {
             <Input
               value={formValues['firstName']}
               handleUpdate={handleUpdate('firstName')}
-              parentProps={{ className: 'StyledCard__flexItem' }}
               type="text"
               label="First name"
+              errors={formErrors.firstName || null}
+              handleFormErrors={() => handleFormErrors('firstName')}
             />
             <Input
               value={formValues['lastName']}
               handleUpdate={handleUpdate('lastName')}
-              parentProps={{ className: 'StyledCard__flexItem' }}
               type="text"
               label="Last name"
+              errors={formErrors.lastName || null}
+              handleFormErrors={() => handleFormErrors('lastName')}
             />
           </div>
           <div className="StyledCard__gridContainer">
@@ -110,9 +158,7 @@ const AboutUser = ({ formValues, handleUpdate, onSubmit }) => {
 }
 
 AboutUser.propTypes = {
-  formValues: PropTypes.object.isRequired,
-  handleUpdate: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  handleNext: PropTypes.func.isRequired,
 }
 
 export default AboutUser

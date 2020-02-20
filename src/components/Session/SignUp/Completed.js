@@ -5,7 +5,9 @@ import { StyledWrapper } from '../styled'
 const Completed = () => {
   return (
     <StyledWrapper>
-      <h2 className="StyledCard__title no-bg">Congratulations!</h2>
+      <h2 className="StyledCard__title no-bg responsiveMargin">
+        Congratulations!
+      </h2>
       <div className="StyledCard__innerPadding">
         <div className="StyledCard__inner Completed">
           <p className="StyledCard__description">

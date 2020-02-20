@@ -5,54 +5,101 @@ import Input from '@components/Forms/Input'
 import countriesData from '@data/countries.json'
 import Select from '@components/Forms/Select'
 import { FlagIcon } from 'react-flag-kit'
+import { useForm, NOT_EMPTY } from '@hooks/useForm'
 import { StyledWrapper } from '../styled'
 import SkipCompanyModal from './SkipCompanyModal'
 
 const selectEmployees = ['1-5', '6-11', '11-20', '21-50', '51-200', '201+']
+const selectIndustries = [
+  {
+    value: '1',
+    description: 'Computerss',
+  },
+  {
+    value: '2',
+    description: 'Agriculturr',
+  },
+  {
+    value: '3',
+    description: 'Babies',
+  },
+  {
+    value: '4',
+    description: 'Construction',
+  },
+  {
+    value: '5',
+    description: 'Food',
+  },
+  {
+    value: '6',
+    description: 'Medical',
+  },
+]
 
-const Company = ({
-  formValues,
-  handleUpdate,
-  onSubmit,
-  handleNext,
-  handlePrev,
-}) => {
+const errorValidations = {
+  companyName: {
+    fieldName: 'companyName',
+    validations: [
+      {
+        type: NOT_EMPTY,
+        errorMessage: 'Please enter the company name.',
+      },
+    ],
+  },
+  companyCountry: {
+    fieldName: 'companyCountry',
+    validations: [
+      {
+        type: NOT_EMPTY,
+        errorMessage: 'Please enter the company country.',
+      },
+    ],
+  },
+  // companyRole: {
+  //   fieldName: 'companyRole',
+  //   validations: [
+  //     {
+  //       type: NOT_EMPTY,
+  //       errorMessage: 'Please enter your last name.',
+  //     },
+  //   ],
+  // },
+}
+
+const Company = ({ handleNext, handlePrev }) => {
+  const [isOpenModal, setIsOpenModal] = useState(false)
+  const [formValues, setFormValues] = useState({
+    companyName: '',
+    companyCountry: '',
+    companyState: '',
+    companyEmployees: '',
+    companyCategories: '',
+    companyRole: '',
+  })
+
+  const { formErrors, handleFormErrors, handleUpdate } = useForm({
+    formValues,
+    setFormValues,
+    errorValidations,
+  })
+
+  const onSubmit = e => {
+    e.preventDefault()
+    const hasErrors = handleFormErrors()
+
+    if (!hasErrors) {
+      // save info to DB here
+      handleNext()
+    }
+  }
+
   const countries = useMemo(
     () =>
       countriesData.map(({ name, code2 }) => ({
         value: code2,
         description: name,
       })),
-    []
-  )
-
-  const selectIndustries = useMemo(
-    () => [
-      {
-        value: '1',
-        description: 'Computerss',
-      },
-      {
-        value: '2',
-        description: 'Agriculturr',
-      },
-      {
-        value: '3',
-        description: 'Babies',
-      },
-      {
-        value: '4',
-        description: 'Construction',
-      },
-      {
-        value: '5',
-        description: 'Food',
-      },
-      {
-        value: '6',
-        description: 'Medical',
-      },
-    ],
     []
   )
 
@@ -72,8 +119,6 @@ const Company = ({
     </>
   )
 
-  const [isOpenModal, setIsOpenModal] = useState(false)
-
   return (
     <StyledWrapper>
       <h2 className="StyledCard__title">Your company</h2>
@@ -81,13 +126,14 @@ const Company = ({
         <div className="StyledCard__inner Company">
           <div className="StyledCard__gridContainer">
             <Input
-              value={formValues['companyName']}
+              value={formValues.companyName}
               handleUpdate={handleUpdate('companyName')}
-              parentProps={{ className: 'StyledCard__flexItem' }}
               label="Company name"
+              errors={formErrors.companyName || null}
+              handleFormErrors={() => handleFormErrors('companyName')}
             />
             <Select
-              value={formValues['companyEmployees']}
+              value={formValues.companyEmployees}
               handleUpdate={handleUpdate('companyEmployees')}
               label="Number of employees"
               selectItems={selectEmployees}
@@ -95,15 +141,17 @@ const Company = ({
           </div>
           <div className="StyledCard__gridContainer">
             <Select
-              value={formValues['companyCountry']}
+              value={formValues.companyCountry}
               handleUpdate={handleUpdate('companyCountry')}
               displayValue={displayCountry}
               label="Country of residence"
               selectItems={countries}
               hasFilter
+              errors={formErrors.companyCountry || null}
+              handleFormErrors={() => handleFormErrors('companyCountry')}
             />
             <Select
-              value={formValues['companyState']}
+              value={formValues.companyState}
               handleUpdate={handleUpdate('companyState')}
               label="State of residence"
               disabled={states.length === 0}
@@ -115,7 +163,7 @@ const Company = ({
             />
           </div>
           <Select
-            value={formValues['companyCategories']}
+            value={formValues.companyCategories}
             handleUpdate={handleUpdate('companyCategories')}
             label="What industries are you interested in?"
             selectItems={selectIndustries}
@@ -124,11 +172,11 @@ const Company = ({
           />
         </div>
         <div className="StyledCard__submitButtonWrapper grid">
-          <div>
+          <div className="StyledCard__navButtons">
             <button
               type="button"
               onClick={() => handlePrev()}
-              className="StyledCard__prevButton"
+              className="StyledCard__prevButton hideResponsive"
             >
               Go back
             </button>
@@ -142,7 +190,14 @@ const Company = ({
           >
             Create company
           </Button>
-          <div>
+          <div className="StyledCard__navButtons StyledCard__responsiveNavButtons">
+            <button
+              type="button"
+              onClick={() => handlePrev()}
+              className="StyledCard__prevButton showResponsive"
+            >
+              Go back
+            </button>
             <button
               type="button"
               onClick={() => setIsOpenModal(true)}
@@ -163,11 +218,8 @@ const Company = ({
 }
 
 Company.propTypes = {
-  formValues: PropTypes.object.isRequired,
-  handleUpdate: PropTypes.func.isRequired,
   handlePrev: PropTypes.func.isRequired,
   handleNext: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
 }
 
 export default Company

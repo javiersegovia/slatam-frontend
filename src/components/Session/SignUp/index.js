@@ -15,27 +15,8 @@ const stepsItems = [
 ]
 
 const SignUp = () => {
-  const [formValues, setFormValues] = useState({
-    email: '',
-    password: '',
-    confirmPassword: '',
-    firstName: '',
-    lastName: '',
-    country: '',
-    state: '',
-    phone: '',
-    companyName: '',
-    companyCountry: '',
-    companyState: '',
-    companyEmployees: '',
-    companyCategories: '',
-    role: '',
-  })
-
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
   const maxIndex = stepsItems.length - 1
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(2)
   const [direction, setDirection] = useState('PREV')
 
   const handleNext = () => {
@@ -50,18 +31,6 @@ const SignUp = () => {
     setActiveIndex(activeIndex - 1)
   }
 
-  const handleUpdate = name => value => {
-    setFormValues({ ...formValues, [name]: value })
-  }
-
-  const onSubmit = e => {
-    e.preventDefault()
-
-    // save info to DB here
-
-    handleNext()
-  }
-
   return (
     <StyledWrapper>
       <div className="Logo">
@@ -73,11 +42,8 @@ const SignUp = () => {
       </div>
       <StyledCard>
         {stepsItems[activeIndex]({
-          formValues,
-          handleUpdate,
           handleNext,
           handlePrev,
-          onSubmit,
         })}
       </StyledCard>
       {activeIndex === 0 && (

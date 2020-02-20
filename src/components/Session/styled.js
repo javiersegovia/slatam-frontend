@@ -9,6 +9,10 @@ export const StyledWrapper = styled.div`
   .Logo {
     text-align: center;
     margin-bottom: 30px;
+
+    ${({ theme }) => theme.breakpoints.down('sm')} {
+      display: none;
+    }
   }
 
   .UnderText {
@@ -20,6 +24,11 @@ export const StyledWrapper = styled.div`
     a {
       font-weight: 500;
       text-decoration: underline;
+    }
+
+    ${({ theme }) => theme.breakpoints.down('sm')} {
+      color: ${({ theme }) => theme.palette.black.main};
+      padding: 0 20px;
     }
   }
 `
@@ -36,11 +45,15 @@ export const StyledModal = styled.div`
 
   .StyledModal__title {
     margin: 0;
-    color: ${({ theme }) => theme.palette.black.light};
+    color: ${({ theme }) => theme.palette.primary.main};
     text-align: center;
     font-size: 2.5rem;
-    font-weight: normal;
+    font-weight: 500;
     padding: 20px 0;
+
+    ${({ theme }) => theme.breakpoints.down('sm')} {
+      font-size: 2rem;
+    }
   }
 
   .StyledModal__description {
@@ -52,6 +65,11 @@ export const StyledModal = styled.div`
     display: grid;
     grid-auto-flow: column;
     grid-gap: 20px;
+
+    ${({ theme }) => theme.breakpoints.down('xs')} {
+      grid-auto-flow: row;
+      width: 100%;
+    }
   }
 `
 
@@ -63,6 +81,11 @@ export const StyledCard = styled.div`
   border-radius: ${CARD_BORDER_RADIUS};
   box-shadow: ${({ theme }) => theme.bShadows.cards};
   padding-bottom: 30px;
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    border-radius: 0;
+    box-shadow: none;
+  }
 
   .StyledCard__innerPadding {
     padding: 0 30px;
@@ -85,25 +108,34 @@ export const StyledCard = styled.div`
     border-top-left-radius: ${CARD_BORDER_RADIUS};
     border-top-right-radius: ${CARD_BORDER_RADIUS};
 
+    ${({ theme }) => theme.breakpoints.down('sm')} {
+      font-size: 2rem;
+    }
+
     &.no-bg {
       background: transparent;
+    }
+
+    &.responsiveMargin {
+      ${({ theme }) => theme.breakpoints.down('sm')} {
+        padding-top: 60px;
+      }
     }
   }
 
   .StyledCard__inner {
     display: grid;
     grid-gap: 25px;
-    margin-top: 30px;
+    margin: 30px auto;
 
-    &.AboutUser {
-      width: 550px;
-    }
-    &.Company {
-      width: 550px;
-    }
+    &.AboutUser,
+    &.Company,
     &.Completed {
       width: 550px;
-      margin-top: 10px;
+
+      ${({ theme }) => theme.breakpoints.down('sm')} {
+        width: 100%;
+      }
     }
   }
 
@@ -121,6 +153,10 @@ export const StyledCard = styled.div`
     display: grid;
     grid-gap: 25px;
     grid-template-columns: 1fr 1fr;
+
+    @media screen and (max-width: 700px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   .StyledCard__submitButtonWrapper {
@@ -128,14 +164,61 @@ export const StyledCard = styled.div`
     text-align: center;
     width: 100%;
 
+    ${({ theme }) => theme.breakpoints.down('sm')} {
+      margin-top: 30px;
+    }
+
     &.grid {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
 
-      & > div {
+      ${({ theme }) => theme.breakpoints.down('xs')} {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+      }
+
+      .StyledCard__navButtons {
         display: flex;
         align-items: center;
         justify-content: center;
+
+        &.StyledCard__responsiveNavButtons {
+          ${({ theme }) => theme.breakpoints.down('xs')} {
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+      }
+    }
+
+    .StyledCard__prevButton,
+    .StyledCard__skipButton {
+      color: ${({ theme }) => theme.palette.black.main};
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-decoration: underline;
+
+      ${({ theme }) => theme.breakpoints.down('xs')} {
+        background: ${props => props.theme.gradients.snow.main};
+        color: ${props => props.theme.palette.black.main};
+        border-radius: 6px;
+        padding: 12px 16px 13px;
+        box-shadow: ${props => props.theme.bShadows.button};
+        text-decoration: none;
+      }
+    }
+
+    .StyledCard__prevButton.showResponsive {
+      display: none;
+    }
+
+    ${({ theme }) => theme.breakpoints.down('xs')} {
+      .StyledCard__prevButton.hideResponsive {
+        display: none;
+      }
+      .StyledCard__prevButton.showResponsive {
+        display: block;
       }
     }
   }
@@ -153,15 +236,11 @@ export const StyledCard = styled.div`
       margin: auto;
       padding-left: 50px;
       padding-right: 50px;
-    }
-  }
 
-  .StyledCard__prevButton,
-  .StyledCard__skipButton {
-    color: ${({ theme }) => theme.palette.black.main};
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    text-decoration: underline;
+      ${({ theme }) => theme.breakpoints.down('xs')} {
+        width: 100%;
+      }
+    }
   }
 
   .StyledCard__redirectWrapper {
@@ -188,6 +267,11 @@ export const StyledCard = styled.div`
     grid-auto-flow: column;
     grid-gap: 20px;
     text-align: center;
+
+    ${({ theme }) => theme.breakpoints.down('xs')} {
+      grid-auto-flow: row;
+      width: 100%;
+    }
   }
 `
 

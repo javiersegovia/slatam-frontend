@@ -84,6 +84,9 @@ export default createMuiTheme({
       main: '#292929',
       light: '#3B435A',
     },
+    danger: {
+      main: '#d42626',
+    },
   },
   typography: {
     fontFamily: 'Geomanist',

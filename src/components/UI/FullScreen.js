@@ -8,7 +8,7 @@ const responsiveMixin = css`
 
 const FullScreen = styled.div`
   width: 100%;
-  height: ${props => (props.double ? '200vh' : '100vh')};
+  min-height: ${props => (props.double ? '200vh' : '100vh')};
   position: relative;
   z-index: 2;
   background: white;

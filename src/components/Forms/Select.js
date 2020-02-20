@@ -7,6 +7,7 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import ClearIcon from '@material-ui/icons/Clear'
 import uuid from 'uuid/v4'
 import Label from './Label'
+import ErrorMessage from './ErrorMessage'
 
 const StyledSelect = styled.div`
   position: relative;
@@ -227,16 +228,31 @@ const Select = ({
   placeholder = null,
   disabledPlaceholder = null,
   disabledWithDisplayRequirementMet = null,
+  errors = null,
+  handleFormErrors = null,
 }) => {
   const [searchValue, setSearchValue] = useState('')
   const [filteredItems, setFilteredItems] = useState(selectItems)
   const [anchorEl, setAnchorEl] = useState(null)
+  const [isFocused, setFocused] = useState(false)
 
   const myRef = useRef(null)
 
-  const handleFocus = () => {
+  const handleFocus = () => setFocused(true)
+  const handleBlur = () => {
+    if (handleFormErrors) {
+      handleFormErrors()
+    }
+
+    setFocused(false)
+  }
+
+  const openDropdown = () => {
     if (disabled) return
-    if (!anchorEl) setAnchorEl(myRef.current)
+    if (!anchorEl) {
+      setAnchorEl(myRef.current)
+      setFocused(true)
+    }
   }
 
   const handleClose = () => {
@@ -263,7 +279,7 @@ const Select = ({
 
   const handleInputChange = event => {
     setSearchValue(event.target.value)
-    if (!anchorEl) handleFocus()
+    if (!anchorEl) openDropdown()
   }
 
   const handleClearItem = item => {
@@ -366,15 +382,20 @@ const Select = ({
   }
 
   return (
-    <ClickAwayListener onClickAway={() => setAnchorEl(null)}>
+    <ClickAwayListener
+      onClickAway={() => {
+        setAnchorEl(null)
+        if (anchorEl || errors || isFocused) handleBlur()
+      }}
+    >
       <StyledSelect disabled={disabled} isMultiple={isMultiple}>
         {label && <Label htmlFor={randomID}>{label}</Label>}
         <div
           className="StyledSelect__selectWrapper"
           ref={myRef}
           role="textbox"
-          onClick={handleFocus}
-          onKeyDown={handleFocus}
+          onClick={openDropdown}
+          onKeyDown={openDropdown}
           tabIndex={0}
         >
           {(displayValue || !hasFilter) && (
@@ -395,8 +416,8 @@ const Select = ({
                 className="StyledSelect__input"
                 value={searchValue}
                 onChange={handleInputChange}
-                onFocus={handleFocus}
-                onClick={handleFocus}
+                onFocus={openDropdown}
+                onClick={openDropdown}
                 id={randomID}
                 autoComplete="new-password"
                 placeholder={
@@ -436,6 +457,9 @@ const Select = ({
             </div>
           </div>
         </Popper>
+        {errors && !isFocused && (
+          <ErrorMessage className="error">{errors}</ErrorMessage>
+        )}
       </StyledSelect>
     </ClickAwayListener>
   )

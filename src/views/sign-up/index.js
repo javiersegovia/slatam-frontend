@@ -8,6 +8,11 @@ const StyledFullScreen = styled(FullScreen)`
   align-items: center;
   justify-content: center;
   background: ${({ theme }) => theme.gradients.primary.left};
+
+  ${({ theme }) => theme.breakpoints.down('sm')} {
+    display: block;
+    background: ${({ theme }) => theme.palette.palelilac.extralight};
+  }
 `
 
 const SignUp = props => {

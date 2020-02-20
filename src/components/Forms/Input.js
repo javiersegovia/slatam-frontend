@@ -1,8 +1,9 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import uuid from 'uuid/v4'
 import Label from './Label'
+import ErrorMessage from './ErrorMessage'
 
 export const StyledInput = styled.div`
   .inputWrapper {
@@ -52,6 +53,16 @@ export const StyledInput = styled.div`
   }
 `
 
+export const MemoInput = ({ memoDependencies = [], ...props }) => {
+  const renderInput = useMemo(() => <Input {...props} />, [...memoDependencies])
+
+  return renderInput
+}
+
+MemoInput.propTypes = {
+  memoDependencies: PropTypes.array.isRequired,
+}
+
 const Input = ({
   label,
   rounded = false,
@@ -62,18 +73,24 @@ const Input = ({
   handleUpdate,
   type,
   autoComplete,
+  errors = null,
+  handleFormErrors = null,
   ...inputProps
 }) => {
   const randomID = useMemo(() => uuid(), [])
   const addProps = autoComplete ? { ...inputProps } : {}
   const [isFocused, setFocused] = useState(false)
 
-  const handleChange = event => {
-    handleUpdate(event.target.value)
-  }
+  const handleChange = event => handleUpdate(event.target.value)
 
   const handleFocus = () => setFocused(true)
-  const handleBlur = () => setFocused(false)
+  const handleBlur = () => {
+    if (handleFormErrors) {
+      handleFormErrors()
+    }
+
+    setFocused(false)
+  }
 
   return (
     <StyledInput rounded={rounded} {...parentProps} isFocused={isFocused}>
@@ -97,6 +114,7 @@ const Input = ({
           <div className="inputIcon">{icon}</div>
         )}
       </div>
+      {errors && !isFocused && <ErrorMessage>{errors}</ErrorMessage>}
     </StyledInput>
   )
 }

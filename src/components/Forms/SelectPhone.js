@@ -10,6 +10,7 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import countries from '@data/countries.json'
 import styled from 'styled-components'
 import Label from './Label'
+import ErrorMessage from './ErrorMessage'
 
 const StyledSelectPhone = styled.div`
   position: relative;
@@ -23,6 +24,11 @@ const StyledSelectPhone = styled.div`
     align-items: stretch;
     height: 48px;
     background: #fff;
+
+    &:focus,
+    &:focus-within {
+      ${({ theme }) => theme.mixins.forms.focusedField()};
+    }
 
     ${props =>
       props.rounded &&
@@ -72,6 +78,10 @@ const StyledSelectPhone = styled.div`
     display: flex;
     align-items: center;
     padding-right: 16px;
+
+    button {
+      display: flex;
+    }
   }
 
   .StyledSelectPhone__currentItem {
@@ -187,6 +197,8 @@ const SelectPhone = ({
   label,
   handleUpdate,
   disabled = false,
+  errors = null,
+  handleFormErrors = null,
 }) => {
   const listOfCountryCodes = useMemo(
     () =>
@@ -214,13 +226,26 @@ const SelectPhone = ({
   )
 
   const [anchorEl, setAnchorEl] = useState(null)
+  const [isFocused, setFocused] = useState(false)
 
   const randomID = useMemo(() => uuid(), [])
   const myRef = useRef(null)
 
-  const handleFocus = () => {
+  const handleFocus = () => setFocused(true)
+  const handleBlur = () => {
+    if (handleFormErrors) {
+      handleFormErrors()
+    }
+
+    setFocused(false)
+  }
+
+  const handleOpenDropdown = () => {
     if (disabled) return
-    if (!anchorEl) setAnchorEl(myRef.current)
+    if (!anchorEl) {
+      setAnchorEl(myRef.current)
+      setFocused(true)
+    }
   }
 
   const handleInput = event => {
@@ -252,8 +277,8 @@ const SelectPhone = ({
             <button
               className="StyledSelectPhone__currentItem"
               type="button"
-              onClick={handleFocus}
-              onFocus={handleFocus}
+              onClick={handleOpenDropdown}
+              onFocus={handleOpenDropdown}
             >
               {countryCode ? <FlagIcon code={countryCode} /> : <LanguageIcon />}
             </button>
@@ -269,6 +294,8 @@ const SelectPhone = ({
             mask="(999) 999-9999"
             className="StyledSelectPhone__input"
             placeholder="e.g. (412) 456-7891"
+            onFocus={handleFocus}
+            onBlur={handleBlur}
           />
         </div>
         <Popper
@@ -293,6 +320,9 @@ const SelectPhone = ({
             </div>
           </div>
         </Popper>
+        {errors && !isFocused && (
+          <ErrorMessage className="error">{errors}</ErrorMessage>
+        )}
       </StyledSelectPhone>
     </ClickAwayListener>
   )
