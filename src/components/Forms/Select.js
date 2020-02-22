@@ -25,6 +25,38 @@ const StyledSelect = styled.div`
     cursor: pointer;
     outline: none;
 
+    .StyledSelect__selectArrow {
+      display: flex;
+      align-items: center;
+      width: 20px;
+      margin-left: auto;
+
+      &:after {
+        content: '';
+        border-style: solid;
+        border-width: 0 1.5px 1.5px 0;
+        border-color: ${({ theme }) => theme.palette.primary.main};
+        display: inline-block;
+        margin-bottom: 0;
+        padding: 2.5px;
+        transform: rotate(45deg);
+        transition: all 0.15s ease;
+
+        ${props =>
+          props.isFocused &&
+          `
+        transform: rotate(-135deg);
+        margin-bottom: -3px;
+        `}
+
+        ${props =>
+          props.disabled &&
+          `
+          border-color: ${props.theme.palette.black.light};
+        `}
+      }
+    }
+
     &:focus,
     &:focus-within {
       ${({ theme }) => theme.mixins.forms.focusedField()};
@@ -88,7 +120,7 @@ const StyledSelect = styled.div`
 
   .StyledSelect__input {
     padding: 8px 16px 8px 0;
-    width: 100%;
+    flex: 1;
     margin-left: 16px;
     z-index: 2;
     font-size: 1rem;
@@ -238,7 +270,6 @@ const Select = ({
 
   const myRef = useRef(null)
 
-  const handleFocus = () => setFocused(true)
   const handleBlur = () => {
     if (handleFormErrors) {
       handleFormErrors()
@@ -257,6 +288,7 @@ const Select = ({
 
   const handleClose = () => {
     setAnchorEl(null)
+    setFocused(false)
   }
 
   const handleChange = event => {
@@ -298,7 +330,6 @@ const Select = ({
       const currentValues = Array.isArray(value) ? value : [value]
       const newCurrent = currentValues.map(valueItem =>
         selectItems.find(item => {
-          // check if "item" is an object or a plain value
           if (item.value) return item.value === valueItem
           return item === valueItem
         })
@@ -388,7 +419,11 @@ const Select = ({
         if (anchorEl || errors || isFocused) handleBlur()
       }}
     >
-      <StyledSelect disabled={disabled} isMultiple={isMultiple}>
+      <StyledSelect
+        disabled={disabled}
+        isMultiple={isMultiple}
+        isFocused={isFocused}
+      >
         {label && <Label htmlFor={randomID}>{label}</Label>}
         <div
           className="StyledSelect__selectWrapper"
@@ -430,6 +465,7 @@ const Select = ({
               />
             </>
           )}
+          <div className="StyledSelect__selectArrow" />
         </div>
         <Popper
           anchorEl={anchorEl}

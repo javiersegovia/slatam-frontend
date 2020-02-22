@@ -91,6 +91,7 @@ const StyledSelectPhone = styled.div`
     display: flex;
     align-items: center;
     text-align: left;
+    color: ${({ theme }) => theme.palette.black.light};
 
     .country {
       margin-right: 10px;

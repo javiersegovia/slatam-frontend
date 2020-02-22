@@ -16,7 +16,7 @@ const stepsItems = [
 
 const SignUp = () => {
   const maxIndex = stepsItems.length - 1
-  const [activeIndex, setActiveIndex] = useState(2)
+  const [activeIndex, setActiveIndex] = useState(0)
   const [direction, setDirection] = useState('PREV')
 
   const handleNext = () => {

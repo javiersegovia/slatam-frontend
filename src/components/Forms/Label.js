@@ -4,9 +4,21 @@ import styled from 'styled-components'
 
 const StyledLabel = styled.label`
   color: ${({ theme }) => theme.palette.primary.main};
-  margin: 0 0 3px 8px;
+  padding: 0 8px 3px 8px;
   font-size: 0.875rem;
   display: inline-block;
+  width: 100%;
+
+  .forgotPassword {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      font-size: 0.8125rem;
+      font-weight: 500;
+    }
+  }
 `
 
 const Label = ({ htmlFor, children, ...props }) => {

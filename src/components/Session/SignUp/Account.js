@@ -126,7 +126,7 @@ const AccountInfo = ({ handleNext }) => {
             value={formValues.confirmPassword}
             handleUpdate={handleUpdate('confirmPassword')}
             type={showPassword ? 'text' : 'password'}
-            label="Confirm Password"
+            label="Confirm password"
             errors={formErrors.confirmPassword || null}
             handleFormErrors={() =>
               handleFormErrors(['password', 'confirmPassword'])
@@ -156,7 +156,7 @@ const AccountInfo = ({ handleNext }) => {
       <div className="StyledCard__redirectWrapper">
         <p className="StyledCard__redirect">
           Already have an account?{' '}
-          <Link href="/">
+          <Link href="/sign-in">
             <a>Sign in</a>
           </Link>
         </p>

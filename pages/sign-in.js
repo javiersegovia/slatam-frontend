@@ -1,13 +1,12 @@
 import React from 'react'
+import Head from 'next/head'
 import SignIn from '@views/sign-in'
-
-// import SignIn from '@components/Session/SignIn'
-// import SignUp from '@components/Session/SignUp'
-// import RequestReset from '@components/Session/RequestReset'
-// import ResetPassword from '@components/Session/ResetPassword'
 
 const SignInPage = () => (
   <>
+    <Head>
+      <title>Slatam | Sign-In</title>
+    </Head>
     <SignIn />
   </>
 )

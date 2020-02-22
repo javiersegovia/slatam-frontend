@@ -1,6 +1,6 @@
 import React from 'react'
 import FullScreen from '@components/UI/FullScreen'
-import SignUpCard from '@components/Session/SignUp'
+import RequestChangeCard from '@components/Session/RequestChange'
 import styled from 'styled-components'
 
 const StyledFullScreen = styled(FullScreen)`
@@ -15,14 +15,14 @@ const StyledFullScreen = styled(FullScreen)`
   }
 `
 
-const SignUp = () => {
+const RequestChange = () => {
   return (
     <>
       <StyledFullScreen>
-        <SignUpCard />
+        <RequestChangeCard />
       </StyledFullScreen>
     </>
   )
 }
 
-export default SignUp
+export default RequestChange

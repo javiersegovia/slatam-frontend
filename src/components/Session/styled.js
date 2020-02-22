@@ -47,7 +47,7 @@ export const StyledModal = styled.div`
     margin: 0;
     color: ${({ theme }) => theme.palette.primary.main};
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 500;
     padding: 20px 0;
 
@@ -81,10 +81,12 @@ export const StyledCard = styled.div`
   border-radius: ${CARD_BORDER_RADIUS};
   box-shadow: ${({ theme }) => theme.bShadows.cards};
   padding-bottom: 30px;
+  min-width: 350px;
 
   ${({ theme }) => theme.breakpoints.down('sm')} {
     border-radius: 0;
     box-shadow: none;
+    min-width: 0;
   }
 
   .StyledCard__innerPadding {
@@ -102,7 +104,7 @@ export const StyledCard = styled.div`
     color: ${({ theme }) => theme.palette.primary.main};
     background: ${({ theme }) => rgba(theme.palette.palelilac.light, 0.65)};
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 500;
     padding: 20px 0;
     border-top-left-radius: ${CARD_BORDER_RADIUS};
@@ -146,6 +148,11 @@ export const StyledCard = styled.div`
 
     .bold {
       font-weight: 500;
+    }
+
+    &.RequestChange {
+      max-width: 350px;
+      margin-top: 30px;
     }
   }
 
@@ -250,8 +257,8 @@ export const StyledCard = styled.div`
 
   .StyledCard__redirect {
     text-align: center;
-    margin: 20px 0 0;
-    font-size: 1rem;
+    margin: 0;
+    font-size: 0.875rem;
 
     a {
       color: ${({ theme }) => theme.palette.black.main};
