@@ -13,13 +13,21 @@ const StyledButton = styled.button`
   letter-spacing: 0.8px;
   border-radius: 6px;
   font-weight: 500;
-  display: inline-block;
+  display: inline-flex;
 
   ${props =>
     props.secondary &&
     `
     background: white;
     color: ${props.theme.palette.primary.light};
+  `}
+
+  ${props =>
+    props.outlined &&
+    `
+    background: white;
+    color: ${props.theme.palette.primary.light};
+    border: 2px solid ${props.theme.palette.primary.light};
   `}
 
   ${props =>
