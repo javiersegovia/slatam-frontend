@@ -221,7 +221,11 @@ const ProductSupplier = ({ supplier }) => {
             <div className="label">Ready to ship to:</div>
             <div className="description">
               {shipsTo.map(ctry => (
-                <FlagIcon code={ctry} className="ProductSupplier__country" />
+                <FlagIcon
+                  code={ctry}
+                  className="ProductSupplier__country"
+                  title={ctry}
+                />
               ))}
             </div>
           </div>
