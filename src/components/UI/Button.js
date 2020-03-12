@@ -14,6 +14,7 @@ const StyledButton = styled.button`
   border-radius: 6px;
   font-weight: 500;
   display: inline-flex;
+  justify-content: center;
 
   ${props =>
     props.secondary &&

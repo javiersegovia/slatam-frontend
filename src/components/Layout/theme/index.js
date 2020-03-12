@@ -74,6 +74,9 @@ export default createMuiTheme({
       light: '#e6f0f7',
       extralight: '#fafcfd',
     },
+    green: {
+      main: '#02b954',
+    },
     gold: {
       main: '#FFAB00',
     },

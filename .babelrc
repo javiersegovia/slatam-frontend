@@ -15,7 +15,7 @@
         "root": ["./"],
         "alias": {
           "@data": "./data",
-          "@config": "./config",
+          "@constants": "./constants",
           "@components": "./src/components",
           "@graphql": "./graphql",
           "@lib": "./src/lib",

@@ -19,6 +19,7 @@ const StyledProduct = styled.div`
   .Product__image {
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
     width: 100%;
     height: 200px;
     border-radius: 4px;
@@ -48,14 +49,6 @@ const StyledProduct = styled.div`
       margin-left: 5px;
     }
   }
-
-  /* ${props =>
-    props.isActive &&
-    `
-  .Product__content {
-    display: block;
-  }
-  `} */
 `
 
 const Product = ({ product, ...otherProps }) => {
@@ -74,7 +67,7 @@ const Product = ({ product, ...otherProps }) => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <a href={`/products/${product.id}`}>
+      <a href={`/p/${product.slug}`}>
         <div
           className="Product__image"
           style={{ backgroundImage: `url(${product.image})` }}

@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import formatMoney from '@lib/formatMoney'
+import betweenRange from '@lib/betweenRange'
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
 import FavoriteBorderIcon from '@material-ui/icons/Favorite'
+import WhatsAppIcon from '@material-ui/icons/WhatsApp'
+import Rating from '@material-ui/lab/Rating'
 import Button from '@components/UI/Button'
+import ProductPrice from '@components/Products/ProductPrice'
 import UnitsCounter from './UnitsCounter'
 
 const StyledProductDescription = styled.div`
@@ -18,7 +22,6 @@ const StyledProductDescription = styled.div`
   }
 
   .ProductDescription__tags {
-    margin-bottom: 20px;
     display: inline-grid;
     grid-auto-flow: column;
     grid-gap: 15px;
@@ -29,6 +32,23 @@ const StyledProductDescription = styled.div`
       border-radius: 6px;
       padding: 2px 8px;
     }
+  }
+
+  .ProductDescription__rating {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 0.875rem;
+
+    .description {
+      border-left: 1px double ${({ theme }) => theme.palette.black.light};
+      padding-left: 8px;
+      margin: 0 0 0 5px;
+    }
+  }
+
+  .ProductDescription__content {
+    margin-top: 20px;
   }
 
   .ProductDescription__row {
@@ -84,6 +104,11 @@ const StyledProductDescription = styled.div`
       margin-left: 7px;
       font-weight: 500;
     }
+
+    .perUnit {
+      margin-left: 7px;
+      font-size: 0.875rem;
+    }
   }
 
   .ProductDescription__actions {
@@ -91,6 +116,25 @@ const StyledProductDescription = styled.div`
     grid-auto-flow: column;
     grid-gap: 10px;
     margin-top: 30px;
+
+    .buyButton {
+      min-width: 170px;
+    }
+  }
+
+  .ProductDescription__whatsApp {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+
+    .WhatsAppIcon {
+      color: #25d366;
+    }
+
+    p {
+      display: inline-block;
+      margin: 0 0 0 5px;
+    }
   }
 `
 
@@ -98,13 +142,28 @@ const ProductDescription = ({ product }) => {
   const {
     title,
     rating,
-    prices,
+    priceRanges,
     descriptionDetails,
     logisticDetails,
-    quickDetails,
   } = product
 
-  const [unitsCount, setUnitsCount] = useState(logisticDetails.minOrder)
+  const defaultValuePerUnit = priceRanges[0].value
+
+  const [unitCount, setUnitCount] = useState(logisticDetails.minOrder)
+  const [unitPrice, setUnitPrice] = useState(defaultValuePerUnit)
+
+  useEffect(() => {
+    let valuePerUnit = defaultValuePerUnit
+
+    if (priceRanges.length > 1) {
+      const price = priceRanges.find(item =>
+        betweenRange(unitCount, item.range)
+      )
+      valuePerUnit = price ? price.value : defaultValuePerUnit
+    }
+
+    setUnitPrice(valuePerUnit)
+  }, [unitCount])
 
   return (
     <StyledProductDescription>
@@ -114,26 +173,21 @@ const ProductDescription = ({ product }) => {
         <span>In Stock</span>
         <span>Fast Dispatch</span>
       </div>
+      {rating && rating.average && (
+        <div className="ProductDescription__rating">
+          <Rating value={rating.average} precision={0.5} readOnly />
+          {rating.reviewsCount && (
+            <p className="description">{rating.reviewsCount} reviews</p>
+          )}
+        </div>
+      )}
       <div className="ProductDescription__content">
-        {prices.length > 1 ? (
-          <div className="ProductDescription__row price multiple">
-            <div className="title">FOB USD Price Range:</div>
-            <div className="value withIcon">
-              <span>
-                <strong>{formatMoney(prices.slice(-1)[0].value)}</strong> —{' '}
-                <strong>{formatMoney(prices[0].value)}</strong> per unit{' '}
-              </span>
-              <HelpOutlineIcon className="helpIcon prices" />
-            </div>
+        <div className="ProductDescription__row price multiple">
+          <div className="title">
+            FOB USD Price{priceRanges.length > 1 ? ' Range:' : ':'}
           </div>
-        ) : (
-          <div className="ProductDescription__row price">
-            <div className="title">FOB USD Price:</div>
-            <div className="value">
-              <strong>{prices[0].value}</strong> per unit
-            </div>
-          </div>
-        )}
+          <ProductPrice className="value" priceRanges={priceRanges} showIcon />
+        </div>
         {logisticDetails.minOrder && (
           <div className="ProductDescription__row">
             <div className="title">Min. Order:</div>
@@ -192,17 +246,22 @@ const ProductDescription = ({ product }) => {
         )}
       </div>
       <UnitsCounter
-        count={unitsCount}
-        setCount={setUnitsCount}
+        count={unitCount}
+        setCount={setUnitCount}
         minCount={logisticDetails.minOrder}
         maxCount={logisticDetails.maxOrder || null}
       />
       <div className="ProductDescription__totalPrice">
         <div className="title">Total:</div>
-        <div className="value">{formatMoney(prices[0].value)}</div>
+        <div className="value">{formatMoney(unitCount * unitPrice)}</div>
+        {priceRanges.length > 1 && unitCount > 1 && (
+          <div className="perUnit">{`(${formatMoney(unitPrice)} each)`}</div>
+        )}
       </div>
       <div className="ProductDescription__actions">
-        <Button size="lg">Buy now</Button>
+        <Button size="lg" className="buyButton">
+          Buy now
+        </Button>
         <Button size="lg" outlined>
           Add to cart
         </Button>
@@ -213,10 +272,52 @@ const ProductDescription = ({ product }) => {
           <FavoriteBorderIcon />
         </Button>
       </div>
+
+      {process.env.CONTACT_PHONE && (
+        <div className="ProductDescription__whatsApp">
+          <WhatsAppIcon className="WhatsAppIcon" />
+          <p>
+            Chat with us in real time via Whatsapp Business at{' '}
+            {process.env.CONTACT_PHONE}
+          </p>
+        </div>
+      )}
     </StyledProductDescription>
   )
 }
 
-ProductDescription.propTypes = {}
+ProductDescription.propTypes = {
+  product: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    rating: PropTypes.shape({
+      average: PropTypes.number.isRequired,
+      reviewsCount: PropTypes.number.isRequired,
+    }),
+    priceRanges: PropTypes.arrayOf(
+      PropTypes.shape({
+        range: PropTypes.arrayOf(PropTypes.number).isRequired,
+        value: PropTypes.number.isRequired,
+      })
+    ).isRequired,
+    descriptionDetails: PropTypes.arrayOf(PropTypes.string),
+    logisticDetails: PropTypes.shape({
+      minOrder: PropTypes.number.isRequired,
+      maxOrder: PropTypes.number,
+      supplyUnits: PropTypes.number,
+      supplyInterval: PropTypes.string,
+      leadTimes: PropTypes.arrayOf(
+        PropTypes.shape({
+          range: PropTypes.arrayOf(PropTypes.number),
+          value: PropTypes.number,
+        })
+      ).isRequired,
+      shippingType: PropTypes.string,
+      shippingFrom: PropTypes.shape({
+        state: PropTypes.string,
+        country: PropTypes.string.isRequired,
+      }).isRequired,
+    }),
+  }).isRequired,
+}
 
 export default ProductDescription

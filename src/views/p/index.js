@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import ProductsRow from '@components/Products/ProductsRow'
+import faker from 'faker'
 import ProductGallery from './ProductGallery'
 import ProductDescription from './ProductDescription'
+import ProductSupplier from './ProductSupplier'
+import ProductDetails from './ProductDetails'
 
-const Flex = styled.div`
-  display: flex;
-  align-items: stretch;
-
+const StyledSingleProduct = styled.div`
   .SingleProduct__galleryWrapper {
     width: 50%;
     background: #f5f5f3;
@@ -17,6 +18,42 @@ const Flex = styled.div`
     background: white;
   }
 
+  .SingleProduct__content {
+    padding: 60px 0 0;
+
+    ${props => props.theme.breakpoints.down('md')} {
+      padding: 30px 0 0;
+    }
+
+    ${props => props.theme.breakpoints.down('xs')} {
+      padding: 15px 0 0;
+    }
+  }
+
+  .SingleProduct__relatedProducts,
+  .SingleProduct__details {
+    padding: 0 60px;
+
+    ${props => props.theme.breakpoints.down('md')} {
+      padding: 0 30px;
+    }
+
+    ${props => props.theme.breakpoints.down('xs')} {
+      padding: 0 10px;
+    }
+  }
+
+  .SingleProduct__details {
+    background: ${({ theme }) => theme.palette.snow.light};
+    border-top: 1px solid ${({ theme }) => theme.palette.palelilac.main};
+    margin-top: 60px;
+  }
+`
+
+const Flex = styled.div`
+  display: flex;
+  align-items: stretch;
+
   ${({ theme }) => theme.breakpoints.down('sm')} {
     display: block;
     background: ${({ theme }) => theme.palette.palelilac.extralight};
@@ -24,9 +61,9 @@ const Flex = styled.div`
 `
 
 const product = {
-  title: 'Farm Fresh Adobo 31/20 - 50kg',
+  title: faker.commerce.productName(),
   rating: {
-    avg: 4.5,
+    average: 4.5,
     reviewsCount: 106,
   },
   images: [
@@ -49,21 +86,25 @@ const product = {
       thumbnail: '',
     },
   ],
-  prices: [
+  priceRanges: [
     {
-      range: '1-9',
+      range: [1, 9],
+      description: '1-9',
       value: 25600,
     },
     {
-      range: '30-99',
+      range: [30, 99],
+      description: '30-99',
       value: 24000,
     },
     {
-      range: '100-199',
+      range: [100, 199],
+      description: '100-199',
       value: 23000,
     },
     {
-      range: '>=201',
+      range: [200],
+      description: '>=200',
       value: 22000,
     },
   ],
@@ -77,22 +118,22 @@ const product = {
     'Piping along the edge creates a neatly tailored apperance',
   ],
   logisticDetails: {
-    minOrder: 100,
+    minOrder: 10,
     maxOrder: null,
     supplyUnits: 5000,
     supplyInterval: 'week',
     leadTimes: [
       {
-        range: '1-100',
+        range: [1, 100],
         value: 7,
       },
       {
-        range: '101-500',
+        range: [101, 500],
         value: 25,
       },
       {
-        range: '>500',
-        value: 'To be negotiated',
+        range: [500],
+        value: null,
       },
     ],
     shippingType: "At the buyer's discretion",
@@ -100,8 +141,9 @@ const product = {
       state: 'VE__4',
       country: 'VE',
     },
-    itemDimensiones: '26 x 20 x 2 inches',
+    itemDimension: '26 x 20 x 2 inches',
     itemWeight: '4.09 pounds',
+    shippingDimension: '191 x 13.6 x 11.8 cm',
     shippingWeight: '5.1 pounds',
   },
   quickDetails: [
@@ -182,6 +224,7 @@ const product = {
 
 const supplier = {
   name: 'Alimentos Polar LLC',
+  country: 'VE',
   languages: ['1', '2'],
   images: {
     thumbnail: '',
@@ -189,7 +232,7 @@ const supplier = {
   shipsTo: [
     'VE',
     'US',
-    'UK',
+    'GB',
     'AR',
     'CO',
     'ES',
@@ -197,35 +240,85 @@ const supplier = {
     'GE',
     'FR',
     'IN',
-    'PO',
+    'PR',
     'PA',
   ],
   membership: {
     type: 'Gold',
-    startedAt: 1488356951,
-    updatedAt: 1551428951,
-    expiresAt: 1614587351,
+    startedAt: 1488356951000,
+    updatedAt: 1551428951000,
+    expiresAt: 1659846590000,
   },
   acceptedPayment: ['1', '2', '3'],
   rating: {
-    avg: 4.7,
-    tradesCount: 267,
+    average: 3.7,
+    tradeCount: 267,
     tradeVolume: 34000000,
   },
 }
 
+const relatedProducts = Array(6)
+  .fill(null)
+  .map(() => ({
+    id: faker.random.uuid(),
+    title: faker.commerce.productName(),
+    slug: faker.lorem.slug(),
+    images: [
+      {
+        thumbnail: '/images/examples/example_product_1.jpg',
+      },
+    ],
+    priceRanges: [
+      {
+        range: [1, 9],
+        description: '1-9',
+        value: Math.floor(Math.random() * 500000) + 1000,
+      },
+      {
+        range: [30, 99],
+        description: '30-99',
+        value: Math.floor(Math.random() * 500000) + 1000,
+      },
+      {
+        range: [100, 199],
+        description: '100-199',
+        value: Math.floor(Math.random() * 500000) + 1000,
+      },
+      {
+        range: [200],
+        description: '>=200',
+        value: Math.floor(Math.random() * 500000) + 1000,
+      },
+    ],
+    logisticDetails: {
+      shippingFrom: {
+        state: 'VE__4',
+        country: faker.address.countryCode(),
+      },
+    },
+  }))
+
 const SingleProduct = ({ slug }) => {
   return (
-    <>
+    <StyledSingleProduct>
       <Flex>
         <div className="SingleProduct__galleryWrapper">
           <ProductGallery images={product.images} />
         </div>
         <div className="SingleProduct__descriptionWrapper">
-          <ProductDescription product={product} supplier={supplier} />
+          <ProductDescription product={product} />
+          <ProductSupplier supplier={supplier} />
         </div>
       </Flex>
-    </>
+      <div className="SingleProduct__content">
+        <div className="SingleProduct__relatedProducts">
+          <ProductsRow products={relatedProducts} />
+        </div>
+        <div className="SingleProduct__details">
+          <ProductDetails product={product} />
+        </div>
+      </div>
+    </StyledSingleProduct>
   )
 }
 

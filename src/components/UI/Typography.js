@@ -44,9 +44,13 @@ export const MD = ({ children }) => (
 export const Title = ({ children, ...props }) => {
   return (
     <StyledTitle {...props}>
-      <ReactMarkdown disallowedTypes={['paragraph']} unwrapDisallowed>
-        {children}
-      </ReactMarkdown>
+      {typeof children === 'string' ? (
+        <ReactMarkdown disallowedTypes={['paragraph']} unwrapDisallowed>
+          {children}
+        </ReactMarkdown>
+      ) : (
+        children
+      )}
     </StyledTitle>
   )
 }

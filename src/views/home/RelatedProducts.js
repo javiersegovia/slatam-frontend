@@ -14,6 +14,7 @@ const generatedProducts = Array(12)
   .fill(null)
   .map(() => ({
     id: faker.random.uuid(),
+    slug: faker.lorem.slug(),
     title: faker.commerce.productName(),
     minPrice: faker.commerce.price(),
     maxPrice: faker.commerce.price(),

@@ -1,11 +1,11 @@
 import React, { createContext } from 'react'
-import AppConfig from '@config'
+import AppConstants from '@constants'
 
 export const AppConfigContext = createContext()
 
 const AppConfigProvider = ({ children }) => {
   return (
-    <AppConfigContext.Provider value={AppConfig}>
+    <AppConfigContext.Provider value={AppConstants}>
       {children}
     </AppConfigContext.Provider>
   )
