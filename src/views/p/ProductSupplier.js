@@ -142,6 +142,10 @@ const CountryBlock = ({ countryCode }) => (
   </StyledCountryBlock>
 )
 
+CountryBlock.propTypes = {
+  countryCode: PropTypes.string.isRequired,
+}
+
 const ProductSupplier = ({ supplier }) => {
   const {
     name,
@@ -205,14 +209,20 @@ const ProductSupplier = ({ supplier }) => {
         {languages && languages.length > 0 && (
           <div className="ProductSupplier__singleDetail">
             <div className="label">Language:</div>
-            <div className="description">{languages.map(lang => lang)}</div>
+            <div className="description">
+              {languages.map(lang => (
+                <span key={lang}>{lang}</span>
+              ))}
+            </div>
           </div>
         )}
         {acceptedPayment && acceptedPayment.length > 0 && (
           <div className="ProductSupplier__singleDetail">
             <div className="label">Payment:</div>
             <div className="description">
-              {acceptedPayment.map(payment => payment)}
+              {acceptedPayment.map(payment => (
+                <span key={payment}>{payment}</span>
+              ))}
             </div>
           </div>
         )}
@@ -222,6 +232,7 @@ const ProductSupplier = ({ supplier }) => {
             <div className="description">
               {shipsTo.map(ctry => (
                 <FlagIcon
+                  key={ctry}
                   code={ctry}
                   className="ProductSupplier__country"
                   title={ctry}
@@ -235,6 +246,17 @@ const ProductSupplier = ({ supplier }) => {
   )
 }
 
-ProductSupplier.propTypes = {}
+ProductSupplier.propTypes = {
+  supplier: {
+    name: PropTypes.string.isRequired,
+    country: PropTypes.string.isRequired,
+    languages: PropTypes.array,
+    images: PropTypes.array,
+    shipsTo: PropTypes.array,
+    membership: PropTypes.object,
+    acceptedPayment: PropTypes.object,
+    rating: PropTypes.object,
+  },
+}
 
 export default ProductSupplier

@@ -9,10 +9,6 @@ const StyledProductDetails = styled.div`
   color: ${({ theme }) => theme.palette.black.light};
   text-align: center;
 
-  .title {
-    /* margin-bottom: 30px; */
-  }
-
   .ProductDetails__subtitle {
     font-size: 1.25rem;
     font-weight: 600;
@@ -97,7 +93,10 @@ const ProductDetails = ({ product }) => {
             <div className="ProductDetails__subtitle">Quick details</div>
             <div className="ProductDetails__detailsGrid">
               {quickDetails.map(detail => (
-                <div className="ProductDetails__singleDetail">
+                <div
+                  key={detail.title}
+                  className="ProductDetails__singleDetail"
+                >
                   <div className="detail__title">{detail.title}:</div>
                   <div className="detail__content">{detail.content}</div>
                 </div>
@@ -165,6 +164,29 @@ const ProductDetails = ({ product }) => {
   )
 }
 
-ProductDetails.propTypes = {}
+ProductDetails.propTypes = {
+  product: PropTypes.shape({
+    quickDetails: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired,
+      })
+    ),
+    logisticDetails: PropTypes.shape({
+      shippingType: PropTypes.string,
+      shippingFrom: PropTypes.string,
+      itemDimension: PropTypes.string,
+      itemWeight: PropTypes.string,
+      shippingDimension: PropTypes.string,
+      shippingWeight: PropTypes.string,
+      leadTimes: PropTypes.arrayOf(
+        PropTypes.shape({
+          range: PropTypes.array,
+          value: PropTypes.number,
+        })
+      ),
+    }),
+  }),
+}
 
 export default ProductDetails

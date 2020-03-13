@@ -106,4 +106,7 @@ export default createMuiTheme({
       `,
     },
   },
+  zIndex: {
+    transparentOverlay: 1000,
+  },
 })

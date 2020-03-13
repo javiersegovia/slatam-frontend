@@ -240,7 +240,9 @@ const ProductDescription = ({ product }) => {
         {descriptionDetails.length > 0 && (
           <ul className="ProductDescription__list">
             {descriptionDetails.map(detail => (
-              <li className="ProductDescription__listItem">{detail}</li>
+              <li key={detail} className="ProductDescription__listItem">
+                {detail}
+              </li>
             ))}
           </ul>
         )}

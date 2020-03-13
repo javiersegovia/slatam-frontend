@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ProductsRow from '@components/Products/ProductsRow'
 import faker from 'faker'
@@ -10,7 +11,8 @@ import ProductDetails from './ProductDetails'
 const StyledSingleProduct = styled.div`
   .SingleProduct__galleryWrapper {
     width: 50%;
-    background: #f5f5f3;
+    background: white;
+    border-right: 2px solid ${({ theme }) => theme.palette.snow.light};
   }
 
   .SingleProduct__descriptionWrapper {
@@ -68,22 +70,95 @@ const product = {
   },
   images: [
     {
-      main: '',
-      medium: '',
+      main: {
+        id: '5e2a13f0689b283544Gae71d1a5',
+        url: '/images/examples/example_product_2_main.jpg',
+        width: 569,
+        height: 948,
+      },
+      large: {
+        id: '5dfbed262849d79613F77c2c0',
+        url: '/images/examples/example_product_2_large.jpg',
+        width: 900,
+        height: 1500,
+      },
+      thumbnail: {
+        id: '5e2a13ff689b2835aGe71d1a7',
+        url: '/images/examples/example_product_2_thumbnail.jpg',
+        width: 50,
+        height: 84,
+      },
       small: '',
-      thumbnail: '',
     },
     {
-      main: '',
-      medium: '',
+      main: {
+        id: '5e2a13f0689b2835aeV71d1a5',
+        url: '/images/examples/example_product_2-1_main.jpg',
+        width: 501,
+        height: 879,
+      },
+      large: {
+        id: '5dfbed2628F49d7961377c2c0',
+        url: '/images/examples/example_product_2-1_large.jpg',
+        width: 855,
+        height: 1500,
+      },
+      thumbnail: {
+        id: '5e2a13ff689bV2835ae71d1a7',
+        url: '/images/examples/example_product_2-1_thumbnail.jpg',
+        width: 50,
+        height: 84,
+      },
       small: '',
-      thumbnail: '',
     },
     {
-      main: '',
+      main: {
+        id: '5e2a13f068DDfvny9b2835aeV71Bdd1a5',
+        url: '/images/examples/example_product_3_main.jpg',
+        width: 383,
+        height: 879,
+      },
+      large: {
+        id: '5dfbed2DE628F49d796137fbf7c2c0',
+        url: '/images/examples/example_product_3_large.jpg',
+        width: 653,
+        height: 1500,
+      },
+      thumbnail: {
+        id: '5e2a13ff689xvfbV2835ae71dgde1a7',
+        url: '/images/examples/example_product_3_thumbnail.jpg',
+        width: 50,
+        height: 115,
+      },
+      small: '',
+    },
+    {
+      main: {
+        id: '5e2a13f068DD9b2835aeV71Bdd1a5',
+        url: '/images/examples/example_product_3-1_main.jpg',
+        width: 414,
+        height: 879,
+      },
+      large: {
+        id: '5dfbed2DE628F49d7961377c2c0',
+        url: '/images/examples/example_product_3-1_large.jpg',
+        width: 706,
+        height: 1500,
+      },
+      thumbnail: {
+        id: '5e2a13ff689bV2835ae71dgde1a7',
+        url: '/images/examples/example_product_3-1_thumbnail.jpg',
+        width: 50,
+        height: 106,
+      },
+      small: '',
+    },
+    {
+      main: '/images/examples/example_product_3-1_main.jpg',
+      large: '/images/examples/example_product_3-1_large.jpg',
       medium: '',
       small: '',
-      thumbnail: '',
+      thumbnail: '/images/examples/example_product_3-1_thumbnail.jpg',
     },
   ],
   priceRanges: [
@@ -320,6 +395,10 @@ const SingleProduct = ({ slug }) => {
       </div>
     </StyledSingleProduct>
   )
+}
+
+SingleProduct.propTypes = {
+  slug: PropTypes.string,
 }
 
 export default SingleProduct

@@ -10,6 +10,7 @@ const StyledTransparentOverlay = styled.div`
   right: 0;
   bottom: 0;
   background: #041231ad;
+  z-index: ${({ theme }) => theme.zIndex.transparentOverlay};
 `
 const TransparentOverlay = props => {
   useLockBodyScroll()
