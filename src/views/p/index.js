@@ -153,13 +153,6 @@ const product = {
       },
       small: '',
     },
-    {
-      main: '/images/examples/example_product_3-1_main.jpg',
-      large: '/images/examples/example_product_3-1_large.jpg',
-      medium: '',
-      small: '',
-      thumbnail: '/images/examples/example_product_3-1_thumbnail.jpg',
-    },
   ],
   priceRanges: [
     {
